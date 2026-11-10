@@ -37,12 +37,25 @@
 .meaning-slot{height:140px;flex-shrink:0;width:100%;display:flex;flex-direction:column;justify-content:center}
 .meaning-slot .meaning-placeholder{margin:0;min-height:0}
 @page{size:A4;margin:14mm}
+.word-tabs{flex-wrap:wrap;max-height:180px;overflow-y:auto;padding:4px;gap:6px}.word-tabs button{font-size:13px;padding:8px 12px;min-height:40px;border-radius:7px}.word-tabs button:focus-visible{outline-offset:0}.source-note{font-size:12px;line-height:1.9;color:var(--muted);margin-top:16px;overflow-wrap:anywhere}.large-term[data-length=medium]{font-size:52px}.large-term[data-length=long]{font-size:36px}.large-term ruby{white-space:normal;overflow-wrap:anywhere}.large-term rt{white-space:normal}.meaning-slot{height:auto;min-height:140px}.meaning-face h2{overflow-wrap:anywhere}.phrase-chunk{white-space:normal!important;overflow-wrap:anywhere}.phrase-japanese ruby{white-space:normal}.cue-situation{font-size:20px!important;font-weight:700;color:var(--ink)!important;margin:20px 0!important}.phrase-navigation{justify-content:space-between;margin-top:20px}.level-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0}.level-guide article{padding:18px;border:1px solid var(--line);border-radius:8px;background:white}.level-guide b{font-size:14px}.level-guide p{font-size:12px;margin:8px 0 0;color:var(--muted)}.report-word,.report-print-word{overflow-wrap:anywhere;white-space:normal}.report-table{table-layout:fixed;width:100%}.report-table th{width:30%}.report-table ruby{white-space:normal}.quiz-option{overflow-wrap:anywhere;min-width:0;font-size:23px}.quiz-option ruby{white-space:normal}.document-cue{overflow-wrap:anywhere}.content,.page,.meaning-face,.word-face{min-width:0}.print-vocabulary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4mm}.print-vocabulary article{border:1px solid #b9c6d8;padding:3mm;break-inside:avoid}.print-vocabulary article>div{font:19pt/1.9 var(--jp);overflow-wrap:anywhere}.print-vocabulary rt{font-size:8pt}.print-vocabulary h2{font-size:11pt;margin:2mm 0}.print-vocabulary p{font-size:7.5pt;margin:1mm 0}.print-vocabulary+.paper-review{margin-top:4mm}
+@media(max-width:800px){.level-guide{grid-template-columns:repeat(2,minmax(0,1fr))}.word-tabs{max-height:156px}.document-cue{display:block}.document-cue p{margin-top:14px}}
+@media(max-width:520px){.large-term[data-length=medium]{font-size:43px}.large-term[data-length=long]{font-size:30px}.large-term rt{font-size:14px}.word-tabs button{font-size:12px;max-width:100%;overflow-wrap:anywhere}.word-tabs{max-height:150px}.report-word{font-size:17px!important;max-width:100%}.report-table th{width:25%;font-size:12px}.report-table td{padding:10px 5px}.level-guide article{padding:12px}.phrase-japanese{font-size:25px;line-height:2.5}.quiz-option{font-size:23px}}
 
 @media print{body{background:white;color:#172436;font-size:10pt;line-height:1.65;word-break:keep-all}.app-shell,.skip-link,.noscript-note{display:none!important}.print-only{display:none!important}body[data-print=learner] #print-learner,body[data-print=teacher] #print-teacher{display:block!important}.paper{min-height:0;break-after:page;page-break-after:always}.paper:last-child{break-after:auto;page-break-after:auto}.paper-header{display:flex;justify-content:space-between;gap:10mm;border-bottom:1px solid #192e4c;padding-bottom:4mm;margin-bottom:7mm;font-size:9pt}.paper-header span{font-size:8pt}.paper h1{font-size:23pt;margin-bottom:4mm}.paper h2{font-size:13pt;margin:7mm 0 3mm}.paper p{font-size:9pt;margin:0 0 4mm}.paper footer{border-top:1px solid #a7b4c6;margin-top:6mm;padding-top:3mm;font-size:8pt;color:#33465f}.print-words article{display:grid;grid-template-columns:45mm 1fr;gap:8mm;border-bottom:1px solid #b9c6d8;padding:6mm 0;align-items:center;break-inside:avoid}.print-words article>div{font:31pt/1.9 var(--jp);color:#172436;text-align:center}.print-words rt{font-size:10pt}.print-words h2{margin:0 0 2mm;font-size:15pt}.print-words p{font-size:9pt;margin:0 0 2mm}.print-words .paper-check{font-size:8pt}.paper-review{width:100%;border-collapse:collapse;font-size:9pt}.paper-review th,.paper-review td{border:1px solid #b9c6d8;padding:3mm;text-align:left}.paper-review th:first-child{width:30mm}.print-phrase{break-inside:avoid;margin:6mm 0;padding-bottom:5mm;border-bottom:1px solid #b9c6d8}.print-sentence{font:22pt/2.2 var(--jp);color:#172436}.print-sentence rt{font-size:9pt}.print-phrase h2{margin:2mm 0 3mm;font-size:14pt}.print-report{max-width:125mm;margin:5mm auto}.print-report .report-top{font:16pt/1.8 var(--jp);padding-bottom:3mm}.print-report .report-note{font:8pt var(--sans);color:#33465f}.print-report rt{font-size:8pt}.print-report .report-heading{font:20pt/1.8 var(--jp);margin:4mm 0}.print-report .report-table th,.print-report .report-table td{font-size:10pt;padding:3mm 4mm}.print-report .report-table thead th{background:none}.print-report .report-table thead th:nth-child(2){font:16pt/1.8 var(--jp)}.teacher-paper h1{font-size:21pt}.teacher-paper h2{font-size:12pt;margin-top:5mm}.teacher-paper p,.teacher-paper li{font-size:9pt}.teacher-paper ol{padding-left:6mm;margin:3mm 0}.teacher-paper li{padding-left:1mm;margin-bottom:2mm}.teacher-paper footer{font-size:8pt}}
 
 @media print{.print-expanded .print-words article{padding:3mm 0}.print-expanded .print-words article>div{font-size:27pt;line-height:1.5}.print-expanded .paper-review th,.print-expanded .paper-review td{padding:2mm 3mm}.print-expanded .print-phrase{margin:3mm 0;padding-bottom:3mm}.print-expanded .print-phrase p{margin-bottom:2mm}.print-expanded .print-phrase h2{margin:1mm 0 2mm}.print-expanded .print-sentence{font-size:20pt;line-height:2}.print-expanded .print-report{margin:3mm auto}.print-expanded .print-report .report-table th,.print-expanded .print-report .report-table td{padding:2mm 4mm}.print-expanded .paper h2{margin-top:4mm}.print-expanded .paper footer{margin-top:4mm}.print-report{break-inside:avoid}}
 
 @media print{body[data-print=schedule] #print-schedule{display:block!important}.course-schedule{min-width:0}.schedule-paper .course-schedule th,.schedule-paper .course-schedule td{padding:3mm;font-size:8.5pt;line-height:1.7}.schedule-paper .course-schedule thead th{background:none;color:#172436;border-top:1px solid #192e4c}.schedule-paper .course-schedule tbody th,.schedule-paper .course-schedule tbody td{background:none}.schedule-paper .course-schedule small,.schedule-paper .course-schedule span{font-size:8pt;margin-top:2mm}.schedule-paper h2{margin-top:6mm}.print-report .report-print-word{font:17pt/1.9 var(--jp)}.print-report .report-print-word rt{font-size:8pt}.print-report .report-korean{font-size:12pt;margin:4mm 0}.print-report .report-caption{font-size:8pt}.print-report{break-inside:avoid}}
+@media print{
+  .paper .print-vocabulary{gap:3mm}
+  .paper .print-vocabulary article{padding:2.5mm}
+  .paper .print-vocabulary article>div{font-size:17pt;line-height:1.6}
+  .paper .print-vocabulary h2{font-size:11pt;margin:1.5mm 0}
+  .paper .print-vocabulary p{font-size:7pt;line-height:1.5;margin:1mm 0}
+  .paper .paper-review{break-inside:avoid}
+  .paper .paper-review th,.paper .paper-review td{padding:2.2mm 3mm;font-size:8pt}
+  .paper .paper-review th:first-child{width:45mm}
+}
 
 </style>
 </head>
@@ -64,49 +77,49 @@
       <button type="button" data-nav="find" aria-current="false"><span class="nav-step">3</span>자료에서 찾기</button>
       <button type="button" data-nav="review" aria-current="false"><span class="nav-step">4</span>복습하기</button>
     </nav>
-    <div class="sidebar-bottom"><p class="course-size">매주 단어 3개 + 표현 1개<br>8주차는 새 내용 없이 복습</p><button class="teacher-nav" type="button" data-nav="schedule" aria-current="false">8주 수업 일정</button><button class="teacher-nav" type="button" data-nav="teacher" aria-current="false">이번 주 교사용 안내</button><p class="save-note" id="storage-status"></p></div></aside>
+    <div class="sidebar-bottom"><p class="course-size">총 152단어 · 43표현<br>기초 → 실무 → 응용 → 심화</p><button class="teacher-nav" type="button" data-nav="schedule" aria-current="false">8주 수업 일정</button><button class="teacher-nav" type="button" data-nav="teacher" aria-current="false">이번 주 교사용 안내</button><p class="save-note" id="storage-status"></p></div></aside>
   <main id="main-content" class="content">
     <section class="page" id="page-words" aria-labelledby="words-heading">
-      <div class="page-heading"><div><h1 id="words-heading" tabindex="-1">오늘은 세 단어부터.</h1><p id="words-description">이번 주 단어의 소리와 뜻을 연결해요.</p></div><span class="page-count" id="word-counter">1 / 3</span></div>
+      <div class="page-heading"><div><h1 id="words-heading" tabindex="-1">기초에서 업무 응용까지.</h1><p id="words-description">이번 주 단어의 소리와 뜻을 연결해요.</p></div><span class="page-count" id="word-counter">1 / 10</span></div>
       <div class="word-tabs" id="word-tabs" role="tablist" aria-label="배울 단어"></div>
       <div id="word-panel" class="learning-surface" role="tabpanel" aria-labelledby="word-tab-document">
         <div class="word-face"><p class="item-status" id="word-status">이번 주 단어</p><div class="large-term" id="word-term"></div><button class="button sound-button" type="button" id="word-sound" data-speak="しりょう">소리 듣기</button></div>
-        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content"><h2 id="word-meaning">자료</h2><p id="word-context"></p></div><p id="meaning-placeholder" class="meaning-placeholder" hidden>무슨 뜻이었는지<br>떠올려 보세요.</p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="true">뜻 가리기</button><p class="learning-hint" id="word-hint"></p></div>
+        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content"><h2 id="word-meaning">자료</h2><p id="word-context"></p></div><p id="meaning-placeholder" class="meaning-placeholder" hidden>무슨 뜻이었는지<br>떠올려 보세요.</p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="true">뜻 가리기</button><p class="learning-hint" id="word-hint"></p><p class="source-note" id="word-source"></p></div>
       </div>
       <div class="word-actions"><label class="check-control"><input type="checkbox" id="familiar-word">이 단어가 익숙해졌어요</label><div class="button-group"><button class="button" type="button" id="prev-word">이전 단어</button><button class="button primary" type="button" id="next-word">다음 단어</button></div></div>
       <div class="lesson-footer"><p id="progress-label"></p><p>한자를 쓰거나 문장을 만들 필요는 없어요.</p></div>
     </section>
 
     <section class="page" id="page-phrases" aria-labelledby="phrases-heading" hidden>
-      <div class="page-heading"><div><h1 id="phrases-heading" tabindex="-1">가리키고, 통째로 말해요.</h1><p>뜻을 알고 문장 전체를 외워요. 문법 분석은 나중에 해도 돼요.</p></div></div>
+      <div class="page-heading"><div><h1 id="phrases-heading" tabindex="-1">가리키고, 통째로 말해요.</h1><p>쉬운 요청부터 정중한 확인·보고까지, 상황과 함께 익혀요.</p></div><span class="page-count" id="phrase-counter"></span></div>
       <div class="word-tabs" id="phrase-tabs" role="tablist" aria-label="배울 업무 표현"></div>
       <div id="phrase-panel" role="tabpanel" aria-labelledby="phrase-tab-send">
         <p class="situation" id="phrase-situation"></p>
         <div class="phrase-workspace"><div class="document-cue" id="phrase-cue"></div><div class="phrase-face"><div id="phrase-answer"><div class="phrase-japanese" id="phrase-japanese"></div><h2 id="phrase-meaning"></h2></div><p class="action-copy" id="phrase-action"></p><button class="button sound-button" type="button" id="phrase-sound" data-speak="これを おくって ください。">문장 듣기</button></div></div>
-        <div class="word-actions"><label class="check-control"><input type="checkbox" id="phrase-ready">가리키며 말해 봤어요</label><button type="button" id="reveal-phrase" class="button" aria-expanded="true" aria-controls="phrase-answer">문장 가리고 말해 보기</button></div>
+        <div class="word-actions"><label class="check-control"><input type="checkbox" id="phrase-ready">상황을 보고 말해 봤어요</label><button type="button" id="reveal-phrase" class="button" aria-expanded="true" aria-controls="phrase-answer">문장 가리고 말해 보기</button></div><p class="source-note" id="phrase-source"></p><div class="button-group phrase-navigation"><button type="button" class="button" id="prev-phrase">이전 표현</button><button type="button" class="button primary" id="next-phrase">다음 표현</button></div>
       </div>
       <section id="response-practice" class="response-practice" hidden><h2>이번 주는 두 응답만 구별해요.</h2><div id="response-list"></div><button type="button" id="listen-response" class="button">응답 듣고 구별하기</button><div class="button-group response-choices"><button type="button" class="button" data-response="0">완료됐음</button><button type="button" class="button" data-response="1">아직임</button></div><p id="response-feedback" class="feedback neutral" role="status"></p></section><div class="next-section"><p>한국어 상황을 떠올리고, 그 상황에 맞는 요청이나 질문을 통째로 써요.</p><button type="button" class="button primary" data-nav="find">자료에서 단어 찾기</button></div>
     </section>
 
     <section class="page" id="page-find" aria-labelledby="find-heading" hidden>
-      <div class="page-heading"><div><h1 id="find-heading" tabindex="-1">배운 단어가 여기 있어요.</h1><p>작은 자료에서 같은 글자를 찾아봐요.</p></div><span class="page-count" id="find-counter">1 / 3</span></div>
+      <div class="page-heading"><div><h1 id="find-heading" tabindex="-1">배운 단어가 여기 있어요.</h1><p>작은 자료에서 같은 글자를 찾아봐요.</p></div><span class="page-count" id="find-counter">1 / 10</span></div>
       <div class="review-modes" aria-label="자료 찾기 방식"><button type="button" id="find-meaning-mode" aria-pressed="true">뜻 보고 찾기</button><button type="button" id="find-listening-mode" aria-pressed="false">소리만 듣고 찾기</button></div>
-      <div class="find-workspace"><div class="find-instruction"><h2 id="find-prompt"></h2><button class="button sound-button" type="button" id="find-sound" data-speak="すうりょう">단어 소리 듣기</button><details id="find-teacher" hidden><summary>교사용 읽을 단어</summary><p id="find-teacher-cue" lang="ja"></p><p>단어만 확인하고 닫은 뒤 읽어 주세요. 한국어 뜻이나 정답 위치는 먼저 알려 주지 않아요.</p></details><p>일본어가 적힌 세 곳을 눌러 볼 수 있어요.</p><p class="quiet-note">처음에는 뜻 보고 찾기, 익숙해지면 소리만 듣고 찾기를 해요. 읽는 법은 필요할 때만 가려요.</p></div><div class="report-paper" id="practice-report"></div></div>
+      <div class="find-workspace"><div class="find-instruction"><h2 id="find-prompt"></h2><button class="button sound-button" type="button" id="find-sound" data-speak="すうりょう">단어 소리 듣기</button><details id="find-teacher" hidden><summary>교사용 읽을 단어</summary><p id="find-teacher-cue" lang="ja"></p><p>단어만 확인하고 닫은 뒤 읽어 주세요. 한국어 뜻이나 정답 위치는 먼저 알려 주지 않아요.</p></details><p>이번 문제의 확인표에서 단어를 눌러 보세요. 묶음별로 표가 바뀝니다.</p><p class="quiet-note">처음에는 뜻 보고 찾기, 익숙해지면 소리만 듣고 찾기를 해요. 읽는 법은 필요할 때만 가려요.</p></div><div class="report-paper" id="practice-report"></div></div>
       <p id="find-feedback" class="feedback neutral" role="status" aria-live="polite"></p>
       <div class="align-end"><button class="button primary" type="button" id="next-find" hidden>다음 항목 찾기</button></div>
     </section>
 
     <section class="page" id="page-review" aria-labelledby="review-heading" hidden>
       <div class="page-heading"><div><h1 id="review-heading" tabindex="-1">뜻과 글자를 다시 연결해요.</h1><p>헷갈리면 정답을 확인하고 다시 해보세요.</p></div></div>
-      <div class="review-modes review-scope"><button type="button" id="week-review" aria-pressed="true">이번 주 세 단어</button><button type="button" id="cumulative-review" aria-pressed="false">누적 단어 세 개씩</button></div><p id="review-scope" class="quiet-label"></p><div class="review-modes" aria-label="복습 방식"><button type="button" id="meaning-review" aria-pressed="true">뜻 보고 고르기</button><button type="button" id="sound-review" aria-pressed="false">소리 듣고 고르기</button></div>
+      <div class="review-modes review-scope"><button type="button" id="week-review" aria-pressed="true">이번 주 단어 전체</button><button type="button" id="cumulative-review" aria-pressed="false">누적 단어 다섯 개씩</button></div><p id="review-scope" class="quiet-label"></p><div class="review-modes" aria-label="복습 방식"><button type="button" id="meaning-review" aria-pressed="true">뜻 보고 고르기</button><button type="button" id="sound-review" aria-pressed="false">소리 듣고 고르기</button></div>
       <div class="quiz-surface" id="quiz-active"><div class="quiz-heading"><h2 id="quiz-question"></h2><span id="quiz-counter" class="page-count"></span></div><button class="button sound-button" type="button" id="quiz-play" data-speak="しりょう" hidden>문제 단어 듣기</button><div id="quiz-options" class="quiz-options"></div><p class="feedback neutral" id="quiz-feedback" role="status" aria-live="polite"></p><div class="align-end"><button class="button primary" type="button" id="next-quiz" hidden>다음 문제</button></div></div>
-      <div id="quiz-result" class="quiz-result" hidden><h2 id="quiz-score"></h2><p id="quiz-result-copy"></p><div class="button-group"><button type="button" id="next-batch" class="button primary" hidden>다음 세 단어</button><button type="button" id="retry-quiz" class="button primary">한 번 더 복습하기</button><button type="button" data-nav="words" class="button">단어로 돌아가기</button></div></div>
+      <div id="quiz-result" class="quiz-result" hidden><h2 id="quiz-score"></h2><p id="quiz-result-copy"></p><div class="button-group"><button type="button" id="next-batch" class="button primary" hidden>다음 다섯 단어</button><button type="button" id="retry-quiz" class="button primary">한 번 더 복습하기</button><button type="button" data-nav="words" class="button">단어로 돌아가기</button></div></div>
       <section class="number-practice"><h2 id="number-title">5분 숫자 듣기</h2><p id="number-caption"></p><div id="number-items"></div><p class="quiet-label">금액과 수량은 모두 학습용 예시예요. 어려우면 이번 주 숫자를 다음 주에도 반복해요.</p></section><div class="review-homework"><h2>부교재 복습은 주 40분.</h2><p><b>10분씩 세 번</b> 단어 듣고 뜻 확인 / 상황 보고 표현 말하기 / 자료에서 단어 찾기<br><b>5분씩 두 번</b> 이전 주 단어와 숫자 짧게 다시 듣기</p><p>주교재 복습 140분과 합쳐 주 180분 안에서 조정해요.</p></div>
     </section>
 
-    <section class="page teacher-page" id="page-teacher" aria-labelledby="teacher-heading" hidden><div class="page-heading"><div><h1 id="teacher-heading" tabindex="-1">이번 주 교사용 진행안</h1><p>주교재 중심 수업 안에 부교재 25~30분을 배치해요.</p></div><button class="button" type="button" data-print="teacher">이번 주 교사용 인쇄</button></div><div id="teacher-content"></div><details><summary>첫 수업과 주교재 연결은 어떻게 하나요?</summary><p><b>첫 10분:</b> 가나 읽기와 쉬운 숫자를 짧게 확인하고, 실제 자주 하는 요청 두 가지를 한국어로 물어봐요. 모르는 업무 단어를 시험하는 시간은 아니에요.</p><p><b>수업 A:</b> 주교재로 기초를 배우고, 부교재에서는 세 단어의 소리·뜻·글자를 연결해요. 요청은 뜻을 먼저 알려 준 뒤 듣기 → 따라 말하기 → 문장 가리고 가리키며 말하기로 진행해요.</p><p><b>수업 B:</b> 새 표현을 먼저 늘리지 말고 지난 표현을 상황만 주고 떠올리게 해요. 자료 찾기는 뜻 보고 찾기 → 소리만 듣고 찾기로 이어가요. 익숙해진 뒤에만 읽는 법을 가리고, 실제 제공자료의 같은 단어를 찾게 해요.</p><p><b>주교재 연결:</b> 3단어·1표현은 부교재 핵심 분량이에요. 문자·기초 어휘·문법은 주교재에서 배워요. 문법을 배우기 전에 통암기 표현을 분석시키지 말고, 나중에 관련 문형을 배웠을 때 연결해요. 주교재 단원명은 목차 확인 후 기록해요.</p></details><details><summary>다음 묶음으로 넘어갈지 어떻게 판단하나요?</summary><p>화면을 보며 따라 읽는 것과 혼자 꺼내 쓰는 것을 구분해요. 수업 끝과 다음 수업 시작에 소리를 듣고 단어를 고르는지, 상황만 주면 요청을 말하는지 확인해요. 모든 단어를 말로 설명하거나 한자로 쓸 필요는 없어요.</p><p>각 항목을 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 기록해요. 한 단어가 약하면 다음 묶음에서 복습하며 진행하고, 대부분이 따라 하기만 가능하면 새 단어 대신 지금 묶음을 반복해요. 이미 쉬우면 끝없는 반복보다 원자료에서 찾기와 보조 줄이기로 난도를 조정해요.</p><p>마지막 5분에는 주교재 진도, 부교재의 도움 수준, 다음 업무에서 써볼 표현 한 가지를 기록해요. 업무에서 써봤다면 다음 수업에 어디서 막혔는지 짧게 들어요.</p></details><details><summary>공통 진행 원칙과 인쇄</summary><p>한국어로 상황과 뜻을 안내하고, 일본어는 학습 대상으로만 제시합니다. 문법 설명·자유 문장 만들기·긴 원문 독해는 초기에 요구하지 않습니다. 실제 요청은 학습자와 업무 빈도를 확인하며 조정합니다.</p><p>기기 일본어 합성 음성을 사용합니다. 음성이 없거나 재생에 실패하면 교사가 읽어 주세요. 사람의 원어민 녹음과 자동 발음 평가는 포함하지 않습니다.</p><p>이번 주 학습자용 2쪽, 교사용 1쪽입니다. 전체 학습자용은 16쪽, 전체 교사용은 8쪽, 일정은 2쪽입니다. A4·배율 100%·머리글/바닥글 끄기를 권합니다. 읽는 법 표시 설정이 학습자 인쇄에도 반영됩니다.</p></details><div class="reset-area"><button class="text-button" type="button" id="reset-progress">전체 주차의 단어·표현 체크 지우기</button><div id="reset-confirm" hidden><p>이 브라우저에 기록한 전체 주차의 단어·표현 체크를 지울까요?</p><div class="button-group"><button class="button" type="button" id="cancel-reset">취소</button><button class="button" type="button" id="confirm-reset">체크 지우기</button></div></div><p id="reset-status" role="status"></p></div></section>
-<section class="page schedule-page" id="page-schedule" aria-labelledby="schedule-heading" hidden><div class="page-heading"><div><h1 id="schedule-heading" tabindex="-1">주교재와 함께, 주 두 번.</h1><p>8주 · 16회 가안. 새 단어 21개와 통암기 표현 7개를 반복해요.</p></div><button class="button" type="button" data-print="schedule">일정 인쇄</button></div><div class="schedule-settings"><label for="course-start">시작 주 날짜 <span>(선택)</span></label><input type="date" id="course-start"><p>날짜를 넣으면 주차별 기간을 표시해요. 실제 수업 요일은 A·B 두 회차로 별도 정해요.</p></div><div class="time-allocation"><h2>수업·복습 시간 배분</h2><p><b>90분</b> 복습·숫자 10 + 주교재 50 + 부교재 25 + 정리 5<br><b>120분</b> 복습·숫자 10 + 주교재 70 + 휴식 5 + 부교재 30 + 정리 5</p><p><b>주 복습 180분</b> 주교재 140 + 부교재 40. 120분 수업의 주교재는 35분씩 나누고 중간에 쉬어요. 숫자는 시작 예시이므로 이미 아는 수를 오래 반복하지 않아요. 8주는 진도 가안이며 실제 수행에 따라 묶음을 반복하거나 순서를 조절해요.</p></div><div class="schedule-table-wrap" id="schedule-table"></div><div class="source-guide" id="source-guide"></div><div class="print-course-actions"><h2>수업 자료 전체 인쇄</h2><div class="button-group"><button type="button" class="button primary" data-print="all-learner">8주 학습자용 · 16쪽</button><button type="button" class="button" data-print="all-teacher">8주 교사용 · 8쪽</button></div><p>표·숫자·상태는 학습용 가상 예시예요. 실제 보고서 금액·계약조건·업체명은 담지 않았어요. 문장 재구성의 사용 범위와 출처는 주차별 교사용 안내에 있어요.</p></div></section>
-    <footer class="app-footer"><p id="sound-status" role="status">일본어 음성 확인 중</p><p>제공자료 기반 · 구두용 재구성 · 『착! 붙는 일본어 독학 첫걸음』과 함께</p></footer>
+    <section class="page teacher-page" id="page-teacher" aria-labelledby="teacher-heading" hidden><div class="page-heading"><div><h1 id="teacher-heading" tabindex="-1">이번 주 교사용 진행안</h1><p>주교재 중심 수업 안에 부교재 25~30분을 배치해요.</p></div><button class="button" type="button" data-print="teacher">이번 주 교사용 인쇄</button></div><div id="teacher-content"></div><details><summary>첫 수업과 주교재 연결은 어떻게 하나요?</summary><p><b>첫 10분:</b> 가나 읽기와 쉬운 숫자를 짧게 확인하고, 실제 자주 하는 요청 두 가지를 한국어로 물어봐요. 모르는 업무 단어를 시험하는 시간은 아니에요.</p><p><b>수업 A:</b> 주교재로 기초를 배우고, 부교재의 앞쪽 어휘와 표현을 익혀요. 단어를 4~5개씩 나누어 소리·뜻·글자를 연결해요. 요청은 뜻을 먼저 알려 준 뒤 듣기 → 따라 말하기 → 문장 가리고 가리키며 말하기로 진행해요.</p><p><b>수업 B:</b> 지난 표현을 상황만 주고 떠올린 뒤 이번 주 뒤쪽 어휘와 표현을 익혀요. 자료 찾기는 뜻 보고 찾기 → 소리만 듣고 찾기로 이어가요. 익숙해진 뒤에만 읽는 법을 가리고, 실제 제공자료의 같은 단어를 찾게 해요.</p><p><b>주교재 연결:</b> 주차별 10~26단어와 4~7표현을 A/B 두 회차에 나누어요. 문자·기초 어휘·문법은 주교재에서 배워요. 문법을 배우기 전에 통암기 표현을 분석시키지 말고, 나중에 관련 문형을 배웠을 때 연결해요. 주교재 단원명은 목차 확인 후 기록해요.</p></details><details><summary>다음 묶음으로 넘어갈지 어떻게 판단하나요?</summary><p>화면을 보며 따라 읽는 것과 혼자 꺼내 쓰는 것을 구분해요. 수업 끝과 다음 수업 시작에 소리를 듣고 단어를 고르는지, 상황만 주면 요청을 말하는지 확인해요. 모든 단어를 말로 설명하거나 한자로 쓸 필요는 없어요.</p><p>각 항목을 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 기록해요. 한 단어가 약하면 다음 묶음에서 복습하며 진행하고, 대부분이 따라 하기만 가능하면 새 단어 대신 지금 묶음을 반복해요. 이미 쉬우면 끝없는 반복보다 원자료에서 찾기와 보조 줄이기로 난도를 조정해요.</p><p>마지막 5분에는 주교재 진도, 부교재의 도움 수준, 다음 업무에서 써볼 표현 한 가지를 기록해요. 업무에서 써봤다면 다음 수업에 어디서 막혔는지 짧게 들어요.</p></details><details><summary>공통 진행 원칙과 인쇄</summary><p>한국어로 상황과 뜻을 안내하고, 일본어는 학습 대상으로만 제시합니다. 문법 설명·자유 문장 만들기·긴 원문 독해는 초기에 요구하지 않습니다. 실제 요청은 학습자와 업무 빈도를 확인하며 조정합니다.</p><p>기기 일본어 합성 음성을 사용합니다. 음성이 없거나 재생에 실패하면 교사가 읽어 주세요. 사람의 원어민 녹음과 자동 발음 평가는 포함하지 않습니다.</p><p>학습자용은 단어 6개·표현 2개·자료표 2개 단위로 페이지를 나눕니다. 교사용은 주차별 1쪽, 일정은 4쪽입니다. A4·배율 100%·머리글/바닥글 끄기를 권합니다. 읽는 법 표시 설정이 학습자 인쇄에도 반영됩니다.</p></details><div class="reset-area"><button class="text-button" type="button" id="reset-progress">전체 주차의 단어·표현 체크 지우기</button><div id="reset-confirm" hidden><p>이 브라우저에 기록한 전체 주차의 단어·표현 체크를 지울까요?</p><div class="button-group"><button class="button" type="button" id="cancel-reset">취소</button><button class="button" type="button" id="confirm-reset">체크 지우기</button></div></div><p id="reset-status" role="status"></p></div></section>
+<section class="page schedule-page" id="page-schedule" aria-labelledby="schedule-heading" hidden><div class="page-heading"><div><h1 id="schedule-heading" tabindex="-1">주교재와 함께, 주 두 번.</h1><p>8주 · 16회 가안. 152단어와 43표현을 기초부터 심화까지 단계적으로 익혀요.</p></div><button class="button" type="button" data-print="schedule">일정 인쇄</button></div><div class="schedule-settings"><label for="course-start">시작 주 날짜 <span>(선택)</span></label><input type="date" id="course-start"><p>날짜를 넣으면 주차별 기간을 표시해요. 실제 수업 요일은 A·B 두 회차로 별도 정해요.</p></div><div class="time-allocation"><h2>수업·복습 시간 배분</h2><p><b>90분</b> 복습·숫자 10 + 주교재 50 + 부교재 25 + 정리 5<br><b>120분</b> 복습·숫자 10 + 주교재 70 + 휴식 5 + 부교재 30 + 정리 5</p><p><b>주 복습 180분</b> 주교재 140 + 부교재 40. 새 어휘는 하루 4~5개씩 나누어 복습하고, 어려운 묶음은 다음 회차로 넘겨요. 120분 수업의 주교재는 35분씩 나누고 중간에 쉬어요. 숫자는 시작 예시이므로 이미 아는 수를 오래 반복하지 않아요. 8주는 진도 가안이며 실제 수행에 따라 묶음을 반복하거나 순서를 조절해요.</p></div><div class="level-guide" id="level-guide" aria-label="난이도별 학습 목표"></div><div class="schedule-table-wrap" id="schedule-table"></div><div class="source-guide" id="source-guide"></div><div class="print-course-actions"><h2>수업 자료 전체 인쇄</h2><div class="button-group"><button type="button" class="button primary" data-print="all-learner">8주 학습자용 전체</button><button type="button" class="button" data-print="all-teacher">8주 교사용 전체</button></div><p>표·숫자·상태는 학습용 가상 예시예요. 실제 보고서 금액·계약조건·업체명은 담지 않았어요. 문장 재구성의 사용 범위와 출처는 주차별 교사용 안내에 있어요.</p></div></section>
+    <footer class="app-footer"><p id="sound-status" role="status">일본어 음성 확인 중</p><p>제공자료 기반 · 난이도별 152단어 · 43표현 · 『착! 붙는 일본어 독학 첫걸음』과 함께</p></footer>
   </main>
 </div>
 <div id="print-learner" class="print-only"></div>
@@ -115,56 +128,3571 @@
 <noscript><p class="noscript-note">학습 활동에는 JavaScript가 필요해요. 브라우저에서 JavaScript를 켜고 다시 열어 주세요.</p><style>.app-shell{display:none}.print-only{display:block}</style></noscript>
 <script>
 'use strict';
-// 원자료 전체가 아니라, 익명화한 어휘와 구두용 재구성 표현입니다.
-window.COURSE = (() => {
-  const docs={phrases:{title:'SCM 업무 일본어 표현집',pages:16},costs:{title:'9월 물류비 보고서 · 수치 삭제본',pages:6},returns:{title:'반품 판정 기준서 · 초안',pages:3}};
-  const W=(id,text,reading,meaning,context,source)=>({id,text,reading,meaning,context,source});
-  const P=(id,chunks,reading,meaning,situation,action,cue,source,note)=>({id,chunks:chunks.map(([text,reading])=>({text,reading:reading||text})),reading,meaning,situation,action,cue,source,note});
-  const N=(value,reading)=>({value,reading});
-  const weeks=[
-    {id:1,title:'자료 공유와 확인',group:'phrases',source:'표현집 p.1 사례 01, p.2 사례 05·06',goal:'자료·공유·확인을 알아보고, 같은 자료를 보며 공유를 요청해요.',
-      words:[W('document','資料','しりょう','자료','함께 보는 문서나 파일','표현집 p.1 사례 01'),W('share','共有','きょうゆう','공유','같은 파일이나 정보를 팀원에게 전달하는 일','표현집 p.2 사례 05·06'),W('check','確認','かくにん','확인','내용이 맞는지 살펴보는 일','표현집 p.1 사례 01')],
-      phrase:P('share-request',[['これを'],['共有して','きょうゆうして'],['ください。']],'これを きょうゆうして ください。','이것을 공유해 주세요.','같은 화면을 보며, 팀에 공유할 자료를 가리켜요.','공유할 자료를 가리키고 문장 전체를 말해요.','공유할 파일','표현집 p.2 사례 05·06에서 구두용으로 재구성','원문의 ‘자료가 도착하면’ 조건을 생략했습니다. 이미 받은 자료를 함께 보고 요청하는 상황으로 한정합니다.'),
-      report:'<div class="report-top">[[document]]<span class="report-note">연습용 가상 자료</span></div><h3 class="report-korean">팀 공유 문서</h3><table class="report-table"><tbody><tr><th>필요한 행동</th><td>[[share]]</td></tr><tr><th>공유 전 할 일</th><td>[[check]]</td></tr></tbody></table>',
-      numbers:[N('1','いち'),N('2','に'),N('3','さん')],a:'단어의 소리와 뜻 연결 → 같은 파일을 가리키며 공유 요청',b:'파일을 바꿔 같은 요청 → 문서에서 세 단어 찾기',teacher:'소리 → 한국어 뜻 → 표기 순서로 연결합니다. 문장 전체의 뜻을 알려 주고 따라 말하게 합니다. 직원 역할은 자료를 공유하는 동작으로 반응합니다.',transfer:'실제로 공유할 자료 한 장을 선택합니다. 문법 분석이나 단어를 바꿔 문장 만들기는 요구하지 않습니다.'},
-    {id:2,title:'회의 준비 요청',group:'phrases',source:'표현집 p.2 사례 04',goal:'회의·회의실·예약을 구별하고, 회의실 예약을 요청해요.',
-      words:[W('meeting','会議','かいぎ','회의','업무를 논의하는 자리','표현집 p.2 사례 04'),W('room','会議室','かいぎしつ','회의실','회의를 하는 공간','표현집 p.2 사례 04'),W('booking','予約','よやく','예약','공간이나 시간을 미리 확보하는 일','교사 보완어: 원문의 押さえる를 쉬운 말로 바꿈')],
-      phrase:P('book-room',[['会議室を','かいぎしつを'],['予約して','よやくして'],['ください。']],'かいぎしつを よやくして ください。','회의실을 예약해 주세요.','시간과 장소가 표시된 일정을 함께 보며 직원에게 회의실 확보를 부탁해요.','일정의 회의실 칸을 가리키며 요청해요.','함께 보는 회의 일정','표현집 p.2 사례 04에서 구두용으로 재구성','원문의 시간·모니터·빠른 일정 조건은 포함되지 않습니다. 조건이 이미 표시된 일정표를 함께 보는 상황으로 연습합니다.'),
-      report:'<div class="report-top"><span>일정 확인</span><span class="report-note">연습용 가상 자료</span></div><div class="report-heading">[[meeting]]</div><table class="report-table"><tbody><tr><th>장소</th><td>[[room]]</td></tr><tr><th>필요한 행동</th><td>[[booking]]</td></tr><tr><th>시간</th><td>오후 2시 · 1시간</td></tr></tbody></table>',
-      numbers:[N('4','よん'),N('5','ご'),N('6','ろく')],a:'회의와 회의실 구별 → 예약 요청 한 문장',b:'일정표에서 장소 찾기 → 같은 조건을 보며 요청 반복',teacher:'会議와 会議室은 한국어 뜻과 실제 공간을 연결해 구별합니다. 予約는 원문 추출어가 아니라 초급 구두용 보완어입니다.',transfer:'날짜·시간은 한국어와 숫자로 표시합니다. 일본어로 조건까지 전달하는 활동은 주교재에서 해당 표현을 배운 뒤 추가합니다.'},
-    {id:3,title:'물류비 항목 찾기',group:'costs',source:'물류비 보고서 p.1 제목, p.4 비용 항목 표',goal:'물류비 표에서 운송비와 보관비를 구별하고 확인할 부분을 짚어요.',
-      words:[W('logistics-cost','物流費','ぶつりゅうひ','물류비','물류 업무에 드는 비용','물류비 보고서 p.1 제목'),W('transport-cost','運送費','うんそうひ','운송비','운송에 드는 비용 항목','물류비 보고서 p.4 표'),W('storage-cost','保管費','ほかんひ','보관비','상품 보관에 드는 비용 항목','물류비 보고서 p.4 표')],
-      phrase:P('check-part',[['ここを'],['確認して','かくにんして'],['ください。']],'ここを かくにんして ください。','이 부분을 확인해 주세요.','비용표에서 다시 확인할 항목을 직원에게 보여 줘요.','확인할 행을 정확히 가리키고 요청해요.','확인할 비용 항목','표현집 p.1 사례 01의 의도를 재구성 · 물류비 보고서 p.4 활용','질문이 아니라 직원에게 특정 부분의 확인을 부탁하는 표현입니다. 비용의 원인이나 정확성을 판정하는 과제는 아닙니다.'),
-      report:'<div class="report-top">[[logistics-cost]]<span class="report-note">연습용 가상 수치 · 원자료 금액 아님</span></div><table class="report-table"><thead><tr><th>항목</th><th>금액 (엔)</th></tr></thead><tbody><tr><th>[[transport-cost]]</th><td>300</td></tr><tr><th>[[storage-cost]]</th><td>200</td></tr></tbody></table>',
-      numbers:[N('7','なな'),N('8','はち'),N('9','きゅう'),N('10','じゅう')],a:'보고서 제목과 비용 두 항목의 소리·뜻 연결',b:'배치를 바꾼 표에서 항목 찾기 → 가리키며 확인 요청',teacher:'원문의 비용 분석은 설명하지 않습니다. 保管費는 이 보고서의 표기이며, 保管料 같은 유사어를 한꺼번에 외우게 하지 않습니다.',transfer:'세 단어 모두 끝소리가 ひ이므로 B 수업에서 소리만 듣고 구별합니다. 원문 p.4를 교사가 옆에 펼쳐 배운 표기만 찾습니다. 페이지 전체 독해를 요구하지 않습니다.'},
-    {id:4,title:'금액·합계·증감',group:'costs',source:'물류비 보고서 p.2 금액, p.3~4 증감·합계 표',goal:'금액·합계·증감을 구별하고, 합계 금액을 물어요.',
-      words:[W('amount','金額','きんがく','금액','돈의 액수','물류비 보고서 p.2 표 머리글'),W('total','合計','ごうけい','합계','여러 값을 더한 전체 값','물류비 보고서 p.4 표'),W('change','増減','ぞうげん','증감','비교 기준에 비해 늘거나 줄어든 값','물류비 보고서 p.3~4 표 머리글')],
-      phrase:P('ask-total',[['合計は','ごうけいは'],['いくらですか。']],'ごうけいは いくらですか。','합계는 얼마인가요?','표의 합계 금액을 확인하려고 직원에게 물어요.','합계 칸을 가리키며 질문하고 숫자 카드를 확인해요.','물어볼 합계 칸','물류비 보고서의 合計를 바탕으로 교사가 만든 구두 연습문장','원문 인용이 아닙니다. 처음에는 교사가 금액 카드를 보여 줘도 됩니다. 숫자 듣기가 익숙해지면 음성만 듣고 카드를 고르게 합니다.'),
-      report:'<div class="report-top"><span>비용 확인표</span><span class="report-note">연습용 가상 수치</span></div><table class="report-table"><thead><tr><th>항목</th><th>[[amount]] (엔)</th></tr></thead><tbody><tr><th>A</th><td>100</td></tr><tr><th>B</th><td>200</td></tr><tr><th>[[total]]</th><td>300</td></tr><tr><th>[[change]]</th><td>−50</td></tr></tbody></table>',
-      numbers:[N('100円','ひゃくえん'),N('200円','にひゃくえん'),N('300円','さんびゃくえん')],a:'세 항목 위치 찾기 → 합계 질문을 통째로 익히기',b:'가상 금액표와 금액 카드 → 질문 후 숫자 확인',teacher:'300은 さんびゃく라는 소리째 제시합니다. 금액을 자유롭게 만들어 말하게 하지 않습니다. 합계와 증감의 업무 개념이 아니라 표기 인식을 연습합니다.',transfer:'삭제된 금액을 추정하거나 복원하지 않습니다. 숫자 듣기는 별도 가상 금액만 사용합니다.'},
-    {id:5,title:'명세서 요청과 단가',group:'costs',source:'표현집 p.2 사례 06, p.12 · 물류비 보고서 p.4~6',goal:'청구서·명세서·단가를 구별하고 필요한 명세서를 요청해요.',
-      words:[W('invoice','請求書','せいきゅうしょ','청구서','지급할 금액을 청구하는 문서','표현집 p.12 · 물류비 보고서 p.4~6'),W('statement','明細書','めいさいしょ','명세서','항목별 상세내역을 보여 주는 문서','표현집 p.2 사례 06, p.12'),W('unit-price','単価','たんか','단가','한 단위에 적용되는 가격','표현집 p.12 · 물류비 보고서 p.4 설명')],
-      phrase:P('send-statement',[['明細書を','めいさいしょを'],['送って','おくって'],['ください。']],'めいさいしょを おくって ください。','명세서를 보내 주세요.','직원이 명세서를 가지고 있는 것을 확인한 뒤 요청해요.','청구서와 명세서 중 필요한 문서를 짚고 요청해요.','필요한 상세내역 문서','표현집 p.2 사례 06에서 구두용으로 재구성','수령 여부 확인·공유폴더·배부 목적은 생략했습니다. 직원이 이미 명세서를 보유한 상황에서 사용합니다.'),
-      report:'<div class="report-top"><span>정산 확인용 문서</span><span class="report-note">연습용 가상 자료·수치</span></div><table class="report-table"><tbody><tr><th>전체 청구금액</th><td>[[invoice]]</td></tr><tr><th>항목별 상세내역</th><td>[[statement]]</td></tr><tr><th>한 개 기준 가격</th><td>[[unit-price]] · 100엔</td></tr></tbody></table>',
-      numbers:[N('1,000円','せんえん'),N('2,000円','にせんえん'),N('3,000円','さんぜんえん')],a:'문서 두 종류와 단가 구별 → 명세서 요청',b:'문서 이름을 듣고 고르기 → 요청한 문서 확인',teacher:'한국어 개념을 확인한 뒤 일본어 표제어를 연결합니다. 청구서와 명세서 제목 카드로 필요한 문서를 고르는지 확인합니다.',transfer:'실제 청구서 전체 대신 제목 카드로 충분합니다. 원문에서 배운 단어가 적힌 부분만 찾아 봅니다.'},
-    {id:6,title:'반품·검품·보류',group:'returns',source:'반품 판정 기준서 p.1~3',goal:'반품·검품·보류를 알아보고, 보류하기로 한 상품의 처리를 전달해요.',
-      words:[W('return','返品','へんぴん','반품','거래처 등에서 되돌아온 상품','반품 판정 기준서 p.1 제목'),W('inspection','検品','けんぴん','검품','상품의 상태를 살펴보는 작업','반품 판정 기준서 p.1~2'),W('hold','保留','ほりゅう','보류','결정이나 다음 처리를 잠시 미룬 상태','반품 판정 기준서 p.2~3')],
-      phrase:P('hold-item',[['これは'],['保留に','ほりゅうに'],['して'],['ください。']],'これは ほりゅうに して ください。','이것은 보류해 주세요.','담당자 확인을 기다리기로 한 상품을 가리키며, 보류로 두라고 전달해요.','이미 보류하기로 정한 상품을 짚고 문장 전체를 말해요.','확인 대기 중인 상품','반품 판정 기준서 p.2~3의 保留를 바탕으로 교사가 만든 구두 연습문장','반품 등급이나 보류 여부를 새로 판단하는 과제가 아닙니다. 원문은 초안이므로 그 규칙을 확정 업무 규칙으로 가르치지 않습니다.'),
-      report:'<div class="report-top">[[return]]<span class="report-note">연습용 가상 작업표</span></div><table class="report-table"><tbody><tr><th>상품</th><td>A</td></tr><tr><th>확인할 작업</th><td>[[inspection]]</td></tr><tr><th>확인 대기 상태</th><td>[[hold]]</td></tr></tbody></table><p class="report-note report-caption">단어 찾기용 표이며 실제 판정 기준이나 지시서가 아닙니다.</p>',
-      numbers:[N('1個','いっこ'),N('2個','にこ'),N('3個','さんこ')],a:'반품·검품의 소리 구별 → 보류 상태와 요청 연결',b:'상태표에서 단어 찾기 → 미리 정한 보류 결정을 전달',teacher:'返品과 検品은 뜻 카드로 구별합니다. 등급·태그·폐기 규칙은 판단하지 않습니다. 保留의 뜻과 지시를 전달하는 데 집중합니다.',transfer:'상품 사진으로 등급을 판정하지 않고, 한국어로 정해 둔 상태를 일본어와 연결합니다.'},
-    {id:7,title:'입고·출하·완료 확인',group:'returns',source:'표현집 p.6 사례 15 · 반품 판정 기준서 p.2',goal:'입고·출하·완료를 구별하고, 입고 완료 여부를 짧게 확인해요.',
-      words:[W('inbound','入庫','にゅうこ','입고','상품이 창고로 들어오는 일','표현집 p.6 사례 15 · 반품 판정 기준서 p.2'),W('shipment','出荷','しゅっか','출하','상품을 보내기 위해 창고에서 내보내는 일','표현집 p.6 사례 15 · 반품 판정 기준서 p.2'),W('completed','完了','かんりょう','완료','작업이 끝난 상태','반품 판정 기준서 p.2 상태 표')],
-      phrase:P('inbound-done',[['入庫は','にゅうこは'],['完了しましたか。','かんりょうしましたか。']],'にゅうこは かんりょうしましたか。','입고는 완료됐나요?','입고 결과를 확인할 때 직원에게 물어요.','입고 행을 가리키며 묻고, 끝났는지 아직인지 확인해요.','입고 작업 현황','표현집 p.6 사례 15의 입고 완료·결과 공유 의도를 확인 질문으로 재구성','원문의 당일 완료 지시와 다르게 상태를 묻는 질문입니다. 마감 지시를 대신하지 않습니다. 응답은 두 덩어리만 듣고 구별합니다.'),
-      report:'<div class="report-top"><span>작업 현황</span><span class="report-note">연습용 가상 상태</span></div><table class="report-table"><thead><tr><th>작업</th><th>상태</th></tr></thead><tbody><tr><th>[[inbound]]</th><td>[[completed]]</td></tr><tr><th>[[shipment]]</th><td>진행 중</td></tr></tbody></table>',
-      numbers:[N('0個','ぜろこ'),N('10個','じゅっこ'),N('20個','にじゅっこ')],responses:[{text:'完了しました。',reading:'かんりょうしました。',meaning:'완료됐습니다.'},{text:'まだです。',reading:'まだです。',meaning:'아직입니다.'}],a:'작업·상태 표기 연결 → 완료 확인 질문',b:'교사가 완료/아직 응답을 바꿔 읽기 → 상태 고르기',teacher:'교사 메모: 出荷는 거래처로 보내는 출하이며, 出庫(출고)와 항상 같은 뜻은 아닙니다. 出庫를 이번 주 필수어로 추가하지는 않습니다. 이 주에 짧은 응답 두 가지를 처음 추가합니다. はい만 듣고 완료로 해석하지 않고 실제 상태 표현을 듣게 합니다.',transfer:'완료/아직 상태 카드로 연습합니다. 실제 직원의 긴 응답을 모두 이해하게 하지는 않습니다.'},
-    {id:8,title:'새 내용 없이 연결하기',group:'review',source:'1~7주 학습 내용 재사용',goal:'배운 단어와 요청을 업무 장면에 연결해 다시 사용해요.',
-      words:[W('document','資料','しりょう','자료','1주차에서 배운 단어','표현집 p.1'),W('logistics-cost','物流費','ぶつりゅうひ','물류비','3주차에서 배운 단어','물류비 보고서 p.1'),W('return','返品','へんぴん','반품','6주차에서 배운 단어','반품 판정 기준서 p.1')],
-      phrase:P('share-request',[['これを'],['共有して','きょうゆうして'],['ください。']],'これを きょうゆうして ください。','이것을 공유해 주세요.','물류비나 반품 자료를 함께 보며 어느 자료를 공유할지 짚어요.','대상이 달라져도 1주차의 같은 요청을 사용해요.','공유할 자료 고르기','1주차 표현 재사용','새 문장이 아닙니다. 교사는 앞선 7개 표현 중 필요한 표현을 한국어 상황 카드로 다시 제시합니다.'),
-      report:'<div class="report-top">[[document]]<span class="report-note">연습용 가상 목록</span></div><table class="report-table"><thead><tr><th>주제</th><th>자료</th></tr></thead><tbody><tr><th>비용 확인</th><td>[[logistics-cost]]</td></tr><tr><th>되돌아온 상품</th><td>[[return]]</td></tr></tbody></table>',
-      numbers:[N('300円','さんびゃくえん'),N('3,000円','さんぜんえん'),N('3個','さんこ')],a:'누적 21단어를 3~5개씩 확인 → 세 자료의 표기 찾기',b:'7개 상황 카드에 맞는 고정 표현 → 완료/아직 재확인',teacher:'새 어휘·문형을 추가하지 않습니다. 21개를 한 번에 시험하지 않고 3~5개씩 나누어 확인합니다. 표현도 2~3개씩 상황을 바꿔 재사용합니다.',transfer:'누적 복습 목록으로 헷갈리는 항목과 업무에서 써 본 표현을 기록합니다. 그 결과로 다음 학습 묶음을 정합니다.'}
-  ];
-  return {title:'일본어 업무 첫걸음',weeks,docs,version:'2026-11-07',newWordCount:21,newPhraseCount:7};
-})();
+// 출처 검증 어휘와 학습용 재구성 예문. 회사 원문 전체는 포함하지 않습니다.
+window.COURSE = {
+  "docs": {
+    "phrases": {
+      "title": "SCM 업무 일본어 표현집",
+      "pages": 16
+    },
+    "costs": {
+      "title": "9월 물류비 보고서 · 수치 삭제본",
+      "pages": 6
+    },
+    "returns": {
+      "title": "반품 판정 기준서 · 초안",
+      "pages": 3
+    }
+  },
+  "levels": [
+    {
+      "id": 1,
+      "name": "기초",
+      "description": "구체적인 대상·이동·상태의 소리와 뜻 연결"
+    },
+    {
+      "id": 2,
+      "name": "실무",
+      "description": "상품 상태와 운송 작업을 구별하고 짧게 요청"
+    },
+    {
+      "id": 3,
+      "name": "응용",
+      "description": "문서·비용·품의 절차의 전문어와 정중한 표현"
+    },
+    {
+      "id": 4,
+      "name": "심화",
+      "description": "분석·배부·계약·예외를 읽고 확인·보고"
+    }
+  ],
+  "weeks": [
+    {
+      "id": 1,
+      "title": "공유·확인과 업무 상대",
+      "stage": "기초 1",
+      "level": 1,
+      "goal": "자료와 사람을 구별하고 짧은 공유·확인 요청을 말해요.",
+      "words": [
+        {
+          "id": "document",
+          "text": "資料",
+          "reading": "しりょう",
+          "meaning": "자료",
+          "context": "함께 보는 문서나 파일",
+          "source": "표현집 p.1 사례 01",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "share",
+          "text": "共有",
+          "reading": "きょうゆう",
+          "meaning": "공유",
+          "context": "같은 파일이나 정보를 팀원에게 전달하는 일",
+          "source": "표현집 p.2 사례 05·06",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "check",
+          "text": "確認",
+          "reading": "かくにん",
+          "meaning": "확인",
+          "context": "내용이 맞는지 살펴보는 일",
+          "source": "표현집 p.1 사례 01",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "meeting",
+          "text": "会議",
+          "reading": "かいぎ",
+          "meaning": "회의",
+          "context": "업무를 논의하는 자리",
+          "source": "표현집 p.2 사례 04",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "room",
+          "text": "会議室",
+          "reading": "かいぎしつ",
+          "meaning": "회의실",
+          "context": "회의를 하는 공간",
+          "source": "표현집 p.2 사례 04",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "booking",
+          "text": "予約",
+          "reading": "よやく",
+          "meaning": "예약",
+          "context": "공간이나 시간을 미리 확보하는 일",
+          "source": "교사 보완어: 원문의 押さえる를 쉬운 말로 바꿈",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "source-word-125",
+          "text": "担当者",
+          "reading": "たんとうしゃ",
+          "meaning": "담당자",
+          "context": "현장·보고에서 쓰는 말 · 담당자",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "source-word-127",
+          "text": "報告",
+          "reading": "ほうこく",
+          "meaning": "보고",
+          "context": "현장·보고에서 쓰는 말 · 보고",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "source-word-56",
+          "text": "先方",
+          "reading": "せんぽう",
+          "meaning": "상대처·거래처",
+          "context": "계약·사내 절차에서 쓰는 말 · 상대처·거래처",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        },
+        {
+          "id": "source-word-59",
+          "text": "当社",
+          "reading": "とうしゃ",
+          "meaning": "당사",
+          "context": "계약·사내 절차에서 쓰는 말 · 당사",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 1",
+          "week": 1
+        }
+      ],
+      "phrases": [
+        {
+          "id": "share-request",
+          "chunks": [
+            {
+              "text": "これを",
+              "reading": "これを"
+            },
+            {
+              "text": "共有して",
+              "reading": "きょうゆうして"
+            },
+            {
+              "text": "ください。",
+              "reading": "ください。"
+            }
+          ],
+          "reading": "これを きょうゆうして ください。",
+          "meaning": "이것을 공유해 주세요.",
+          "situation": "같은 화면을 보며, 팀에 공유할 자료를 가리켜요.",
+          "action": "공유할 자료를 가리키고 문장 전체를 말해요.",
+          "cue": "공유할 파일",
+          "source": "표현집 p.2 사례 05·06에서 구두용으로 재구성",
+          "note": "원문의 ‘자료가 도착하면’ 조건을 생략했습니다. 이미 받은 자료를 함께 보고 요청하는 상황으로 한정합니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "check-part",
+          "chunks": [
+            {
+              "text": "ここを",
+              "reading": "ここを"
+            },
+            {
+              "text": "確認して",
+              "reading": "かくにんして"
+            },
+            {
+              "text": "ください。",
+              "reading": "ください。"
+            }
+          ],
+          "reading": "ここを かくにんして ください。",
+          "meaning": "이 부분을 확인해 주세요.",
+          "situation": "비용표에서 다시 확인할 항목을 직원에게 보여 줘요.",
+          "action": "확인할 행을 정확히 가리키고 요청해요.",
+          "cue": "확인할 비용 항목",
+          "source": "표현집 p.1 사례 01의 의도를 재구성 · 물류비 보고서 p.4 활용",
+          "note": "질문이 아니라 직원에게 특정 부분의 확인을 부탁하는 표현입니다. 비용의 원인이나 정확성을 판정하는 과제는 아닙니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "added-phrase-1",
+          "chunks": [
+            {
+              "text": "お疲れ様です。",
+              "reading": "おつかれさまです。"
+            }
+          ],
+          "reading": "おつかれさまです。",
+          "meaning": "수고하십니다.",
+          "situation": "사내 메시지를 시작할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "사내 메시지를 시작할 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 제5장",
+          "sourceExcerpt": "お疲れ様です",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-2",
+          "chunks": [
+            {
+              "text": "はい、そのとおりです。",
+              "reading": "はい、そのとおりです。"
+            }
+          ],
+          "reading": "はい、そのとおりです。",
+          "meaning": "네, 맞습니다.",
+          "situation": "상대방의 확인에 동의할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "상대방의 확인에 동의할 때",
+          "source": "업무 일본어 표현집 p.10 · 사례 26",
+          "sourceExcerpt": "はい、そのとおりです。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "share-request",
+        "chunks": [
+          {
+            "text": "これを",
+            "reading": "これを"
+          },
+          {
+            "text": "共有して",
+            "reading": "きょうゆうして"
+          },
+          {
+            "text": "ください。",
+            "reading": "ください。"
+          }
+        ],
+        "reading": "これを きょうゆうして ください。",
+        "meaning": "이것을 공유해 주세요.",
+        "situation": "같은 화면을 보며, 팀에 공유할 자료를 가리켜요.",
+        "action": "공유할 자료를 가리키고 문장 전체를 말해요.",
+        "cue": "공유할 파일",
+        "source": "표현집 p.2 사례 05·06에서 구두용으로 재구성",
+        "note": "원문의 ‘자료가 도착하면’ 조건을 생략했습니다. 이미 받은 자료를 함께 보고 요청하는 상황으로 한정합니다.",
+        "kind": "구두용 재구성"
+      },
+      "reports": [
+        {
+          "title": "공유·확인과 업무 상대 · 용어 확인표 1",
+          "ids": [
+            "document",
+            "share",
+            "check",
+            "meeting"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[document]]</td></tr><tr><th>항목 2</th><td>[[share]]</td></tr><tr><th>항목 3</th><td>[[check]]</td></tr><tr><th>항목 4</th><td>[[meeting]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "공유·확인과 업무 상대 · 용어 확인표 2",
+          "ids": [
+            "room",
+            "booking",
+            "source-word-125"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[room]]</td></tr><tr><th>항목 2</th><td>[[booking]]</td></tr><tr><th>항목 3</th><td>[[source-word-125]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "공유·확인과 업무 상대 · 용어 확인표 3",
+          "ids": [
+            "source-word-127",
+            "source-word-56",
+            "source-word-59"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-127]]</td></tr><tr><th>항목 2</th><td>[[source-word-56]]</td></tr><tr><th>항목 3</th><td>[[source-word-59]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[document]]</td></tr><tr><th>항목 2</th><td>[[share]]</td></tr><tr><th>항목 3</th><td>[[check]]</td></tr><tr><th>항목 4</th><td>[[meeting]]</td></tr></tbody></table>",
+      "source": "교사 보완어: 원문의 押さえる를 쉬운 말로 바꿈 / 반품 판정 기준서 · 초안 p.3 / 업무 일본어 표현집 p.14 / 표현집 p.1 사례 01 / 표현집 p.2 사례 04 / 표현집 p.2 사례 05·06",
+      "groups": [
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "1",
+          "reading": "いち"
+        },
+        {
+          "value": "2",
+          "reading": "に"
+        },
+        {
+          "value": "3",
+          "reading": "さん"
+        }
+      ],
+      "a": "새 단어 5개 · 표현 2개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 5개 · 나머지 표현 2개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 2,
+      "title": "창고 이동과 작업 상태",
+      "stage": "기초 2",
+      "level": 1,
+      "goal": "입고·출고·출하를 구별하고 작업이 끝났는지 물어요.",
+      "words": [
+        {
+          "id": "inbound",
+          "text": "入庫",
+          "reading": "にゅうこ",
+          "meaning": "입고",
+          "context": "상품이 창고로 들어오는 일",
+          "source": "표현집 p.6 사례 15 · 반품 판정 기준서 p.2",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-21",
+          "text": "出庫",
+          "reading": "しゅっこ",
+          "meaning": "출고",
+          "context": "물류·창고에서 쓰는 말 · 출고",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "shipment",
+          "text": "出荷",
+          "reading": "しゅっか",
+          "meaning": "출하",
+          "context": "상품을 보내기 위해 창고에서 내보내는 일",
+          "source": "표현집 p.6 사례 15 · 반품 판정 기준서 p.2",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-34",
+          "text": "在庫",
+          "reading": "ざいこ",
+          "meaning": "재고",
+          "context": "물류·창고에서 쓰는 말 · 재고",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-29",
+          "text": "宅配便",
+          "reading": "たくはいびん",
+          "meaning": "택배",
+          "context": "물류·창고에서 쓰는 말 · 택배",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-43",
+          "text": "搬入",
+          "reading": "はんにゅう",
+          "meaning": "반입",
+          "context": "물류·창고에서 쓰는 말 · 반입",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-25",
+          "text": "搬出",
+          "reading": "はんしゅつ",
+          "meaning": "반출",
+          "context": "물류·창고에서 쓰는 말 · 반출",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-32",
+          "text": "仕分け",
+          "reading": "しわけ",
+          "meaning": "분류 작업",
+          "context": "물류·창고에서 쓰는 말 · 분류 작업",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-33",
+          "text": "ピッキング",
+          "reading": "ピッキング",
+          "meaning": "피킹",
+          "context": "물류·창고에서 쓰는 말 · 피킹",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-39",
+          "text": "区画",
+          "reading": "くかく",
+          "meaning": "구획",
+          "context": "물류·창고에서 쓰는 말 · 구획",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-101",
+          "text": "現物",
+          "reading": "げんぶつ",
+          "meaning": "실물",
+          "context": "반품·상품 상태에서 쓰는 말 · 실물",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "completed",
+          "text": "完了",
+          "reading": "かんりょう",
+          "meaning": "완료",
+          "context": "작업이 끝난 상태",
+          "source": "반품 판정 기준서 p.2 상태 표",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-119",
+          "text": "進行中",
+          "reading": "しんこうちゅう",
+          "meaning": "진행 중",
+          "context": "반품·작업 상태에서 쓰는 말 · 진행 중",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        },
+        {
+          "id": "source-word-120",
+          "text": "未着手",
+          "reading": "みちゃくしゅ",
+          "meaning": "미착수",
+          "context": "반품·작업 상태에서 쓰는 말 · 미착수",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 1,
+          "difficulty": "기초 2",
+          "week": 2
+        }
+      ],
+      "phrases": [
+        {
+          "id": "book-room",
+          "chunks": [
+            {
+              "text": "会議室を",
+              "reading": "かいぎしつを"
+            },
+            {
+              "text": "予約して",
+              "reading": "よやくして"
+            },
+            {
+              "text": "ください。",
+              "reading": "ください。"
+            }
+          ],
+          "reading": "かいぎしつを よやくして ください。",
+          "meaning": "회의실을 예약해 주세요.",
+          "situation": "시간과 장소가 표시된 일정을 함께 보며 직원에게 회의실 확보를 부탁해요.",
+          "action": "일정의 회의실 칸을 가리키며 요청해요.",
+          "cue": "함께 보는 회의 일정",
+          "source": "표현집 p.2 사례 04에서 구두용으로 재구성",
+          "note": "원문의 시간·모니터·빠른 일정 조건은 포함되지 않습니다. 조건이 이미 표시된 일정표를 함께 보는 상황으로 연습합니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "inbound-done",
+          "chunks": [
+            {
+              "text": "入庫は",
+              "reading": "にゅうこは"
+            },
+            {
+              "text": "完了しましたか。",
+              "reading": "かんりょうしましたか。"
+            }
+          ],
+          "reading": "にゅうこは かんりょうしましたか。",
+          "meaning": "입고는 완료됐나요?",
+          "situation": "입고 결과를 확인할 때 직원에게 물어요.",
+          "action": "입고 행을 가리키며 묻고, 끝났는지 아직인지 확인해요.",
+          "cue": "입고 작업 현황",
+          "source": "표현집 p.6 사례 15의 입고 완료·결과 공유 의도를 확인 질문으로 재구성",
+          "note": "원문의 당일 완료 지시와 다르게 상태를 묻는 질문입니다. 마감 지시를 대신하지 않습니다. 응답은 두 덩어리만 듣고 구별합니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "added-phrase-3",
+          "chunks": [
+            {
+              "text": "会議室を押さえてください。",
+              "reading": "かいぎしつをおさえてください。"
+            }
+          ],
+          "reading": "かいぎしつをおさえてください。",
+          "meaning": "회의실을 확보해 주세요.",
+          "situation": "회의 장소를 준비해 달라고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "회의 장소를 준비해 달라고 할 때",
+          "source": "업무 일본어 표현집 p.2 · 사례 04",
+          "sourceExcerpt": "会議室を押さえてください。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-4",
+          "chunks": [
+            {
+              "text": "少し遅れそうです。",
+              "reading": "すこしおくれそうです。"
+            }
+          ],
+          "reading": "すこしおくれそうです。",
+          "meaning": "조금 늦을 것 같습니다.",
+          "situation": "회의에 늦을 것 같아 알릴 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "회의에 늦을 것 같아 알릴 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 24",
+          "sourceExcerpt": "少し遅れそうです。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "book-room",
+        "chunks": [
+          {
+            "text": "会議室を",
+            "reading": "かいぎしつを"
+          },
+          {
+            "text": "予約して",
+            "reading": "よやくして"
+          },
+          {
+            "text": "ください。",
+            "reading": "ください。"
+          }
+        ],
+        "reading": "かいぎしつを よやくして ください。",
+        "meaning": "회의실을 예약해 주세요.",
+        "situation": "시간과 장소가 표시된 일정을 함께 보며 직원에게 회의실 확보를 부탁해요.",
+        "action": "일정의 회의실 칸을 가리키며 요청해요.",
+        "cue": "함께 보는 회의 일정",
+        "source": "표현집 p.2 사례 04에서 구두용으로 재구성",
+        "note": "원문의 시간·모니터·빠른 일정 조건은 포함되지 않습니다. 조건이 이미 표시된 일정표를 함께 보는 상황으로 연습합니다.",
+        "kind": "구두용 재구성"
+      },
+      "reports": [
+        {
+          "title": "창고 이동과 작업 상태 · 용어 확인표 1",
+          "ids": [
+            "inbound",
+            "source-word-21",
+            "shipment",
+            "source-word-34"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[inbound]]</td></tr><tr><th>항목 2</th><td>[[source-word-21]]</td></tr><tr><th>항목 3</th><td>[[shipment]]</td></tr><tr><th>항목 4</th><td>[[source-word-34]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "창고 이동과 작업 상태 · 용어 확인표 2",
+          "ids": [
+            "source-word-29",
+            "source-word-43",
+            "source-word-25",
+            "source-word-32"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-29]]</td></tr><tr><th>항목 2</th><td>[[source-word-43]]</td></tr><tr><th>항목 3</th><td>[[source-word-25]]</td></tr><tr><th>항목 4</th><td>[[source-word-32]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "창고 이동과 작업 상태 · 용어 확인표 3",
+          "ids": [
+            "source-word-33",
+            "source-word-39",
+            "source-word-101"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-33]]</td></tr><tr><th>항목 2</th><td>[[source-word-39]]</td></tr><tr><th>항목 3</th><td>[[source-word-101]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "창고 이동과 작업 상태 · 용어 확인표 4",
+          "ids": [
+            "completed",
+            "source-word-119",
+            "source-word-120"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[completed]]</td></tr><tr><th>항목 2</th><td>[[source-word-119]]</td></tr><tr><th>항목 3</th><td>[[source-word-120]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[inbound]]</td></tr><tr><th>항목 2</th><td>[[source-word-21]]</td></tr><tr><th>항목 3</th><td>[[shipment]]</td></tr><tr><th>항목 4</th><td>[[source-word-34]]</td></tr></tbody></table>",
+      "source": "반품 판정 기준서 p.2 상태 표 / 반품 판정 기준서 · 초안 p.1 / 반품 판정 기준서 · 초안 p.2 / 업무 일본어 표현집 p.13 / 표현집 p.6 사례 15 · 반품 판정 기준서 p.2",
+      "groups": [
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "4",
+          "reading": "よん"
+        },
+        {
+          "value": "5",
+          "reading": "ご"
+        },
+        {
+          "value": "6",
+          "reading": "ろく"
+        }
+      ],
+      "a": "새 단어 7개 · 표현 2개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 7개 · 나머지 표현 2개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": [
+        {
+          "text": "完了しました。",
+          "reading": "かんりょうしました。",
+          "meaning": "완료됐습니다."
+        },
+        {
+          "text": "まだです。",
+          "reading": "まだです。",
+          "meaning": "아직입니다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "반품과 상품 상태",
+      "stage": "실무 1",
+      "level": 2,
+      "goal": "개봉·손상·기한을 구별하고 확인이 필요한 상품을 보류해요.",
+      "words": [
+        {
+          "id": "return",
+          "text": "返品",
+          "reading": "へんぴん",
+          "meaning": "반품",
+          "context": "거래처 등에서 되돌아온 상품",
+          "source": "반품 판정 기준서 p.1 제목",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "inspection",
+          "text": "検品",
+          "reading": "けんぴん",
+          "meaning": "검품",
+          "context": "상품의 상태를 살펴보는 작업",
+          "source": "반품 판정 기준서 p.1~2",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "hold",
+          "text": "保留",
+          "reading": "ほりゅう",
+          "meaning": "보류",
+          "context": "결정이나 다음 처리를 잠시 미룬 상태",
+          "source": "반품 판정 기준서 p.2~3",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-103",
+          "text": "未開封",
+          "reading": "みかいふう",
+          "meaning": "미개봉",
+          "context": "반품·상품 상태에서 쓰는 말 · 미개봉",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-104",
+          "text": "開封",
+          "reading": "かいふう",
+          "meaning": "개봉",
+          "context": "반품·상품 상태에서 쓰는 말 · 개봉",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-105",
+          "text": "内容物",
+          "reading": "ないようぶつ",
+          "meaning": "내용물",
+          "context": "반품·상품 상태에서 쓰는 말 · 내용물",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-106",
+          "text": "外箱",
+          "reading": "そとばこ",
+          "meaning": "겉상자",
+          "context": "반품·상품 상태에서 쓰는 말 · 겉상자",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-107",
+          "text": "損傷",
+          "reading": "そんしょう",
+          "meaning": "손상",
+          "context": "반품·상품 상태에서 쓰는 말 · 손상",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-108",
+          "text": "液漏れ",
+          "reading": "えきもれ",
+          "meaning": "액 누출",
+          "context": "반품·상품 상태에서 쓰는 말 · 액 누출",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-109",
+          "text": "使用期限",
+          "reading": "しようきげん",
+          "meaning": "사용 기한",
+          "context": "반품·상품 상태에서 쓰는 말 · 사용 기한",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-110",
+          "text": "期限切れ",
+          "reading": "きげんぎれ",
+          "meaning": "기한 만료",
+          "context": "반품·상품 상태에서 쓰는 말 · 기한 만료",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-112",
+          "text": "良品",
+          "reading": "りょうひん",
+          "meaning": "정상품",
+          "context": "반품·상품 상태에서 쓰는 말 · 정상품",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-115",
+          "text": "廃棄",
+          "reading": "はいき",
+          "meaning": "폐기",
+          "context": "반품·상품 상태에서 쓰는 말 · 폐기",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-113",
+          "text": "再販売",
+          "reading": "さいはんばい",
+          "meaning": "재판매",
+          "context": "반품·상품 상태에서 쓰는 말 · 재판매",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-117",
+          "text": "未定",
+          "reading": "みてい",
+          "meaning": "미정",
+          "context": "반품·상품 상태에서 쓰는 말 · 미정",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        },
+        {
+          "id": "source-word-116",
+          "text": "草案",
+          "reading": "そうあん",
+          "meaning": "초안",
+          "context": "반품·상품 상태에서 쓰는 말 · 초안",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 1",
+          "week": 3
+        }
+      ],
+      "phrases": [
+        {
+          "id": "hold-item",
+          "chunks": [
+            {
+              "text": "これは",
+              "reading": "これは"
+            },
+            {
+              "text": "保留に",
+              "reading": "ほりゅうに"
+            },
+            {
+              "text": "して",
+              "reading": "して"
+            },
+            {
+              "text": "ください。",
+              "reading": "ください。"
+            }
+          ],
+          "reading": "これは ほりゅうに して ください。",
+          "meaning": "이것은 보류해 주세요.",
+          "situation": "담당자 확인을 기다리기로 한 상품을 가리키며, 보류로 두라고 전달해요.",
+          "action": "이미 보류하기로 정한 상품을 짚고 문장 전체를 말해요.",
+          "cue": "확인 대기 중인 상품",
+          "source": "반품 판정 기준서 p.2~3의 保留를 바탕으로 교사가 만든 구두 연습문장",
+          "note": "반품 등급이나 보류 여부를 새로 판단하는 과제가 아닙니다. 원문은 초안이므로 그 규칙을 확정 업무 규칙으로 가르치지 않습니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "added-phrase-5",
+          "chunks": [
+            {
+              "text": "恐れ入りますが、確認をお願いします。",
+              "reading": "おそれいりますが、かくにんをおねがいします。"
+            }
+          ],
+          "reading": "おそれいりますが、かくにんをおねがいします。",
+          "meaning": "실례지만, 확인 부탁드립니다.",
+          "situation": "확인 요청 앞에 정중한 말을 붙일 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "확인 요청 앞에 정중한 말을 붙일 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 제5장",
+          "sourceExcerpt": "恐れ入りますが",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-6",
+          "chunks": [
+            {
+              "text": "お手数ですが、確認をお願いします。",
+              "reading": "おてすうですが、かくにんをおねがいします。"
+            }
+          ],
+          "reading": "おてすうですが、かくにんをおねがいします。",
+          "meaning": "번거로우시겠지만, 확인 부탁드립니다.",
+          "situation": "상대에게 수고를 부탁할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "상대에게 수고를 부탁할 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 제5장",
+          "sourceExcerpt": "お手数ですが",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-7",
+          "chunks": [
+            {
+              "text": "簡単で構いません。",
+              "reading": "かんたんでかまいません。"
+            }
+          ],
+          "reading": "かんたんでかまいません。",
+          "meaning": "간략해도 괜찮습니다.",
+          "situation": "결과를 짧게 알려줘도 된다고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "결과를 짧게 알려줘도 된다고 할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 15",
+          "sourceExcerpt": "簡単で構いません",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-8",
+          "chunks": [
+            {
+              "text": "必要な部分があればお知らせください。",
+              "reading": "ひつようなぶぶんがあればおしらせください。"
+            }
+          ],
+          "reading": "ひつようなぶぶんがあればおしらせください。",
+          "meaning": "필요한 부분이 있으면 알려 주세요.",
+          "situation": "필요한 도움을 알려달라고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "필요한 도움을 알려달라고 할 때",
+          "source": "업무 일본어 표현집 p.7 · 사례 19",
+          "sourceExcerpt": "必要な部分があればお知らせください。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "hold-item",
+        "chunks": [
+          {
+            "text": "これは",
+            "reading": "これは"
+          },
+          {
+            "text": "保留に",
+            "reading": "ほりゅうに"
+          },
+          {
+            "text": "して",
+            "reading": "して"
+          },
+          {
+            "text": "ください。",
+            "reading": "ください。"
+          }
+        ],
+        "reading": "これは ほりゅうに して ください。",
+        "meaning": "이것은 보류해 주세요.",
+        "situation": "담당자 확인을 기다리기로 한 상품을 가리키며, 보류로 두라고 전달해요.",
+        "action": "이미 보류하기로 정한 상품을 짚고 문장 전체를 말해요.",
+        "cue": "확인 대기 중인 상품",
+        "source": "반품 판정 기준서 p.2~3의 保留를 바탕으로 교사가 만든 구두 연습문장",
+        "note": "반품 등급이나 보류 여부를 새로 판단하는 과제가 아닙니다. 원문은 초안이므로 그 규칙을 확정 업무 규칙으로 가르치지 않습니다.",
+        "kind": "구두용 재구성"
+      },
+      "reports": [
+        {
+          "title": "반품과 상품 상태 · 용어 확인표 1",
+          "ids": [
+            "return",
+            "inspection",
+            "hold",
+            "source-word-103"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[return]]</td></tr><tr><th>항목 2</th><td>[[inspection]]</td></tr><tr><th>항목 3</th><td>[[hold]]</td></tr><tr><th>항목 4</th><td>[[source-word-103]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "반품과 상품 상태 · 용어 확인표 2",
+          "ids": [
+            "source-word-104",
+            "source-word-105",
+            "source-word-106",
+            "source-word-107"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-104]]</td></tr><tr><th>항목 2</th><td>[[source-word-105]]</td></tr><tr><th>항목 3</th><td>[[source-word-106]]</td></tr><tr><th>항목 4</th><td>[[source-word-107]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "반품과 상품 상태 · 용어 확인표 3",
+          "ids": [
+            "source-word-108",
+            "source-word-109",
+            "source-word-110",
+            "source-word-112"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-108]]</td></tr><tr><th>항목 2</th><td>[[source-word-109]]</td></tr><tr><th>항목 3</th><td>[[source-word-110]]</td></tr><tr><th>항목 4</th><td>[[source-word-112]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "반품과 상품 상태 · 용어 확인표 4",
+          "ids": [
+            "source-word-115",
+            "source-word-113",
+            "source-word-117",
+            "source-word-116"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-115]]</td></tr><tr><th>항목 2</th><td>[[source-word-113]]</td></tr><tr><th>항목 3</th><td>[[source-word-117]]</td></tr><tr><th>항목 4</th><td>[[source-word-116]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[return]]</td></tr><tr><th>항목 2</th><td>[[inspection]]</td></tr><tr><th>항목 3</th><td>[[hold]]</td></tr><tr><th>항목 4</th><td>[[source-word-103]]</td></tr></tbody></table>",
+      "source": "반품 판정 기준서 p.1 제목 / 반품 판정 기준서 p.1~2 / 반품 판정 기준서 p.2~3 / 반품 판정 기준서 · 초안 p.1",
+      "groups": [
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "7",
+          "reading": "なな"
+        },
+        {
+          "value": "8",
+          "reading": "はち"
+        },
+        {
+          "value": "9",
+          "reading": "きゅう"
+        },
+        {
+          "value": "10",
+          "reading": "じゅう"
+        }
+      ],
+      "a": "새 단어 8개 · 표현 3개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 8개 · 나머지 표현 2개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 4,
+      "title": "선적·운송과 작업 요청",
+      "stage": "실무 2",
+      "level": 2,
+      "goal": "선적부터 창고 작업까지의 순서를 읽고 기한·결과를 전달해요.",
+      "words": [
+        {
+          "id": "source-word-22",
+          "text": "出荷指示",
+          "reading": "しゅっかしじ",
+          "meaning": "출하 지시",
+          "context": "물류·창고에서 쓰는 말 · 출하 지시",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-23",
+          "text": "船積み",
+          "reading": "ふなづみ",
+          "meaning": "선적",
+          "context": "물류·창고에서 쓰는 말 · 선적",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-24",
+          "text": "通関",
+          "reading": "つうかん",
+          "meaning": "통관",
+          "context": "물류·창고에서 쓰는 말 · 통관",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-42",
+          "text": "船積書類",
+          "reading": "ふなづみしょるい",
+          "meaning": "선적 서류",
+          "context": "물류·창고에서 쓰는 말 · 선적 서류",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-38",
+          "text": "フォワーダー",
+          "reading": "フォワーダー",
+          "meaning": "포워더·운송주선업자",
+          "context": "물류·창고에서 쓰는 말 · 포워더·운송주선업자",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-67",
+          "text": "国内配送",
+          "reading": "こくないはいそう",
+          "meaning": "국내 배송",
+          "context": "비용·집계에서 쓰는 말 · 국내 배송",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-68",
+          "text": "国際輸送",
+          "reading": "こくさいゆそう",
+          "meaning": "국제 운송",
+          "context": "비용·집계에서 쓰는 말 · 국제 운송",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-26",
+          "text": "横持ち",
+          "reading": "よこもち",
+          "meaning": "거점 간 운송",
+          "context": "물류·창고에서 쓰는 말 · 거점 간 운송",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-31",
+          "text": "デバンニング",
+          "reading": "デバンニング",
+          "meaning": "컨테이너 적출 작업",
+          "context": "물류·창고에서 쓰는 말 · 컨테이너 적출 작업",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-45",
+          "text": "在庫移動",
+          "reading": "ざいこいどう",
+          "meaning": "재고 이동",
+          "context": "물류·창고에서 쓰는 말 · 재고 이동",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-35",
+          "text": "什器",
+          "reading": "じゅうき",
+          "meaning": "집기",
+          "context": "물류·창고에서 쓰는 말 · 집기",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-36",
+          "text": "販促",
+          "reading": "はんそく",
+          "meaning": "판촉",
+          "context": "물류·창고에서 쓰는 말 · 판촉",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-46",
+          "text": "販促物",
+          "reading": "はんそくぶつ",
+          "meaning": "판촉물",
+          "context": "물류·창고에서 쓰는 말 · 판촉물",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-80",
+          "text": "拠点",
+          "reading": "きょてん",
+          "meaning": "거점",
+          "context": "비교·분석에서 쓰는 말 · 거점",
+          "source": "물류비 보고서 p.3",
+          "sourceKey": "costs",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-91",
+          "text": "段ボール",
+          "reading": "だんボール",
+          "meaning": "골판지 상자",
+          "context": "비용 항목·조건에서 쓰는 말 · 골판지 상자",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-37",
+          "text": "物量",
+          "reading": "ぶつりょう",
+          "meaning": "물동량",
+          "context": "물류·창고에서 쓰는 말 · 물동량",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-126",
+          "text": "当日中",
+          "reading": "とうじつちゅう",
+          "meaning": "당일 중",
+          "context": "현장·보고에서 쓰는 말 · 당일 중",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        },
+        {
+          "id": "source-word-57",
+          "text": "格納する",
+          "reading": "かくのうする",
+          "meaning": "폴더 등에 저장하다",
+          "context": "계약·사내 절차에서 쓰는 말 · 폴더 등에 저장하다",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 2,
+          "difficulty": "실무 2",
+          "week": 4
+        }
+      ],
+      "phrases": [
+        {
+          "id": "added-phrase-9",
+          "chunks": [
+            {
+              "text": "本日中にお願いします。",
+              "reading": "ほんじつちゅうにおねがいします。"
+            }
+          ],
+          "reading": "ほんじつちゅうにおねがいします。",
+          "meaning": "금일 중에 부탁드립니다.",
+          "situation": "이미 합의한 작업의 기한을 말할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "이미 합의한 작업의 기한을 말할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 15",
+          "sourceExcerpt": "本日中に",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-10",
+          "chunks": [
+            {
+              "text": "対応をお願いします。",
+              "reading": "たいおうをおねがいします。"
+            }
+          ],
+          "reading": "たいおうをおねがいします。",
+          "meaning": "대응 부탁드립니다.",
+          "situation": "앞서 설명한 업무의 처리를 요청할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 설명한 업무의 처리를 요청할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 15",
+          "sourceExcerpt": "対応をお願いします。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-11",
+          "chunks": [
+            {
+              "text": "入庫結果の共有をお願いします。",
+              "reading": "にゅうこけっかのきょうゆうをおねがいします。"
+            }
+          ],
+          "reading": "にゅうこけっかのきょうゆうをおねがいします。",
+          "meaning": "입고 결과 공유 부탁드립니다.",
+          "situation": "입고 처리 결과를 요청할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "입고 처리 결과를 요청할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 15",
+          "sourceExcerpt": "入庫結果の共有",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-12",
+          "chunks": [
+            {
+              "text": "到着予定日を教えてください。",
+              "reading": "とうちゃくよていびをおしえてください。"
+            }
+          ],
+          "reading": "とうちゃくよていびをおしえてください。",
+          "meaning": "도착 예정일을 알려 주세요.",
+          "situation": "화물이 언제 도착하는지 물을 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "화물이 언제 도착하는지 물을 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 15",
+          "sourceExcerpt": "到着予定日",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-13",
+          "chunks": [
+            {
+              "text": "先に進めておいていただけますか。",
+              "reading": "さきにすすめておいていただけますか。"
+            }
+          ],
+          "reading": "さきにすすめておいていただけますか。",
+          "meaning": "먼저 진행해 두실 수 있을까요?",
+          "situation": "합의한 작업을 먼저 진행해 달라고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "합의한 작업을 먼저 진행해 달라고 할 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 24",
+          "sourceExcerpt": "先に進めておいていただけますか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "added-phrase-9",
+        "chunks": [
+          {
+            "text": "本日中にお願いします。",
+            "reading": "ほんじつちゅうにおねがいします。"
+          }
+        ],
+        "reading": "ほんじつちゅうにおねがいします。",
+        "meaning": "금일 중에 부탁드립니다.",
+        "situation": "이미 합의한 작업의 기한을 말할 때。",
+        "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+        "cue": "이미 합의한 작업의 기한을 말할 때",
+        "source": "업무 일본어 표현집 p.6 · 사례 15",
+        "sourceExcerpt": "本日中に",
+        "kind": "학습용 재구성",
+        "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+      },
+      "reports": [
+        {
+          "title": "선적·운송과 작업 요청 · 용어 확인표 1",
+          "ids": [
+            "source-word-22",
+            "source-word-23",
+            "source-word-24",
+            "source-word-42"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-22]]</td></tr><tr><th>항목 2</th><td>[[source-word-23]]</td></tr><tr><th>항목 3</th><td>[[source-word-24]]</td></tr><tr><th>항목 4</th><td>[[source-word-42]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "선적·운송과 작업 요청 · 용어 확인표 2",
+          "ids": [
+            "source-word-38",
+            "source-word-67",
+            "source-word-68",
+            "source-word-26"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-38]]</td></tr><tr><th>항목 2</th><td>[[source-word-67]]</td></tr><tr><th>항목 3</th><td>[[source-word-68]]</td></tr><tr><th>항목 4</th><td>[[source-word-26]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "선적·운송과 작업 요청 · 용어 확인표 3",
+          "ids": [
+            "source-word-31",
+            "source-word-45",
+            "source-word-35",
+            "source-word-36"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-31]]</td></tr><tr><th>항목 2</th><td>[[source-word-45]]</td></tr><tr><th>항목 3</th><td>[[source-word-35]]</td></tr><tr><th>항목 4</th><td>[[source-word-36]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "선적·운송과 작업 요청 · 용어 확인표 4",
+          "ids": [
+            "source-word-46",
+            "source-word-80",
+            "source-word-91"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-46]]</td></tr><tr><th>항목 2</th><td>[[source-word-80]]</td></tr><tr><th>항목 3</th><td>[[source-word-91]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "선적·운송과 작업 요청 · 용어 확인표 5",
+          "ids": [
+            "source-word-37",
+            "source-word-126",
+            "source-word-57"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-37]]</td></tr><tr><th>항목 2</th><td>[[source-word-126]]</td></tr><tr><th>항목 3</th><td>[[source-word-57]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-22]]</td></tr><tr><th>항목 2</th><td>[[source-word-23]]</td></tr><tr><th>항목 3</th><td>[[source-word-24]]</td></tr><tr><th>항목 4</th><td>[[source-word-42]]</td></tr></tbody></table>",
+      "source": "물류비 보고서 p.1 / 물류비 보고서 p.3 / 물류비 보고서 p.4 / 반품 판정 기준서 · 초안 p.3 / 업무 일본어 표현집 p.13 / 업무 일본어 표현집 p.14",
+      "groups": [
+        "costs",
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "100円",
+          "reading": "ひゃくえん"
+        },
+        {
+          "value": "200円",
+          "reading": "にひゃくえん"
+        },
+        {
+          "value": "300円",
+          "reading": "さんびゃくえん"
+        }
+      ],
+      "a": "새 단어 9개 · 표현 3개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 9개 · 나머지 표현 2개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 5,
+      "title": "비용 항목과 문서",
+      "stage": "응용 1",
+      "level": 3,
+      "goal": "비용 항목과 문서 종류를 구별하고 합계·명세서를 확인해요.",
+      "words": [
+        {
+          "id": "logistics-cost",
+          "text": "物流費",
+          "reading": "ぶつりゅうひ",
+          "meaning": "물류비",
+          "context": "물류 업무에 드는 비용",
+          "source": "물류비 보고서 p.1 제목",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "transport-cost",
+          "text": "運送費",
+          "reading": "うんそうひ",
+          "meaning": "운송비",
+          "context": "운송에 드는 비용 항목",
+          "source": "물류비 보고서 p.4 표",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "storage-cost",
+          "text": "保管費",
+          "reading": "ほかんひ",
+          "meaning": "보관비",
+          "context": "상품 보관에 드는 비용 항목",
+          "source": "물류비 보고서 p.4 표",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-27",
+          "text": "保管料",
+          "reading": "ほかんりょう",
+          "meaning": "보관료",
+          "context": "물류·창고에서 쓰는 말 · 보관료",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-40",
+          "text": "入庫費",
+          "reading": "にゅうこひ",
+          "meaning": "입고비",
+          "context": "물류·창고에서 쓰는 말 · 입고비",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-41",
+          "text": "出庫料",
+          "reading": "しゅっこりょう",
+          "meaning": "출고료",
+          "context": "물류·창고에서 쓰는 말 · 출고료",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-28",
+          "text": "運搬費",
+          "reading": "うんぱんひ",
+          "meaning": "운반비",
+          "context": "물류·창고에서 쓰는 말 · 운반비",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-82",
+          "text": "庫内作業費",
+          "reading": "こないさぎょうひ",
+          "meaning": "창고 내 작업비",
+          "context": "비용 항목·조건에서 쓰는 말 · 창고 내 작업비",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-83",
+          "text": "資材費",
+          "reading": "しざいひ",
+          "meaning": "자재비",
+          "context": "비용 항목·조건에서 쓰는 말 · 자재비",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-84",
+          "text": "管理費",
+          "reading": "かんりひ",
+          "meaning": "관리비",
+          "context": "비용 항목·조건에서 쓰는 말 · 관리비",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-87",
+          "text": "固定費",
+          "reading": "こていひ",
+          "meaning": "고정비",
+          "context": "비용 항목·조건에서 쓰는 말 · 고정비",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "amount",
+          "text": "金額",
+          "reading": "きんがく",
+          "meaning": "금액",
+          "context": "돈의 액수",
+          "source": "물류비 보고서 p.2 표 머리글",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "total",
+          "text": "合計",
+          "reading": "ごうけい",
+          "meaning": "합계",
+          "context": "여러 값을 더한 전체 값",
+          "source": "물류비 보고서 p.4 표",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "unit-price",
+          "text": "単価",
+          "reading": "たんか",
+          "meaning": "단가",
+          "context": "한 단위에 적용되는 가격",
+          "source": "표현집 p.12 · 물류비 보고서 p.4 설명",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "invoice",
+          "text": "請求書",
+          "reading": "せいきゅうしょ",
+          "meaning": "청구서",
+          "context": "지급할 금액을 청구하는 문서",
+          "source": "표현집 p.12 · 물류비 보고서 p.4~6",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "statement",
+          "text": "明細書",
+          "reading": "めいさいしょ",
+          "meaning": "명세서",
+          "context": "항목별 상세내역을 보여 주는 문서",
+          "source": "표현집 p.2 사례 06, p.12",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-5",
+          "text": "見積書",
+          "reading": "みつもりしょ",
+          "meaning": "견적서",
+          "context": "품의·회계에서 쓰는 말 · 견적서",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-30",
+          "text": "運賃明細",
+          "reading": "うんちんめいさい",
+          "meaning": "운임 명세",
+          "context": "물류·창고에서 쓰는 말 · 운임 명세",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-6",
+          "text": "支払先",
+          "reading": "しはらいさき",
+          "meaning": "지급처",
+          "context": "품의·회계에서 쓰는 말 · 지급처",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-63",
+          "text": "支払額",
+          "reading": "しはらいがく",
+          "meaning": "지급액",
+          "context": "비용·집계에서 쓰는 말 · 지급액",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        },
+        {
+          "id": "source-word-44",
+          "text": "大型宅配便",
+          "reading": "おおがたたくはいびん",
+          "meaning": "대형 택배",
+          "context": "물류·창고에서 쓰는 말 · 대형 택배",
+          "source": "업무 일본어 표현집 p.13",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 1",
+          "week": 5
+        }
+      ],
+      "phrases": [
+        {
+          "id": "ask-total",
+          "chunks": [
+            {
+              "text": "合計は",
+              "reading": "ごうけいは"
+            },
+            {
+              "text": "いくらですか。",
+              "reading": "いくらですか。"
+            }
+          ],
+          "reading": "ごうけいは いくらですか。",
+          "meaning": "합계는 얼마인가요?",
+          "situation": "표의 합계 금액을 확인하려고 직원에게 물어요.",
+          "action": "합계 칸을 가리키며 질문하고 숫자 카드를 확인해요.",
+          "cue": "물어볼 합계 칸",
+          "source": "물류비 보고서의 合計를 바탕으로 교사가 만든 구두 연습문장",
+          "note": "원문 인용이 아닙니다. 처음에는 교사가 금액 카드를 보여 줘도 됩니다. 숫자 듣기가 익숙해지면 음성만 듣고 카드를 고르게 합니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "send-statement",
+          "chunks": [
+            {
+              "text": "明細書を",
+              "reading": "めいさいしょを"
+            },
+            {
+              "text": "送って",
+              "reading": "おくって"
+            },
+            {
+              "text": "ください。",
+              "reading": "ください。"
+            }
+          ],
+          "reading": "めいさいしょを おくって ください。",
+          "meaning": "명세서를 보내 주세요.",
+          "situation": "직원이 명세서를 가지고 있는 것을 확인한 뒤 요청해요.",
+          "action": "청구서와 명세서 중 필요한 문서를 짚고 요청해요.",
+          "cue": "필요한 상세내역 문서",
+          "source": "표현집 p.2 사례 06에서 구두용으로 재구성",
+          "note": "수령 여부 확인·공유폴더·배부 목적은 생략했습니다. 직원이 이미 명세서를 보유한 상황에서 사용합니다.",
+          "kind": "구두용 재구성"
+        },
+        {
+          "id": "added-phrase-14",
+          "chunks": [
+            {
+              "text": "お教えいただけますでしょうか。",
+              "reading": "おおしえいただけますでしょうか。"
+            }
+          ],
+          "reading": "おおしえいただけますでしょうか。",
+          "meaning": "알려주실 수 있을까요?",
+          "situation": "앞서 밝힌 정보에 대해 정중하게 물을 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 밝힌 정보에 대해 정중하게 물을 때",
+          "source": "업무 일본어 표현집 p.2 · 사례 03",
+          "sourceExcerpt": "お教えいただけますでしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-15",
+          "chunks": [
+            {
+              "text": "ご共有いただけますでしょうか。",
+              "reading": "ごきょうゆういただけますでしょうか。"
+            }
+          ],
+          "reading": "ごきょうゆういただけますでしょうか。",
+          "meaning": "공유해 주실 수 있을까요?",
+          "situation": "필요한 자료를 명시한 뒤 공유를 요청할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "필요한 자료를 명시한 뒤 공유를 요청할 때",
+          "source": "업무 일본어 표현집 p.2 · 사례 05",
+          "sourceExcerpt": "ご共有いただけますでしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-16",
+          "chunks": [
+            {
+              "text": "費用が発生します。",
+              "reading": "ひようがはっせいします。"
+            }
+          ],
+          "reading": "ひようがはっせいします。",
+          "meaning": "비용이 발생합니다.",
+          "situation": "비용 발생 사실을 전달할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "비용 발생 사실을 전달할 때",
+          "source": "업무 일본어 표현집 p.3 · 사례 08",
+          "sourceExcerpt": "費用が発生する",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "ask-total",
+        "chunks": [
+          {
+            "text": "合計は",
+            "reading": "ごうけいは"
+          },
+          {
+            "text": "いくらですか。",
+            "reading": "いくらですか。"
+          }
+        ],
+        "reading": "ごうけいは いくらですか。",
+        "meaning": "합계는 얼마인가요?",
+        "situation": "표의 합계 금액을 확인하려고 직원에게 물어요.",
+        "action": "합계 칸을 가리키며 질문하고 숫자 카드를 확인해요.",
+        "cue": "물어볼 합계 칸",
+        "source": "물류비 보고서의 合計를 바탕으로 교사가 만든 구두 연습문장",
+        "note": "원문 인용이 아닙니다. 처음에는 교사가 금액 카드를 보여 줘도 됩니다. 숫자 듣기가 익숙해지면 음성만 듣고 카드를 고르게 합니다.",
+        "kind": "구두용 재구성"
+      },
+      "reports": [
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 1",
+          "ids": [
+            "logistics-cost",
+            "transport-cost",
+            "storage-cost",
+            "source-word-27"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[logistics-cost]]</td></tr><tr><th>항목 2</th><td>[[transport-cost]]</td></tr><tr><th>항목 3</th><td>[[storage-cost]]</td></tr><tr><th>항목 4</th><td>[[source-word-27]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 2",
+          "ids": [
+            "source-word-40",
+            "source-word-41",
+            "source-word-28",
+            "source-word-82"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-40]]</td></tr><tr><th>항목 2</th><td>[[source-word-41]]</td></tr><tr><th>항목 3</th><td>[[source-word-28]]</td></tr><tr><th>항목 4</th><td>[[source-word-82]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 3",
+          "ids": [
+            "source-word-83",
+            "source-word-84",
+            "source-word-87",
+            "amount"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-83]]</td></tr><tr><th>항목 2</th><td>[[source-word-84]]</td></tr><tr><th>항목 3</th><td>[[source-word-87]]</td></tr><tr><th>항목 4</th><td>[[amount]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 4",
+          "ids": [
+            "total",
+            "unit-price",
+            "invoice"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[total]]</td></tr><tr><th>항목 2</th><td>[[unit-price]]</td></tr><tr><th>항목 3</th><td>[[invoice]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 5",
+          "ids": [
+            "statement",
+            "source-word-5",
+            "source-word-30"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[statement]]</td></tr><tr><th>항목 2</th><td>[[source-word-5]]</td></tr><tr><th>항목 3</th><td>[[source-word-30]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비용 항목과 문서 · 용어 확인표 6",
+          "ids": [
+            "source-word-6",
+            "source-word-63",
+            "source-word-44"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-6]]</td></tr><tr><th>항목 2</th><td>[[source-word-63]]</td></tr><tr><th>항목 3</th><td>[[source-word-44]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[logistics-cost]]</td></tr><tr><th>항목 2</th><td>[[transport-cost]]</td></tr><tr><th>항목 3</th><td>[[storage-cost]]</td></tr><tr><th>항목 4</th><td>[[source-word-27]]</td></tr></tbody></table>",
+      "source": "물류비 보고서 p.1 / 물류비 보고서 p.1 제목 / 물류비 보고서 p.2 표 머리글 / 물류비 보고서 p.4 / 물류비 보고서 p.4 표 / 업무 일본어 표현집 p.12 / 업무 일본어 표현집 p.13 / 표현집 p.12 · 물류비 보고서 p.4 설명 / 표현집 p.12 · 물류비 보고서 p.4~6 / 표현집 p.2 사례 06, p.12",
+      "groups": [
+        "costs",
+        "phrases"
+      ],
+      "numbers": [
+        {
+          "value": "1,000円",
+          "reading": "せんえん"
+        },
+        {
+          "value": "2,000円",
+          "reading": "にせんえん"
+        },
+        {
+          "value": "3,000円",
+          "reading": "さんぜんえん"
+        }
+      ],
+      "a": "새 단어 11개 · 표현 3개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 10개 · 나머지 표현 2개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 6,
+      "title": "품의·승인과 지급",
+      "stage": "응용 2",
+      "level": 3,
+      "goal": "신청·승인 상태와 세금·지급 용어를 구별하고 절차를 확인해요.",
+      "words": [
+        {
+          "id": "source-word-1",
+          "text": "稟議",
+          "reading": "りんぎ",
+          "meaning": "품의",
+          "context": "품의·회계에서 쓰는 말 · 품의",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-2",
+          "text": "申請する",
+          "reading": "しんせいする",
+          "meaning": "신청하다",
+          "context": "품의·회계에서 쓰는 말 · 신청하다",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-130",
+          "text": "承認",
+          "reading": "しょうにん",
+          "meaning": "승인",
+          "context": "현장·보고에서 쓰는 말 · 승인",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-70",
+          "text": "未承認",
+          "reading": "みしょうにん",
+          "meaning": "미승인",
+          "context": "비용·집계에서 쓰는 말 · 미승인",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-13",
+          "text": "事前稟議",
+          "reading": "じぜんりんぎ",
+          "meaning": "사전 품의",
+          "context": "품의·회계에서 쓰는 말 · 사전 품의",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-14",
+          "text": "実行稟議",
+          "reading": "じっこうりんぎ",
+          "meaning": "실행 품의",
+          "context": "품의·회계에서 쓰는 말 · 실행 품의",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-15",
+          "text": "事後稟議書",
+          "reading": "じごりんぎしょ",
+          "meaning": "사후 품의서",
+          "context": "품의·회계에서 쓰는 말 · 사후 품의서",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-60",
+          "text": "税抜",
+          "reading": "ぜいぬき",
+          "meaning": "세금 별도",
+          "context": "비용·집계에서 쓰는 말 · 세금 별도",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-61",
+          "text": "税込",
+          "reading": "ぜいこみ",
+          "meaning": "세금 포함",
+          "context": "비용·집계에서 쓰는 말 · 세금 포함",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-62",
+          "text": "消費税",
+          "reading": "しょうひぜい",
+          "meaning": "소비세",
+          "context": "비용·집계에서 쓰는 말 · 소비세",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-10",
+          "text": "関税・付帯費用",
+          "reading": "かんぜい・ふたいひよう",
+          "meaning": "관세·부대비용",
+          "context": "품의·회계에서 쓰는 말 · 관세·부대비용",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-11",
+          "text": "納付する",
+          "reading": "のうふする",
+          "meaning": "납부하다",
+          "context": "품의·회계에서 쓰는 말 · 납부하다",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-66",
+          "text": "輸入附帯費",
+          "reading": "ゆにゅうふたいひ",
+          "meaning": "수입 부대비용",
+          "context": "비용·집계에서 쓰는 말 · 수입 부대비용",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-69",
+          "text": "商品原価",
+          "reading": "しょうひんげんか",
+          "meaning": "상품 원가",
+          "context": "비용·집계에서 쓰는 말 · 상품 원가",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-77",
+          "text": "計上",
+          "reading": "けいじょう",
+          "meaning": "계상",
+          "context": "비교·분석에서 쓰는 말 · 계상",
+          "source": "물류비 보고서 p.2",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-98",
+          "text": "控除",
+          "reading": "こうじょ",
+          "meaning": "공제",
+          "context": "정산·일정에서 쓰는 말 · 공제",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-9",
+          "text": "相殺する",
+          "reading": "そうさいする",
+          "meaning": "상계하다",
+          "context": "품의·회계에서 쓰는 말 · 상계하다",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-97",
+          "text": "支払期日",
+          "reading": "しはらいきじつ",
+          "meaning": "지급 기일",
+          "context": "정산·일정에서 쓰는 말 · 지급 기일",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-72",
+          "text": "重複申請",
+          "reading": "じゅうふくしんせい",
+          "meaning": "중복 신청",
+          "context": "비용·집계에서 쓰는 말 · 중복 신청",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-92",
+          "text": "重複請求",
+          "reading": "じゅうふくせいきゅう",
+          "meaning": "중복 청구",
+          "context": "정산·일정에서 쓰는 말 · 중복 청구",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-93",
+          "text": "訂正",
+          "reading": "ていせい",
+          "meaning": "정정",
+          "context": "정산·일정에서 쓰는 말 · 정정",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        },
+        {
+          "id": "source-word-71",
+          "text": "除外",
+          "reading": "じょがい",
+          "meaning": "제외",
+          "context": "비용·집계에서 쓰는 말 · 제외",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 3,
+          "difficulty": "응용 2",
+          "week": 6
+        }
+      ],
+      "phrases": [
+        {
+          "id": "added-phrase-17",
+          "chunks": [
+            {
+              "text": "申請してください。",
+              "reading": "しんせいしてください。"
+            }
+          ],
+          "reading": "しんせいしてください。",
+          "meaning": "신청해 주세요.",
+          "situation": "앞서 지정한 건의 신청을 요청할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 지정한 건의 신청을 요청할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 16",
+          "sourceExcerpt": "申請してください。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-18",
+          "chunks": [
+            {
+              "text": "ご提出で結構です。",
+              "reading": "ごていしゅつでけっこうです。"
+            }
+          ],
+          "reading": "ごていしゅつでけっこうです。",
+          "meaning": "제출하시면 됩니다.",
+          "situation": "필요한 서류를 밝힌 뒤 제출만 하면 된다고 안내할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "필요한 서류를 밝힌 뒤 제출만 하면 된다고 안내할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 16",
+          "sourceExcerpt": "ご提出で結構です。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-19",
+          "chunks": [
+            {
+              "text": "ご提出いただかなくて結構です。",
+              "reading": "ごていしゅついただかなくてけっこうです。"
+            }
+          ],
+          "reading": "ごていしゅついただかなくてけっこうです。",
+          "meaning": "제출하지 않으셔도 됩니다.",
+          "situation": "불필요한 서류 제출을 생략하도록 안내할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "불필요한 서류 제출을 생략하도록 안내할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 17",
+          "sourceExcerpt": "ご提出いただかなくて結構です。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-20",
+          "chunks": [
+            {
+              "text": "上げていただかなくて大丈夫です。",
+              "reading": "あげていただかなくてだいじょうぶです。"
+            }
+          ],
+          "reading": "あげていただかなくてだいじょうぶです。",
+          "meaning": "올려주시지 않아도 괜찮습니다.",
+          "situation": "불필요한 품의 상신을 생략하도록 안내할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "불필요한 품의 상신을 생략하도록 안내할 때",
+          "source": "업무 일본어 표현집 p.10 · 사례 25",
+          "sourceExcerpt": "上げていただかなくて大丈夫です。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-21",
+          "chunks": [
+            {
+              "text": "実行稟議の番号は何番になりますか。",
+              "reading": "じっこうりんぎのばんごうはなんばんになりますか。"
+            }
+          ],
+          "reading": "じっこうりんぎのばんごうはなんばんになりますか。",
+          "meaning": "실행 품의 번호는 몇 번인가요?",
+          "situation": "품의 건의 번호를 확인할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "품의 건의 번호를 확인할 때",
+          "source": "업무 일본어 표현집 p.4 · 사례 12",
+          "sourceExcerpt": "実行稟議の番号は何番になりますか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-22",
+          "chunks": [
+            {
+              "text": "この流れで合っていますか。",
+              "reading": "このながれであっていますか。"
+            }
+          ],
+          "reading": "このながれであっていますか。",
+          "meaning": "이 절차가 맞나요?",
+          "situation": "함께 보는 절차도를 확인할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "함께 보는 절차도를 확인할 때",
+          "source": "업무 일본어 표현집 p.4 · 사례 12",
+          "sourceExcerpt": "という流れで合っていますか。",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "added-phrase-17",
+        "chunks": [
+          {
+            "text": "申請してください。",
+            "reading": "しんせいしてください。"
+          }
+        ],
+        "reading": "しんせいしてください。",
+        "meaning": "신청해 주세요.",
+        "situation": "앞서 지정한 건의 신청을 요청할 때。",
+        "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+        "cue": "앞서 지정한 건의 신청을 요청할 때",
+        "source": "업무 일본어 표현집 p.6 · 사례 16",
+        "sourceExcerpt": "申請してください。",
+        "kind": "원문 발췌",
+        "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+      },
+      "reports": [
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 1",
+          "ids": [
+            "source-word-1",
+            "source-word-2",
+            "source-word-130",
+            "source-word-70"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-1]]</td></tr><tr><th>항목 2</th><td>[[source-word-2]]</td></tr><tr><th>항목 3</th><td>[[source-word-130]]</td></tr><tr><th>항목 4</th><td>[[source-word-70]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 2",
+          "ids": [
+            "source-word-13",
+            "source-word-14",
+            "source-word-15",
+            "source-word-60"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-13]]</td></tr><tr><th>항목 2</th><td>[[source-word-14]]</td></tr><tr><th>항목 3</th><td>[[source-word-15]]</td></tr><tr><th>항목 4</th><td>[[source-word-60]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 3",
+          "ids": [
+            "source-word-61",
+            "source-word-62",
+            "source-word-10",
+            "source-word-11"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-61]]</td></tr><tr><th>항목 2</th><td>[[source-word-62]]</td></tr><tr><th>항목 3</th><td>[[source-word-10]]</td></tr><tr><th>항목 4</th><td>[[source-word-11]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 4",
+          "ids": [
+            "source-word-66",
+            "source-word-69",
+            "source-word-77",
+            "source-word-98"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-66]]</td></tr><tr><th>항목 2</th><td>[[source-word-69]]</td></tr><tr><th>항목 3</th><td>[[source-word-77]]</td></tr><tr><th>항목 4</th><td>[[source-word-98]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 5",
+          "ids": [
+            "source-word-9",
+            "source-word-97",
+            "source-word-72"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-9]]</td></tr><tr><th>항목 2</th><td>[[source-word-97]]</td></tr><tr><th>항목 3</th><td>[[source-word-72]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "품의·승인과 지급 · 용어 확인표 6",
+          "ids": [
+            "source-word-92",
+            "source-word-93",
+            "source-word-71"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-92]]</td></tr><tr><th>항목 2</th><td>[[source-word-93]]</td></tr><tr><th>항목 3</th><td>[[source-word-71]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-1]]</td></tr><tr><th>항목 2</th><td>[[source-word-2]]</td></tr><tr><th>항목 3</th><td>[[source-word-130]]</td></tr><tr><th>항목 4</th><td>[[source-word-70]]</td></tr></tbody></table>",
+      "source": "물류비 보고서 p.1 / 물류비 보고서 p.2 / 물류비 보고서 p.6 / 반품 판정 기준서 · 초안 p.3 / 업무 일본어 표현집 p.12",
+      "groups": [
+        "costs",
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "1個",
+          "reading": "いっこ"
+        },
+        {
+          "value": "2個",
+          "reading": "にこ"
+        },
+        {
+          "value": "3個",
+          "reading": "さんこ"
+        }
+      ],
+      "a": "새 단어 11개 · 표현 3개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 11개 · 나머지 표현 3개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 7,
+      "title": "비교·분석과 배부",
+      "stage": "심화 1",
+      "level": 4,
+      "goal": "증감·구성비·배부 기준을 읽고 비교 결과를 짧게 보고해요.",
+      "words": [
+        {
+          "id": "change",
+          "text": "増減",
+          "reading": "ぞうげん",
+          "meaning": "증감",
+          "context": "비교 기준에 비해 늘거나 줄어든 값",
+          "source": "물류비 보고서 p.3~4 표 머리글",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-7",
+          "text": "前月比",
+          "reading": "ぜんげつひ",
+          "meaning": "전월 대비",
+          "context": "품의·회계에서 쓰는 말 · 전월 대비",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-18",
+          "text": "前年同月比",
+          "reading": "ぜんねんどうげつひ",
+          "meaning": "전년 동월 대비",
+          "context": "품의·회계에서 쓰는 말 · 전년 동월 대비",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-73",
+          "text": "売上高",
+          "reading": "うりあげだか",
+          "meaning": "매출액",
+          "context": "비교·분석에서 쓰는 말 · 매출액",
+          "source": "물류비 보고서 p.2",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-74",
+          "text": "比率",
+          "reading": "ひりつ",
+          "meaning": "비율",
+          "context": "비교·분석에서 쓰는 말 · 비율",
+          "source": "물류비 보고서 p.2",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-75",
+          "text": "構成比",
+          "reading": "こうせいひ",
+          "meaning": "구성비",
+          "context": "비교·분석에서 쓰는 말 · 구성비",
+          "source": "물류비 보고서 p.2",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-76",
+          "text": "月平均",
+          "reading": "つきへいきん",
+          "meaning": "월평균",
+          "context": "비교·분석에서 쓰는 말 · 월평균",
+          "source": "물류비 보고서 p.2",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-65",
+          "text": "集計",
+          "reading": "しゅうけい",
+          "meaning": "집계",
+          "context": "비용·집계에서 쓰는 말 · 집계",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-78",
+          "text": "内訳",
+          "reading": "うちわけ",
+          "meaning": "상세 내역",
+          "context": "비교·분석에서 쓰는 말 · 상세 내역",
+          "source": "물류비 보고서 p.3",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-79",
+          "text": "増加寄与度",
+          "reading": "ぞうかきよど",
+          "meaning": "증가 기여도",
+          "context": "비교·분석에서 쓰는 말 · 증가 기여도",
+          "source": "물류비 보고서 p.3",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-81",
+          "text": "費目",
+          "reading": "ひもく",
+          "meaning": "비목·비용 항목",
+          "context": "비용 항목·조건에서 쓰는 말 · 비목·비용 항목",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-85",
+          "text": "出荷量",
+          "reading": "しゅっかりょう",
+          "meaning": "출하량",
+          "context": "비용 항목·조건에서 쓰는 말 · 출하량",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-86",
+          "text": "在庫量",
+          "reading": "ざいこりょう",
+          "meaning": "재고량",
+          "context": "비용 항목·조건에서 쓰는 말 · 재고량",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-118",
+          "text": "在庫評価額",
+          "reading": "ざいこひょうかがく",
+          "meaning": "재고 평가액",
+          "context": "반품·상품 상태에서 쓰는 말 · 재고 평가액",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-3",
+          "text": "按分",
+          "reading": "あんぶん",
+          "meaning": "안분·배부",
+          "context": "품의·회계에서 쓰는 말 · 안분·배부",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-16",
+          "text": "按分基準",
+          "reading": "あんぶんきじゅん",
+          "meaning": "배부 기준",
+          "context": "품의·회계에서 쓰는 말 · 배부 기준",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-17",
+          "text": "按分ロジック",
+          "reading": "あんぶんロジック",
+          "meaning": "배부 로직",
+          "context": "품의·회계에서 쓰는 말 · 배부 로직",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-64",
+          "text": "役務月",
+          "reading": "えきむづき",
+          "meaning": "용역이 제공된 월",
+          "context": "비용·집계에서 쓰는 말 · 용역이 제공된 월",
+          "source": "물류비 보고서 p.1",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-12",
+          "text": "見本費",
+          "reading": "みほんひ",
+          "meaning": "견본비",
+          "context": "품의·회계에서 쓰는 말 · 견본비",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-8",
+          "text": "値上げ",
+          "reading": "ねあげ",
+          "meaning": "가격 인상",
+          "context": "품의·회계에서 쓰는 말 · 가격 인상",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-20",
+          "text": "値下げ",
+          "reading": "ねさげ",
+          "meaning": "가격 인하",
+          "context": "품의·회계에서 쓰는 말 · 가격 인하",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-88",
+          "text": "据置",
+          "reading": "すえおき",
+          "meaning": "가격 등을 그대로 유지함",
+          "context": "비용 항목·조건에서 쓰는 말 · 가격 등을 그대로 유지함",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-89",
+          "text": "料率",
+          "reading": "りょうりつ",
+          "meaning": "요율",
+          "context": "비용 항목·조건에서 쓰는 말 · 요율",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-90",
+          "text": "運賃表",
+          "reading": "うんちんひょう",
+          "meaning": "운임표",
+          "context": "비용 항목·조건에서 쓰는 말 · 운임표",
+          "source": "물류비 보고서 p.4",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        },
+        {
+          "id": "source-word-4",
+          "text": "販管費",
+          "reading": "はんかんひ",
+          "meaning": "판매비와 일반관리비",
+          "context": "품의·회계에서 쓰는 말 · 판매비와 일반관리비",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 1",
+          "week": 7
+        }
+      ],
+      "phrases": [
+        {
+          "id": "added-phrase-23",
+          "chunks": [
+            {
+              "text": "以下のとおりです。",
+              "reading": "いかのとおりです。"
+            }
+          ],
+          "reading": "いかのとおりです。",
+          "meaning": "다음과 같습니다.",
+          "situation": "정리한 내용을 목록으로 보고할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "정리한 내용을 목록으로 보고할 때",
+          "source": "업무 일본어 표현집 p.8 · 사례 20",
+          "sourceExcerpt": "以下のとおりです。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-24",
+          "chunks": [
+            {
+              "text": "減少幅が大きくなっています。",
+              "reading": "げんしょうはばがおおきくなっています。"
+            }
+          ],
+          "reading": "げんしょうはばがおおきくなっています。",
+          "meaning": "감소 폭이 커지고 있습니다.",
+          "situation": "자료에서 확인한 감소 추세를 보고할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "자료에서 확인한 감소 추세를 보고할 때",
+          "source": "업무 일본어 표현집 p.8 · 사례 21",
+          "sourceExcerpt": "減少幅が大きくなっています。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-25",
+          "chunks": [
+            {
+              "text": "整理して共有いたします。",
+              "reading": "せいりしてきょうゆういたします。"
+            }
+          ],
+          "reading": "せいりしてきょうゆういたします。",
+          "meaning": "정리해서 공유하겠습니다.",
+          "situation": "분석 자료를 정리해 전달하겠다고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "분석 자료를 정리해 전달하겠다고 할 때",
+          "source": "업무 일본어 표현집 p.8 · 사례 22",
+          "sourceExcerpt": "整理して共有いたします。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-26",
+          "chunks": [
+            {
+              "text": "期待値と比べるとかなり高い水準です。",
+              "reading": "きたいちとくらべるとかなりたかいすいじゅんです。"
+            }
+          ],
+          "reading": "きたいちとくらべるとかなりたかいすいじゅんです。",
+          "meaning": "기대치와 비교하면 상당히 높은 수준입니다.",
+          "situation": "판단의 비교 기준을 밝히며 보고할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "판단의 비교 기준을 밝히며 보고할 때",
+          "source": "업무 일본어 표현집 p.6 · 사례 18",
+          "sourceExcerpt": "期待値と比べるとかなり高い水準です。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-27",
+          "chunks": [
+            {
+              "text": "ご参考までに。",
+              "reading": "ごさんこうまでに。"
+            }
+          ],
+          "reading": "ごさんこうまでに。",
+          "meaning": "참고로 전달드립니다.",
+          "situation": "참고 정보를 전달할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "참고 정보를 전달할 때",
+          "source": "업무 일본어 표현집 p.9 · 사례 제5장",
+          "sourceExcerpt": "ご参考までに",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-28",
+          "chunks": [
+            {
+              "text": "いただき次第、確認します。",
+              "reading": "いただきしだい、かくにんします。"
+            }
+          ],
+          "reading": "いただきしだい、かくにんします。",
+          "meaning": "받는 대로 확인하겠습니다.",
+          "situation": "자료 수령 뒤의 행동을 약속할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "자료 수령 뒤의 행동을 약속할 때",
+          "source": "업무 일본어 표현집 p.2 · 사례 06",
+          "sourceExcerpt": "いただき次第",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-29",
+          "chunks": [
+            {
+              "text": "資料をもとに検討します。",
+              "reading": "しりょうをもとにけんとうします。"
+            }
+          ],
+          "reading": "しりょうをもとにけんとうします。",
+          "meaning": "자료를 바탕으로 검토하겠습니다.",
+          "situation": "검토의 근거 자료를 밝힐 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "검토의 근거 자료를 밝힐 때",
+          "source": "업무 일본어 표현집 p.5 · 사례 14",
+          "sourceExcerpt": "資料をもとに検討のうえ",
+          "kind": "학습용 재구성",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "added-phrase-23",
+        "chunks": [
+          {
+            "text": "以下のとおりです。",
+            "reading": "いかのとおりです。"
+          }
+        ],
+        "reading": "いかのとおりです。",
+        "meaning": "다음과 같습니다.",
+        "situation": "정리한 내용을 목록으로 보고할 때。",
+        "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+        "cue": "정리한 내용을 목록으로 보고할 때",
+        "source": "업무 일본어 표현집 p.8 · 사례 20",
+        "sourceExcerpt": "以下のとおりです。",
+        "kind": "원문 발췌",
+        "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+      },
+      "reports": [
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 1",
+          "ids": [
+            "change",
+            "source-word-7",
+            "source-word-18",
+            "source-word-73"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[change]]</td></tr><tr><th>항목 2</th><td>[[source-word-7]]</td></tr><tr><th>항목 3</th><td>[[source-word-18]]</td></tr><tr><th>항목 4</th><td>[[source-word-73]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 2",
+          "ids": [
+            "source-word-74",
+            "source-word-75",
+            "source-word-76",
+            "source-word-65"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-74]]</td></tr><tr><th>항목 2</th><td>[[source-word-75]]</td></tr><tr><th>항목 3</th><td>[[source-word-76]]</td></tr><tr><th>항목 4</th><td>[[source-word-65]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 3",
+          "ids": [
+            "source-word-78",
+            "source-word-79",
+            "source-word-81",
+            "source-word-85"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-78]]</td></tr><tr><th>항목 2</th><td>[[source-word-79]]</td></tr><tr><th>항목 3</th><td>[[source-word-81]]</td></tr><tr><th>항목 4</th><td>[[source-word-85]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 4",
+          "ids": [
+            "source-word-86",
+            "source-word-118",
+            "source-word-3",
+            "source-word-16"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-86]]</td></tr><tr><th>항목 2</th><td>[[source-word-118]]</td></tr><tr><th>항목 3</th><td>[[source-word-3]]</td></tr><tr><th>항목 4</th><td>[[source-word-16]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 5",
+          "ids": [
+            "source-word-17",
+            "source-word-64",
+            "source-word-12"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-17]]</td></tr><tr><th>항목 2</th><td>[[source-word-64]]</td></tr><tr><th>항목 3</th><td>[[source-word-12]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 6",
+          "ids": [
+            "source-word-8",
+            "source-word-20",
+            "source-word-88"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-8]]</td></tr><tr><th>항목 2</th><td>[[source-word-20]]</td></tr><tr><th>항목 3</th><td>[[source-word-88]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "비교·분석과 배부 · 용어 확인표 7",
+          "ids": [
+            "source-word-89",
+            "source-word-90",
+            "source-word-4"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-89]]</td></tr><tr><th>항목 2</th><td>[[source-word-90]]</td></tr><tr><th>항목 3</th><td>[[source-word-4]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[change]]</td></tr><tr><th>항목 2</th><td>[[source-word-7]]</td></tr><tr><th>항목 3</th><td>[[source-word-18]]</td></tr><tr><th>항목 4</th><td>[[source-word-73]]</td></tr></tbody></table>",
+      "source": "물류비 보고서 p.1 / 물류비 보고서 p.2 / 물류비 보고서 p.3 / 물류비 보고서 p.3~4 표 머리글 / 물류비 보고서 p.4 / 반품 판정 기준서 · 초안 p.1 / 업무 일본어 표현집 p.12",
+      "groups": [
+        "costs",
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "0個",
+          "reading": "ぜろこ"
+        },
+        {
+          "value": "10個",
+          "reading": "じゅっこ"
+        },
+        {
+          "value": "20個",
+          "reading": "にじゅっこ"
+        }
+      ],
+      "a": "새 단어 13개 · 표현 4개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 12개 · 나머지 표현 3개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    },
+    {
+      "id": 8,
+      "title": "계약 협의와 예외 보고",
+      "stage": "심화 2",
+      "level": 4,
+      "goal": "계약·조정과 반품 예외를 구별하고 담당자에게 확인·협의를 요청해요.",
+      "words": [
+        {
+          "id": "source-word-47",
+          "text": "基本契約書",
+          "reading": "きほんけいやくしょ",
+          "meaning": "기본 계약서",
+          "context": "계약·사내 절차에서 쓰는 말 · 기본 계약서",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-48",
+          "text": "業務委託契約",
+          "reading": "ぎょうむいたくけいやく",
+          "meaning": "업무 위탁 계약",
+          "context": "계약·사내 절차에서 쓰는 말 · 업무 위탁 계약",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-49",
+          "text": "注文書",
+          "reading": "ちゅうもんしょ",
+          "meaning": "주문서",
+          "context": "계약·사내 절차에서 쓰는 말 · 주문서",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-50",
+          "text": "捺印",
+          "reading": "なついん",
+          "meaning": "날인",
+          "context": "계약·사내 절차에서 쓰는 말 · 날인",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-51",
+          "text": "契約更新",
+          "reading": "けいやくこうしん",
+          "meaning": "계약 갱신",
+          "context": "계약·사내 절차에서 쓰는 말 · 계약 갱신",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-52",
+          "text": "移管",
+          "reading": "いかん",
+          "meaning": "이관",
+          "context": "계약·사내 절차에서 쓰는 말 · 이관",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-53",
+          "text": "法務レビュー",
+          "reading": "ほうむレビュー",
+          "meaning": "법무 검토",
+          "context": "계약·사내 절차에서 쓰는 말 · 법무 검토",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-54",
+          "text": "議論する",
+          "reading": "ぎろんする",
+          "meaning": "논의하다",
+          "context": "계약·사내 절차에서 쓰는 말 · 논의하다",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-55",
+          "text": "打合せ",
+          "reading": "うちあわせ",
+          "meaning": "실무 협의·미팅",
+          "context": "계약·사내 절차에서 쓰는 말 · 실무 협의·미팅",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-58",
+          "text": "解約",
+          "reading": "かいやく",
+          "meaning": "계약 해지",
+          "context": "계약·사내 절차에서 쓰는 말 · 계약 해지",
+          "source": "업무 일본어 표현집 p.14",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-19",
+          "text": "単価調整",
+          "reading": "たんかちょうせい",
+          "meaning": "단가 조정",
+          "context": "품의·회계에서 쓰는 말 · 단가 조정",
+          "source": "업무 일본어 표현집 p.12",
+          "sourceKey": "phrases",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-94",
+          "text": "改定",
+          "reading": "かいてい",
+          "meaning": "개정",
+          "context": "정산·일정에서 쓰는 말 · 개정",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-95",
+          "text": "協議",
+          "reading": "きょうぎ",
+          "meaning": "협의",
+          "context": "정산·일정에서 쓰는 말 · 협의",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-96",
+          "text": "回答期限",
+          "reading": "かいとうきげん",
+          "meaning": "회신 기한",
+          "context": "정산·일정에서 쓰는 말 · 회신 기한",
+          "source": "물류비 보고서 p.6",
+          "sourceKey": "costs",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-99",
+          "text": "判定基準",
+          "reading": "はんていきじゅん",
+          "meaning": "판정 기준",
+          "context": "반품·상품 상태에서 쓰는 말 · 판정 기준",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-100",
+          "text": "等級",
+          "reading": "とうきゅう",
+          "meaning": "등급",
+          "context": "반품·상품 상태에서 쓰는 말 · 등급",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-102",
+          "text": "目視",
+          "reading": "もくし",
+          "meaning": "육안 확인",
+          "context": "반품·상품 상태에서 쓰는 말 · 육안 확인",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-111",
+          "text": "識別不可",
+          "reading": "しきべつふか",
+          "meaning": "식별 불가",
+          "context": "반품·상품 상태에서 쓰는 말 · 식별 불가",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-114",
+          "text": "テスター転用",
+          "reading": "テスターてんよう",
+          "meaning": "테스터로 전용",
+          "context": "반품·상품 상태에서 쓰는 말 · 테스터로 전용",
+          "source": "반품 판정 기준서 · 초안 p.1",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-121",
+          "text": "再分類",
+          "reading": "さいぶんるい",
+          "meaning": "재분류",
+          "context": "반품·작업 상태에서 쓰는 말 · 재분류",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-122",
+          "text": "保留区域",
+          "reading": "ほりゅうくいき",
+          "meaning": "보류 구역",
+          "context": "반품·작업 상태에서 쓰는 말 · 보류 구역",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-123",
+          "text": "再検品",
+          "reading": "さいけんぴん",
+          "meaning": "재검품",
+          "context": "반품·작업 상태에서 쓰는 말 · 재검품",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-124",
+          "text": "判定不可",
+          "reading": "はんていふか",
+          "meaning": "판정 불가",
+          "context": "반품·작업 상태에서 쓰는 말 · 판정 불가",
+          "source": "반품 판정 기준서 · 초안 p.2",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-128",
+          "text": "事前協議",
+          "reading": "じぜんきょうぎ",
+          "meaning": "사전 협의",
+          "context": "현장·보고에서 쓰는 말 · 사전 협의",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-129",
+          "text": "履歴",
+          "reading": "りれき",
+          "meaning": "이력",
+          "context": "현장·보고에서 쓰는 말 · 이력",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        },
+        {
+          "id": "source-word-131",
+          "text": "現場責任者",
+          "reading": "げんばせきにんしゃ",
+          "meaning": "현장 책임자",
+          "context": "현장·보고에서 쓰는 말 · 현장 책임자",
+          "source": "반품 판정 기준서 · 초안 p.3",
+          "sourceKey": "returns",
+          "level": 4,
+          "difficulty": "심화 2",
+          "week": 8
+        }
+      ],
+      "phrases": [
+        {
+          "id": "added-phrase-30",
+          "chunks": [
+            {
+              "text": "という理解で合っていますでしょうか。",
+              "reading": "というりかいであっていますでしょうか。"
+            }
+          ],
+          "reading": "というりかいであっていますでしょうか。",
+          "meaning": "라고 이해하면 맞을까요?",
+          "situation": "앞에 자신의 이해 내용을 붙여 확인할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞에 자신의 이해 내용을 붙여 확인할 때",
+          "source": "업무 일본어 표현집 p.3 · 사례 07",
+          "sourceExcerpt": "という理解で合っていますでしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 이 표현 앞에 확인할 내용을 붙이는 문장틀입니다."
+        },
+        {
+          "id": "added-phrase-31",
+          "chunks": [
+            {
+              "text": "どのような形で受け取っているのでしょうか。",
+              "reading": "どのようなかたちでうけとっているのでしょうか。"
+            }
+          ],
+          "reading": "どのようなかたちでうけとっているのでしょうか。",
+          "meaning": "어떤 형태로 전달받고 있나요?",
+          "situation": "앞서 밝힌 자료의 수령 방법을 물을 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 밝힌 자료의 수령 방법을 물을 때",
+          "source": "업무 일본어 표현집 p.3 · 사례 10",
+          "sourceExcerpt": "どのような形で受け取っているのでしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-32",
+          "chunks": [
+            {
+              "text": "どなたが行う想定でしょうか。",
+              "reading": "どなたがおこなうそうていでしょうか。"
+            }
+          ],
+          "reading": "どなたがおこなうそうていでしょうか。",
+          "meaning": "누가 담당할 예정인가요?",
+          "situation": "앞서 밝힌 작업의 담당자를 확인할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 밝힌 작업의 담당자를 확인할 때",
+          "source": "업무 일본어 표현집 p.4 · 사례 11",
+          "sourceExcerpt": "どなたが行う想定でしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-33",
+          "chunks": [
+            {
+              "text": "一度ご教示いただけますか。",
+              "reading": "いちどごきょうじいただけますか。"
+            }
+          ],
+          "reading": "いちどごきょうじいただけますか。",
+          "meaning": "한번 알려주실 수 있을까요?",
+          "situation": "절차나 방법을 정중하게 설명해 달라고 할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "절차나 방법을 정중하게 설명해 달라고 할 때",
+          "source": "업무 일본어 표현집 p.4 · 사례 12",
+          "sourceExcerpt": "一度ご教示いただけますか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-34",
+          "chunks": [
+            {
+              "text": "ひとまず承認で進めてください。",
+              "reading": "ひとまずしょうにんですすめてください。"
+            }
+          ],
+          "reading": "ひとまずしょうにんですすめてください。",
+          "meaning": "일단 승인으로 진행해 주세요.",
+          "situation": "권한 범위 안에서 잠정 승인을 전달할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "권한 범위 안에서 잠정 승인을 전달할 때",
+          "source": "업무 일본어 표현집 p.5 · 사례 13",
+          "sourceExcerpt": "ひとまず承認で進めてください。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-35",
+          "chunks": [
+            {
+              "text": "引き下げることで合意しました。",
+              "reading": "ひきさげることでごういしました。"
+            }
+          ],
+          "reading": "ひきさげることでごういしました。",
+          "meaning": "인하하기로 합의했습니다.",
+          "situation": "앞서 명시한 단가의 합의 결과를 보고할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "앞서 명시한 단가의 합의 결과를 보고할 때",
+          "source": "업무 일본어 표현집 p.8 · 사례 20",
+          "sourceExcerpt": "引き下げることで合意しました。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        },
+        {
+          "id": "added-phrase-36",
+          "chunks": [
+            {
+              "text": "お時間をいただけますでしょうか。",
+              "reading": "おじかんをいただけますでしょうか。"
+            }
+          ],
+          "reading": "おじかんをいただけますでしょうか。",
+          "meaning": "시간을 내주실 수 있을까요?",
+          "situation": "별도 협의 시간을 요청할 때。",
+          "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+          "cue": "별도 협의 시간을 요청할 때",
+          "source": "업무 일본어 표현집 p.10 · 사례 26",
+          "sourceExcerpt": "お時間をいただけますでしょうか。",
+          "kind": "원문 발췌",
+          "note": "원문 전체의 조건을 생략한 연습 예문입니다. 대상·조건은 상황 설명과 함께 확인합니다."
+        }
+      ],
+      "phrase": {
+        "id": "added-phrase-30",
+        "chunks": [
+          {
+            "text": "という理解で合っていますでしょうか。",
+            "reading": "というりかいであっていますでしょうか。"
+          }
+        ],
+        "reading": "というりかいであっていますでしょうか。",
+        "meaning": "라고 이해하면 맞을까요?",
+        "situation": "앞에 자신의 이해 내용을 붙여 확인할 때。",
+        "action": "한국어 상황을 보고 뜻에 맞게 말한 뒤, 필요한 대상을 가리켜요.",
+        "cue": "앞에 자신의 이해 내용을 붙여 확인할 때",
+        "source": "업무 일본어 표현집 p.3 · 사례 07",
+        "sourceExcerpt": "という理解で合っていますでしょうか。",
+        "kind": "원문 발췌",
+        "note": "원문 전체의 조건을 생략한 연습 예문입니다. 이 표현 앞에 확인할 내용을 붙이는 문장틀입니다."
+      },
+      "reports": [
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 1",
+          "ids": [
+            "source-word-47",
+            "source-word-48",
+            "source-word-49",
+            "source-word-50"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-47]]</td></tr><tr><th>항목 2</th><td>[[source-word-48]]</td></tr><tr><th>항목 3</th><td>[[source-word-49]]</td></tr><tr><th>항목 4</th><td>[[source-word-50]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 2",
+          "ids": [
+            "source-word-51",
+            "source-word-52",
+            "source-word-53",
+            "source-word-54"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-51]]</td></tr><tr><th>항목 2</th><td>[[source-word-52]]</td></tr><tr><th>항목 3</th><td>[[source-word-53]]</td></tr><tr><th>항목 4</th><td>[[source-word-54]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 3",
+          "ids": [
+            "source-word-55",
+            "source-word-58",
+            "source-word-19",
+            "source-word-94"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-55]]</td></tr><tr><th>항목 2</th><td>[[source-word-58]]</td></tr><tr><th>항목 3</th><td>[[source-word-19]]</td></tr><tr><th>항목 4</th><td>[[source-word-94]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 4",
+          "ids": [
+            "source-word-95",
+            "source-word-96",
+            "source-word-99",
+            "source-word-100"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-95]]</td></tr><tr><th>항목 2</th><td>[[source-word-96]]</td></tr><tr><th>항목 3</th><td>[[source-word-99]]</td></tr><tr><th>항목 4</th><td>[[source-word-100]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 5",
+          "ids": [
+            "source-word-102",
+            "source-word-111",
+            "source-word-114",
+            "source-word-121"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-102]]</td></tr><tr><th>항목 2</th><td>[[source-word-111]]</td></tr><tr><th>항목 3</th><td>[[source-word-114]]</td></tr><tr><th>항목 4</th><td>[[source-word-121]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 6",
+          "ids": [
+            "source-word-122",
+            "source-word-123",
+            "source-word-124"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-122]]</td></tr><tr><th>항목 2</th><td>[[source-word-123]]</td></tr><tr><th>항목 3</th><td>[[source-word-124]]</td></tr></tbody></table>"
+        },
+        {
+          "title": "계약 협의와 예외 보고 · 용어 확인표 7",
+          "ids": [
+            "source-word-128",
+            "source-word-129",
+            "source-word-131"
+          ],
+          "html": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-128]]</td></tr><tr><th>항목 2</th><td>[[source-word-129]]</td></tr><tr><th>항목 3</th><td>[[source-word-131]]</td></tr></tbody></table>"
+        }
+      ],
+      "report": "<div class=\"report-top\"><span>업무 용어 확인표</span><span class=\"report-note\">학습용 재구성</span></div><table class=\"report-table\"><tbody><tr><th>항목 1</th><td>[[source-word-47]]</td></tr><tr><th>항목 2</th><td>[[source-word-48]]</td></tr><tr><th>항목 3</th><td>[[source-word-49]]</td></tr><tr><th>항목 4</th><td>[[source-word-50]]</td></tr></tbody></table>",
+      "source": "물류비 보고서 p.6 / 반품 판정 기준서 · 초안 p.1 / 반품 판정 기준서 · 초안 p.2 / 반품 판정 기준서 · 초안 p.3 / 업무 일본어 표현집 p.12 / 업무 일본어 표현집 p.14",
+      "groups": [
+        "costs",
+        "phrases",
+        "returns"
+      ],
+      "numbers": [
+        {
+          "value": "300円",
+          "reading": "さんびゃくえん"
+        },
+        {
+          "value": "3,000円",
+          "reading": "さんぜんえん"
+        },
+        {
+          "value": "3個",
+          "reading": "さんこ"
+        }
+      ],
+      "a": "새 단어 13개 · 표현 4개를 소리·뜻·상황으로 연결",
+      "b": "새 단어 13개 · 나머지 표현 3개를 익히고 A회차와 누적 복습",
+      "teacher": "단어는 4개 안팎씩 나누어 듣고 고릅니다. 문장은 뜻을 먼저 확인한 뒤 따라 말하고 상황만 보고 꺼냅니다.",
+      "transfer": "실제 자료의 해당 페이지에서 배운 표기를 찾고, 다음 수업에는 정답을 보여주지 않고 다시 확인합니다.",
+      "responses": null
+    }
+  ],
+  "title": "일본어 업무 첫걸음",
+  "version": "2026-11-10",
+  "newWordCount": 152,
+  "newPhraseCount": 43
+};
 
 </script>
 <script>
@@ -177,8 +3705,8 @@ let saved={},canSave=false;
 try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};localStorage.setItem('jp-check','1');localStorage.removeItem('jp-check');canSave=true}catch(_){saved={}}
 let week=course.weeks.find(w=>w.id===Number(saved.week))||course.weeks[0];
 const validWords=new Set(course.weeks.flatMap(w=>w.words.map(x=>x.id)));
-const validPhrases=new Set(course.weeks.map(w=>w.phrase.id));
-const state={section:'words',wordIndex:0,reading:saved.reading!==false,meaning:true,
+const validPhrases=new Set(course.weeks.flatMap(w=>w.phrases.map(p=>p.id)));
+const state={section:'words',wordIndex:0,phraseIndex:0,reading:saved.reading!==false,meaning:true,
   familiar:Array.isArray(saved.familiar)?saved.familiar.filter(x=>validWords.has(x)):[],
   used:Array.isArray(saved.used)?saved.used.filter(x=>validPhrases.has(x)):[],
   start:typeof saved.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.start)?saved.start:'',
@@ -188,72 +3716,79 @@ function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stri
 function ruby(text,reading){return `<ruby lang="ja">${text}<rt>${reading}</rt></ruby>`}
 function phraseRuby(p){return p.chunks.map(c=>`<span class="phrase-chunk">${c.text===c.reading?`<span lang="ja">${c.text}</span>`:ruby(c.text,c.reading)}</span>`).join('')}
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function allWords(){const seen=new Set;return course.weeks.slice(0,Math.min(week.id,7)).flatMap(w=>w.words).filter(w=>!seen.has(w.id)&&seen.add(w.id))}
+function allWords(){return course.weeks.slice(0,week.id).flatMap(w=>w.words)}
+function currentPhrase(){return week.phrases[state.phraseIndex]}
 function say(text){if(!state.voice||state.soundBroken)return;const u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.voice=state.voice;u.rate=.8;u.onerror=e=>{if(['interrupted','canceled'].includes(e.error))return;state.soundBroken=true;$('#sound-status').textContent='음성을 재생하지 못했어요. 교사가 읽는 법을 보고 읽어 주세요.';soundButtons()};speechSynthesis.cancel();speechSynthesis.speak(u)}
 function voices(){if(!('speechSynthesis'in window)){$('#sound-status').textContent='음성 미지원 브라우저예요. 교사가 읽어 주세요.';soundButtons();return}state.voice=speechSynthesis.getVoices().find(v=>/^ja(?:-|_)/i.test(v.lang))||null;$('#sound-status').textContent=state.voice?'일본어 기기 음성 · 느리게 읽기':'일본어 음성을 찾지 못했어요. 교사가 읽어 주세요.';soundButtons()}
 function soundButtons(){$$('[data-speak],#listen-response').forEach(b=>{b.disabled=!state.voice||state.soundBroken;b.title=b.disabled?'교사가 읽는 법을 보고 읽어 주세요.':'일본어 음성 듣기'});$('#sound-review').disabled=!state.voice||state.soundBroken;if($('#sound-review').disabled&&state.quizMode==='sound'){state.quizMode='meaning';$('#meaning-review').setAttribute('aria-pressed','true');$('#sound-review').setAttribute('aria-pressed','false');renderQuiz()}}
-function updateProgress(){$('#progress-label').textContent=`이번 주 직접 체크한 단어 ${week.words.filter(w=>state.familiar.includes(w.id)).length} / 3`;
+function updateProgress(){$('#progress-label').textContent=`이번 주 체크 ${week.words.filter(w=>state.familiar.includes(w.id)).length} / ${week.words.length}단어 · 전체 ${state.familiar.length} / ${course.newWordCount}단어`;
   $('#storage-status').textContent=canSave?'체크와 주차는 이 브라우저에 저장돼요.':'현재 창에서만 기록이 유지돼요.'}
 function setReading(){document.body.classList.toggle('hide-reading',!state.reading);$('#reading-toggle').checked=state.reading}
-function renderWords(){const word=week.words[state.wordIndex];$('#words-heading').textContent=`${week.id}주차 · ${week.title}`;$('#words-description').textContent=week.goal;
-  $('#word-tabs').innerHTML=week.words.map((w,i)=>`<button type="button" role="tab" id="word-tab-${w.id}" aria-controls="word-panel" aria-selected="${i===state.wordIndex}" tabindex="${i===state.wordIndex?0:-1}" data-word="${i}">단어 ${i+1}</button>`).join('');
-  $('#word-panel').setAttribute('aria-labelledby',`word-tab-${word.id}`);$('#word-counter').textContent=`${state.wordIndex+1} / 3`;
-  $('#word-term').innerHTML=ruby(word.text,word.reading);$('#word-meaning').textContent=word.meaning;$('#word-context').textContent=word.context;
-  $('#word-hint').textContent='먼저 소리와 뜻을 연결해요. 한자를 따로 쓰거나 문장을 만들 필요는 없어요.';
-  $('#word-status').textContent=week.id===8?'이미 배운 단어 다시 보기':'이번 주 단어';$('#word-sound').dataset.speak=word.reading;
-  state.meaning=true;meaning();$('#familiar-word').checked=state.familiar.includes(word.id);$('#prev-word').disabled=state.wordIndex===0;$('#next-word').textContent=state.wordIndex===2?'업무 표현으로':'다음 단어';soundButtons();updateProgress()}
+function renderWords(){const word=week.words[state.wordIndex];$('#words-heading').textContent=`${week.id}주차 · ${week.title}`;$('#words-description').textContent=`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
+  $('#word-tabs').innerHTML=week.words.map((w,i)=>`<button type="button" role="tab" id="word-tab-${w.id}" aria-controls="word-panel" aria-selected="${i===state.wordIndex}" tabindex="${i===state.wordIndex?0:-1}" data-word="${i}">${i+1} · ${w.meaning}</button>`).join('');
+  $('#word-panel').setAttribute('aria-labelledby',`word-tab-${word.id}`);$('#word-counter').textContent=`${state.wordIndex+1} / ${week.words.length}`;
+  $('#word-term').innerHTML=ruby(word.text,word.reading);$('#word-term').dataset.length=word.text.length>6?'long':word.text.length>4?'medium':'short';$('#word-meaning').textContent=word.meaning;$('#word-context').textContent=word.context;
+  $('#word-hint').textContent='소리 → 뜻 → 표기를 연결하고 4~5개씩 나누어 떠올려요.';$('#word-source').textContent=`출처: ${word.source}`;
+  $('#word-status').textContent=`${week.stage} · 새 단어 ${state.wordIndex+1}`;$('#word-sound').dataset.speak=word.reading;
+  state.meaning=true;meaning();$('#familiar-word').checked=state.familiar.includes(word.id);$('#prev-word').disabled=state.wordIndex===0;$('#next-word').textContent=state.wordIndex===week.words.length-1?'업무 표현으로':'다음 단어';soundButtons();updateProgress()}
 function meaning(){$('#word-meaning-content').hidden=!state.meaning;$('#meaning-placeholder').hidden=state.meaning;$('#toggle-meaning').textContent=state.meaning?'뜻 가리기':'뜻 확인하기';$('#toggle-meaning').setAttribute('aria-expanded',String(state.meaning))}
-function renderPhrase(){const p=week.phrase;$('#phrase-tabs').innerHTML=`<button type="button" role="tab" id="phrase-tab" aria-selected="true" aria-controls="phrase-panel">${p.meaning}</button>`;$('#phrase-panel').setAttribute('aria-labelledby','phrase-tab');
+function renderPhrase(){const p=currentPhrase();$('#phrase-counter').textContent=`${state.phraseIndex+1} / ${week.phrases.length}`;$('#phrase-tabs').innerHTML=week.phrases.map((item,i)=>`<button type="button" role="tab" id="phrase-tab-${item.id}" aria-selected="${i===state.phraseIndex}" tabindex="${i===state.phraseIndex?0:-1}" aria-controls="phrase-panel" data-phrase="${i}">${i+1} · ${item.meaning}</button>`).join('');$('#phrase-panel').setAttribute('aria-labelledby',`phrase-tab-${p.id}`);
   $('#phrase-situation').textContent=p.situation;$('#phrase-japanese').innerHTML=phraseRuby(p);$('#phrase-meaning').textContent=p.meaning;$('#phrase-action').textContent=p.action;
-  $('#phrase-sound').dataset.speak=p.reading;$('#phrase-ready').checked=state.used.includes(p.id);$('#phrase-answer').hidden=false;$('#reveal-phrase').textContent='문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded','true');
-  $('#phrase-cue').innerHTML=`<div class="cue-top"><span>${p.cue}</span><span>함께 보며 말해요</span></div><div class="cue-title">${ruby(week.words[0].text,week.words[0].reading)}</div><div class="cue-line"></div><div class="cue-line short"></div><p>상황을 보고 같은 문장 전체를 꺼내요.</p>`;
+  $('#phrase-source').textContent=`${p.kind} · ${p.source} · ${p.note}`;$('#phrase-sound').dataset.speak=p.reading;$('#phrase-ready').checked=state.used.includes(p.id);$('#phrase-answer').hidden=false;$('#reveal-phrase').textContent='문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded','true');
+  $('#phrase-cue').innerHTML=`<div class="cue-top"><span>${week.stage}</span><span>상황을 보고 말해요</span></div><p class="cue-situation">${p.cue}</p><div class="cue-line"></div><p>한국어 상황을 보고, 어떤 요청이나 보고인지 떠올려요.</p>`;
+  $('#prev-phrase').disabled=state.phraseIndex===0;$('#next-phrase').textContent=state.phraseIndex===week.phrases.length-1?'자료에서 찾기로':'다음 표현';
   $('#response-practice').hidden=!week.responses;state.response=null;$('#response-feedback').textContent='먼저 아래 두 응답을 듣고 뜻을 확인해요.';
   $('#response-list').innerHTML=(week.responses||[]).map((r,i)=>`<div class="response-row"><div>${ruby(r.text,r.reading)}</div><span>${r.meaning}</span><button type="button" class="button" data-speak="${r.reading}">응답 ${i+1} 듣기</button></div>`).join('');soundButtons()}
-function reportMarkup(w=week,interactive=false){return w.report.replace(/\[\[([^\]]+)\]\]/g,(_,id)=>{const word=w.words.find(x=>x.id===id);if(!word)return'';const content=ruby(word.text,word.reading);return interactive?`<button type="button" class="report-word" data-hotspot="${id}" aria-label="${word.text}, ${word.reading}">${content}</button>`:`<span class="report-print-word">${content}</span>`})}
+function reportMarkup(w=week,interactive=false,report=w.reports[0]){return report.html.replace(/\[\[([^\]]+)\]\]/g,(_,id)=>{const word=w.words.find(x=>x.id===id);if(!word)return'';const content=ruby(word.text,word.reading);return interactive?`<button type="button" class="report-word" data-hotspot="${id}" aria-label="${word.text}, ${word.reading}">${content}</button>`:`<span class="report-print-word">${content}</span>`})}
 function findTarget(){return week.words[state.findOrder[state.findIndex]]}
-function renderFind(){const word=findTarget(),listening=state.findMode==='listening';$('#find-counter').textContent=`${state.findIndex+1} / 3`;$('#find-prompt').textContent=listening?'소리를 듣고, 같은 단어를 자료에서 찾아보세요.':`‘${word.meaning}’에 해당하는 일본어를 찾아 눌러 보세요.`;$('#find-sound').dataset.speak=word.reading;$('#find-teacher').hidden=!listening;$('#find-teacher').open=false;$('#find-teacher-cue').textContent=word.text+' · '+word.reading;$('#find-meaning-mode').setAttribute('aria-pressed',String(!listening));$('#find-listening-mode').setAttribute('aria-pressed',String(listening));$('#practice-report').innerHTML=reportMarkup(week,true);$('#find-feedback').textContent=listening?'한국어 뜻은 제시하지 않아요. 기기 음성이 없으면 교사가 단어만 읽어 주세요.':'일본어가 적힌 세 곳 중에서 골라 주세요.';$('#find-feedback').className='feedback neutral';$('#next-find').hidden=true;state.findDone=false;soundButtons()}
+function renderFind(){const word=findTarget(),listening=state.findMode==='listening',report=week.reports.find(r=>r.ids.includes(word.id));$('#find-counter').textContent=`${state.findIndex+1} / ${week.words.length}`;$('#find-prompt').textContent=listening?'소리를 듣고, 같은 단어를 자료에서 찾아보세요.':`‘${word.meaning}’에 해당하는 일본어를 찾아 눌러 보세요.`;$('#find-sound').dataset.speak=word.reading;$('#find-teacher').hidden=!listening;$('#find-teacher').open=false;$('#find-teacher-cue').textContent=word.text+' · '+word.reading;$('#find-meaning-mode').setAttribute('aria-pressed',String(!listening));$('#find-listening-mode').setAttribute('aria-pressed',String(listening));$('#practice-report').innerHTML=`<h3 class="report-korean">${report.title}</h3>`+reportMarkup(week,true,report);$('#find-feedback').textContent=listening?'한국어 뜻은 제시하지 않아요. 기기 음성이 없으면 교사가 단어만 읽어 주세요.':`표의 일본어 ${report.ids.length}개 중에서 골라 주세요.`;$('#find-feedback').className='feedback neutral';$('#next-find').hidden=true;state.findDone=false;soundButtons()}
 function chooseHotspot(id){if(state.findDone)return;const target=findTarget(),chosen=week.words.find(w=>w.id===id);$$('[data-hotspot]').forEach(b=>b.classList.remove('wrong'));
-  if(id===target.id){state.findDone=true;$(`[data-hotspot="${id}"]`).classList.add('correct');$('#find-feedback').textContent=`맞아요. ${target.text}는 ‘${target.meaning}’예요.`;$('#find-feedback').className='feedback success';$('#next-find').hidden=false;$('#next-find').textContent=state.findIndex===2?'복습으로 넘어가기':'다음 항목 찾기'}
+  if(id===target.id){state.findDone=true;$(`[data-hotspot="${id}"]`).classList.add('correct');$('#find-feedback').textContent=`맞아요. ${target.text}는 ‘${target.meaning}’예요.`;$('#find-feedback').className='feedback success';$('#next-find').hidden=false;$('#next-find').textContent=state.findIndex===week.words.length-1?'복습으로 넘어가기':'다음 항목 찾기'}
   else{$(`[data-hotspot="${id}"]`).classList.add('wrong');$('#find-feedback').textContent=state.findMode==='listening'?'다른 항목이에요. 같은 소리를 다시 듣고 찾아보세요.':`고른 것은 ‘${chosen.meaning}’예요. ‘${target.meaning}’를 다시 찾아보세요.`;$('#find-feedback').className='feedback retry'}}
 function startQuiz(cumulative=state.cumulative,mode=state.quizMode,nextBatch=false){state.cumulative=cumulative;state.quizMode=mode;state.quizIndex=0;state.correct=0;
-  if(cumulative){if(!nextBatch||!state.reviewQueue.length)state.reviewQueue=shuffle(allWords());state.reviewWords=state.reviewQueue.splice(0,3)}else{state.reviewWords=[...week.words];state.reviewQueue=[]}
+  if(cumulative){if(!nextBatch||!state.reviewQueue.length)state.reviewQueue=shuffle(allWords());state.reviewWords=state.reviewQueue.splice(0,5)}else{state.reviewWords=[...week.words];state.reviewQueue=[]}
   $('#week-review').setAttribute('aria-pressed',String(!cumulative));$('#cumulative-review').setAttribute('aria-pressed',String(cumulative));$('#meaning-review').setAttribute('aria-pressed',String(mode==='meaning'));$('#sound-review').setAttribute('aria-pressed',String(mode==='sound'));
-  $('#review-scope').textContent=cumulative?`여기까지 배운 ${allWords().length}단어 중 ${state.reviewWords.length}개씩 · 다음 묶음 대기 ${state.reviewQueue.length}개`:'이번 주 세 단어';renderQuiz()}
+  $('#review-scope').textContent=cumulative?`여기까지 배운 ${allWords().length}단어 중 ${state.reviewWords.length}개씩 · 다음 묶음 대기 ${state.reviewQueue.length}개`:`이번 주 ${week.words.length}단어 전체`;renderQuiz()}
 function renderQuiz(){if(!state.reviewWords.length)return;const word=state.reviewWords[state.quizIndex];state.quizAnswered=false;$('#quiz-result').hidden=true;$('#quiz-active').hidden=false;$('#quiz-counter').textContent=`${state.quizIndex+1} / ${state.reviewWords.length}`;
   $('#quiz-question').textContent=state.quizMode==='sound'?'소리를 듣고 뜻을 고르세요.':`‘${word.meaning}’에 해당하는 일본어를 고르세요.`;$('#quiz-play').hidden=state.quizMode!=='sound';$('#quiz-play').dataset.speak=word.reading;
-  $('#quiz-options').innerHTML=shuffle(state.reviewWords).map(w=>`<button type="button" class="quiz-option" data-answer="${w.id}">${state.quizMode==='sound'?w.meaning:ruby(w.text,w.reading)}</button>`).join('');$('#quiz-feedback').textContent=state.quizMode==='sound'?'듣기 버튼을 누른 뒤 골라 주세요.':'글자와 뜻을 연결해 보세요.';$('#quiz-feedback').className='feedback neutral';$('#next-quiz').hidden=true;soundButtons()}
-function answer(id){if(state.quizAnswered)return;state.quizAnswered=true;const word=state.reviewWords[state.quizIndex],chosen=state.reviewWords.find(w=>w.id===id);if(id===word.id)state.correct++;
+  const seen=new Set([word.meaning]);const others=shuffle(state.cumulative?allWords():week.words).filter(w=>{if(w.id===word.id||seen.has(w.meaning))return false;seen.add(w.meaning);return true}).slice(0,3);state.quizOptions=shuffle([word,...others]);
+  $('#quiz-options').innerHTML=state.quizOptions.map(w=>`<button type="button" class="quiz-option" data-answer="${w.id}">${state.quizMode==='sound'?w.meaning:ruby(w.text,w.reading)}</button>`).join('');$('#quiz-feedback').textContent=state.quizMode==='sound'?'듣기 버튼을 누른 뒤 골라 주세요.':'글자와 뜻을 연결해 보세요.';$('#quiz-feedback').className='feedback neutral';$('#next-quiz').hidden=true;soundButtons()}
+function answer(id){if(state.quizAnswered)return;state.quizAnswered=true;const word=state.reviewWords[state.quizIndex],chosen=state.quizOptions.find(w=>w.id===id);if(id===word.id)state.correct++;
   $$('[data-answer]').forEach(b=>{b.disabled=true;if(b.dataset.answer===word.id)b.classList.add('correct');else if(b.dataset.answer===id)b.classList.add('wrong')});
   $('#quiz-feedback').textContent=id===word.id?`맞아요. ${word.text} · ${word.reading} · ${word.meaning}`:`고른 것은 ‘${chosen.meaning}’예요. 정답은 ${word.text} · ${word.reading} · ${word.meaning}입니다.`;$('#quiz-feedback').className=`feedback ${id===word.id?'success':'retry'}`;$('#next-quiz').hidden=false;$('#next-quiz').textContent=state.quizIndex===state.reviewWords.length-1?'복습 결과 보기':'다음 문제'}
 function nextQuiz(){if(state.quizIndex<state.reviewWords.length-1){state.quizIndex++;renderQuiz()}else{$('#quiz-active').hidden=true;$('#quiz-result').hidden=false;$('#quiz-score').textContent=`${state.reviewWords.length}개 중 ${state.correct}개를 연결했어요.`;$('#quiz-result-copy').textContent='헷갈린 항목은 소리와 뜻을 다시 연결해요. 체크와 정답 수는 발음·숙달 평가가 아니에요.';$('#next-batch').hidden=!state.cumulative||!state.reviewQueue.length}}
-function renderNumbers(){$('#number-title').textContent=`${week.id}주차 · 5분 숫자 듣기`;$('#number-items').innerHTML=week.numbers.map(n=>`<div><b>${n.value}</b><span lang="ja">${n.reading}</span><button type="button" class="button small" data-speak="${n.reading}">듣기</button></div>`).join('');$('#number-caption').textContent=week.id===8?'새 숫자 없이 익숙한 단위와 소리를 구별해요.':'시작 예시예요. 이미 들을 수 있으면 주교재 수준에 맞는 금액·수량을 연습해요. 처음 배우면 소리와 숫자를 연결한 뒤 듣고 가리켜요.';soundButtons()}
+function renderNumbers(){$('#number-title').textContent=`${week.id}주차 · 5분 숫자 듣기`;$('#number-items').innerHTML=week.numbers.map(n=>`<div><b>${n.value}</b><span lang="ja">${n.reading}</span><button type="button" class="button small" data-speak="${n.reading}">듣기</button></div>`).join('');$('#number-caption').textContent='시작 예시예요. 이미 들을 수 있으면 주교재 수준에 맞는 금액·수량을 연습해요. 처음 배우면 소리와 숫자를 연결한 뒤 듣고 가리켜요.';soundButtons()}
 function period(w){if(!state.start)return'시작 주 미정';const start=new Date(state.start+'T12:00:00');if(Number.isNaN(start.getTime()))return'시작 주 미정';start.setDate(start.getDate()+(w.id-1)*7);const end=new Date(start);end.setDate(end.getDate()+6);return `${start.getMonth()+1}/${start.getDate()}–${end.getMonth()+1}/${end.getDate()}`}
-function scheduleTable(list){return `<table class="course-schedule"><thead><tr><th>주차·자료</th><th>수업 A · 익히기</th><th>수업 B · 다시 사용하기</th></tr></thead><tbody>${list.map(w=>`<tr><th scope="row"><b>${w.id}주차</b><span>${period(w)}</span><span>${w.title}</span></th><td>${w.a}<small>${w.words.map(x=>x.meaning).join(' · ')}${w.id===8?' (복습)':''}</small></td><td>${w.b}<small>${w.phrase.meaning}</small></td></tr>`).join('')}</tbody></table>`}
-function renderSchedule(){$('#schedule-table').innerHTML=scheduleTable(course.weeks);$('#source-guide').innerHTML=Object.entries(course.docs).map(([id,d])=>`<article><h2>${d.title}</h2><p>${d.pages}쪽 · ${course.weeks.filter(w=>w.group===id).map(w=>w.id+'주차').join(' · ')}</p><p>${id==='phrases'?'실제 요청 의도 → 짧은 구두용 표현':id==='costs'?'제목·비용 항목·표 머리글 → 자료에서 찾기':'상태·작업 용어 → 뜻 구별과 짧은 전달'}</p></article>`).join('')}
-function teacherHTML(w,print=false){return `<div class="teacher-note"><b>${w.id}주차 · ${w.title}</b><p>${w.goal}</p><p>제공자료: ${w.source}</p></div><div class="teacher-columns"><section><h2>수업 A · 약 25분</h2><ol class="schedule"><li><b>8분 · 단어 3개</b><p>소리 → 한국어 뜻 → 표기를 연결합니다. 교사가 읽으면 해당 단어를 가리키게 합니다.</p></li><li><b>10분 · 고정 표현 1개</b><p>${w.a}.</p></li><li><b>7분 · 짧게 사용하고 확인</b><p>${w.teacher}</p></li></ol></section><section><h2>수업 B · 약 25분</h2><ol class="schedule"><li><b>5분 · 지난 수업 떠올리기</b><p>같은 단어를 순서를 바꿔 듣고 고릅니다.</p></li><li><b>12분 · 자료와 연결</b><p>${w.b}.</p></li><li><b>8분 · 수행 확인과 과제</b><p>${w.transfer}</p></li></ol></section></div><section class="teacher-check"><h2>표현의 뜻과 사용 범위</h2><p lang="ja">${w.phrase.reading}</p><p><b>${w.phrase.meaning}</b></p><p>${w.phrase.situation}</p><p>${w.phrase.note}</p><p>표현 근거: ${w.phrase.source}</p></section><details${print?' open':''}><summary>어휘 출처와 보완 사항</summary>${w.words.map(x=>`<p><b>${x.text} · ${x.reading} · ${x.meaning}</b><br>${x.source}</p>`).join('')}</details><details${print?' open':''}><summary>수행 확인과 분량 조절</summary><p>□ 소리를 듣고 단어의 뜻이나 글자를 고른다.<br>□ 자료를 가리키거나 정해진 상황에서, 뜻을 알고 문장 전체를 말한다.<br>□ ${w.id===7?'완료/아직의 두 응답을 구별한다.':'헷갈리는 항목은 다음 수업에서 다시 다룬다.'}</p><p>수업 B에서도 어렵다면 다음 주 새 어휘를 추가하지 않고 이 묶음을 반복합니다. ${w.id===8?'누적 21단어·7표현은 3~5개와 2~3개씩 나눠 확인합니다.':'8주 일정은 가안이며 학습 속도에 따라 늘릴 수 있습니다.'}</p></details>`}
-function retrievalHTML(w){const prior=[w.id-1,w.id-3].filter(id=>id>=1).map(id=>course.weeks[id-1]);return `<section class="teacher-check"><h2>시작할 때, 이전 표현 떠올리기</h2><p>${prior.length?'일본어 정답을 먼저 읽어 주지 말고 아래 한국어 상황을 제시해요. 약 2~3분이면 충분해요.':'첫 수업에는 가나·쉬운 숫자를 잠깐 확인하고, 실제 자주 하는 요청 두 가지를 한국어로 물어봐요.'}</p>${prior.map(old=>`<details><summary>${old.id}주차 복습 · ${old.phrase.situation}</summary><p>${old.phrase.chunks.map(c=>c.text).join('')}<br>${old.phrase.meaning}</p></details>`).join('')}<p>기록은 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 남겨요. 한 단어가 약하면 다음 묶음에서 같이 복습하고, 대부분이 따라 하기만 가능하면 현재 묶음을 한 번 더 써요.</p></section>`}
+function scheduleTable(list){return `<table class="course-schedule"><thead><tr><th>주차·난이도·분량</th><th>수업 A · 앞 묶음</th><th>수업 B · 뒤 묶음과 복습</th></tr></thead><tbody>${list.map(w=>`<tr><th scope="row"><b>${w.id}주차 · ${w.stage}</b><span>${period(w)}</span><span>${w.title}</span><span>단어 ${w.words.length}개 · 표현 ${w.phrases.length}개</span></th><td>${w.a}<small>${w.words.slice(0,Math.ceil(w.words.length/2)).map(x=>x.meaning).join(' · ')}</small></td><td>${w.b}<small>${w.words.slice(Math.ceil(w.words.length/2)).map(x=>x.meaning).join(' · ')}</small></td></tr>`).join('')}</tbody></table>`}
+function renderSchedule(){$('#schedule-table').innerHTML=scheduleTable(course.weeks);$('#level-guide').innerHTML=course.levels.map(l=>`<article><b>${l.name} · ${l.id*2-1}~${l.id*2}주</b><p>${l.description}</p></article>`).join('');$('#source-guide').innerHTML=Object.entries(course.docs).map(([id,d])=>`<article><h2>${d.title}</h2><p>${d.pages}쪽 · ${course.weeks.filter(w=>w.groups.includes(id)).map(w=>w.id+'주차').join(' · ')}</p></article>`).join('')}
+function teacherHTML(w){const half=Math.ceil(w.words.length/2);return `<div class="teacher-note"><b>${w.id}주차 · ${w.stage} · ${w.title}</b><p>${w.goal}</p><p>새 단어 ${w.words.length}개 / 표현 ${w.phrases.length}개. 단일어·복합어를 각각 학습 항목으로 셉니다.</p></div><div class="teacher-columns"><section><h2>수업 A · 앞 ${half}단어</h2><p>${w.a}. 4~5개씩 듣고 뜻을 연결한 뒤 가리고 떠올립니다.</p><p>${w.teacher}</p></section><section><h2>수업 B · 뒤 ${w.words.length-half}단어</h2><p>${w.b}. 시작할 때 A회차 내용을 정답 없이 확인합니다.</p><p>${w.transfer}</p></section></div><details><summary>이번 주 ${w.phrases.length}표현 · 상황과 출처</summary>${w.phrases.map(p=>`<p><b>${phraseRuby(p)}<br>${p.meaning}</b><br>${p.situation}<br>${p.note}<br>${p.source} · ${p.kind}</p>`).join('')}</details><details><summary>이번 주 ${w.words.length}단어 · 출처</summary>${w.words.map(x=>`<p><b>${x.text} · ${x.reading} · ${x.meaning}</b><br>${x.source}</p>`).join('')}</details><div class="teacher-check"><h2>분량과 수행 확인</h2><p>이번 주 분량을 A/B 두 회차에 나누고 하루 4~5개씩 복습합니다. B회차와 다음 주에 소리만 듣고 고르는지, 상황만 보고 표현을 말하는지 확인합니다. 어려우면 뒤 묶음을 다음 회차로 넘기고, 이미 아는 항목은 확인 후 넘어갑니다. 반품 등급 규칙은 초안이며 확정 지침으로 가르치지 않습니다.</p></div>`}
+function retrievalHTML(w){const prior=[w.id-1,w.id-3].filter(id=>id>=1).map(id=>course.weeks[id-1]);return `<section class="teacher-check"><h2>이전 표현 떠올리기</h2><p>전주와 3주 전에서 각각 표현 1~2개를 골라 한국어 상황만 먼저 제시해요. 첫 수업에는 가나·숫자와 실제 자주 하는 요청을 확인해요.</p>${prior.map(old=>`<details><summary>${old.id}주차 · ${old.title}</summary>${old.phrases.map(p=>`<p>${p.situation}<br>${phraseRuby(p)}<br>${p.meaning}</p>`).join('')}</details>`).join('')}<p>도움 수준은 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 기록합니다.</p></section>`}
 function renderTeacher(){$('#teacher-heading').textContent=`${week.id}주차 교사용 진행안`;$('#teacher-content').innerHTML=teacherHTML(week)+retrievalHTML(week)}
 function navigate(section){state.section=section;if('speechSynthesis'in window)speechSynthesis.cancel();$$('.page').forEach(p=>p.hidden=p.id!==`page-${section}`);$$('[data-nav]').forEach(b=>b.setAttribute('aria-current',b.dataset.nav===section?'page':'false'));
   if(section==='words')renderWords();if(section==='phrases')renderPhrase();if(section==='find')renderFind();if(section==='review'){startQuiz(false);renderNumbers()}if(section==='teacher')renderTeacher();if(section==='schedule')renderSchedule();const h=$(`#page-${section} h1`);h.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}
-function loadWeek(id){week=course.weeks.find(w=>w.id===id)||course.weeks[0];state.wordIndex=0;state.findIndex=0;state.findMode='meaning';state.findOrder=shuffle([0,1,2]);state.reviewQueue=[];state.cumulative=false;$('#week-select').value=String(week.id);$('#pack-title').textContent=week.title;renderWords();renderPhrase();renderFind();renderNumbers();renderTeacher();renderSchedule();startQuiz(false);save();navigate('words')}
-function printLearner(w){return `<section class="paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>${w.id}주차 · ${w.title} · 단어</span></header><h1>${w.title}</h1><p>${w.goal}</p><div class="print-words">${w.words.map(x=>`<article><div>${ruby(x.text,x.reading)}</div><section><h2>${x.meaning}</h2><p>${x.context}</p><p class="paper-check">□ 듣고 뜻 알기　□ 글자 찾기　□ 단어 말하기</p></section></article>`).join('')}</div><h2>가리고 떠올리기</h2><p>뜻을 가리고 단어를 보거나, 교사가 소리만 읽어 주세요. 쓰기 대신 가리켜도 돼요.</p><table class="paper-review"><thead><tr><th>뜻</th><th>일본어를 쓰거나 위에서 찾아 가리키기</th></tr></thead><tbody>${w.words.map(x=>`<tr><th>${x.meaning}</th><td></td></tr>`).join('')}</tbody></table><footer>숫자 시작 예시: ${w.numbers.map(n=>n.value+' ('+n.reading+')').join(' / ')}<br>주교재와 함께 쓰는 부교재 · 학습용 가상 예시</footer></section><section class="paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>${w.id}주차 · ${w.title} · 사용하기</span></header><h1>상황과 함께 통째로 말하기</h1><article class="print-phrase"><p>${w.phrase.situation}</p><div class="print-sentence">${phraseRuby(w.phrase)}</div><h2>${w.phrase.meaning}</h2><p>${w.phrase.action}</p><p>□ 듣고 따라 말하기　□ 문장을 가리고 말하기</p></article><h2>자료에서 세 단어 찾기</h2><p>교사가 한국어 뜻이나 일본어 소리를 제시하면 해당 단어를 가리켜요.</p><div class="print-report">${reportMarkup(w)}</div>${w.responses?`<p>듣고 구별하기: ${w.responses.map(r=>r.text+' → '+r.meaning).join(' / ')}</p>`:''}<footer>${w.source}<br>표현은 학습용 구두 재구성입니다. 원문의 조건 전체를 담지 않습니다. 자세한 범위는 교사용 안내를 확인하세요.</footer></section>`}
-function printTeacher(w){return `<section class="paper teacher-paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>${w.id}주차 교사용 진행안</span></header><h1>${w.title}</h1><p><b>목표:</b> ${w.goal}<br><b>출처:</b> ${w.source}</p><p><b>단어:</b> ${w.words.map(x=>`${x.text}(${x.reading}) ${x.meaning}`).join(' / ')}</p><h2>수업 A · 부교재 25분</h2><p>8분 단어 소리·뜻·표기 연결 → 10분 고정 표현 → 7분 사용과 확인.<br>${w.a}. ${w.teacher}</p><h2>수업 B · 부교재 25분</h2><p>5분 지난 내용 → 12분 자료 연결 → 8분 확인·과제. 뜻 보고 찾기 뒤 소리만 듣고 찾기를 사용합니다.<br>${w.b}. ${w.transfer}</p><h2>통암기 표현과 사용 범위</h2><p>${w.phrase.text||w.phrase.chunks.map(c=>c.text).join('')}<br>${w.phrase.reading}<br><b>${w.phrase.meaning}</b><br>${w.phrase.situation}<br>${w.phrase.note}</p><h2>어휘·표현 근거</h2><p>${w.words.map(x=>x.text+': '+x.source).join('<br>')}<br>표현: ${w.phrase.source}</p><h2>확인·숫자·복습</h2><p>□ 소리를 듣고 단어 선택　□ 정해진 상황에서 뜻을 알고 요청·질문 사용<br>숫자 시작 예시: ${w.numbers.map(n=>n.value+' '+n.reading).join(' / ')}<br>부교재 복습 주 40분: 10분씩 단어/표현/자료찾기 + 5분씩 두 번 누적 복습. 주교재 140분과 합쳐 180분. 전주와 3주 전 표현은 상황만 주고 복습합니다. 기록은 혼자/힌트/따라 하기. 한 항목만 약하면 복습하며 진행하고, 대부분이 따라 하기만 가능하면 반복합니다.</p><footer>90분: 복습·숫자 10 + 주교재 50 + 부교재 25 + 정리 5 / 120분: 복습·숫자 10 + 주교재 70 + 휴식 5 + 부교재 30 + 정리 5<br>실제 반품 판정·회계 기준을 확정하는 자료가 아닙니다.</footer></section>`}
-function printSchedule(){return [course.weeks.slice(0,4),course.weeks.slice(4)].map((list,i)=>`<section class="paper schedule-paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>8주 · 16회 일정 ${i+1} / 2</span></header><h1>주교재와 함께, 주 두 번.</h1><p>주차별 새 단어 3개와 고정 표현 1개. 8주차는 새 내용 없이 복습. 수업 요일은 별도 지정합니다.</p>${scheduleTable(list)}<h2>수업 시간과 복습 배분</h2><p>90분 수업: 복습·숫자 10 + 주교재 50 + 부교재 25 + 정리 5.<br>120분 수업: 복습·숫자 10 + 주교재 70 + 휴식 5 + 부교재 30 + 정리 5.<br>주 복습 180분: 주교재 140분 + 부교재 40분(10분 × 3회 + 5분 × 2회).</p><p>120분은 주교재를 35분씩 나누고 중간에 쉽니다. 첫 수업의 시작 10분은 진단에 씁니다. 단어 3개·표현 1개는 부교재 핵심량이며 전체 학습량이 아닙니다. 며칠 뒤 상황만 보고 쓸 수 있는지 확인하여 다음 묶음을 정합니다.</p><footer>시작 주 ${state.start||'미정'} · 실제 수업 요일/휴일에 따라 조정 · 출처와 표현 재구성 범위는 주차별 교사용 안내</footer></section>`).join('')}
+function loadWeek(id){week=course.weeks.find(w=>w.id===id)||course.weeks[0];state.wordIndex=0;state.phraseIndex=0;state.findIndex=0;state.findMode='meaning';state.findOrder=shuffle(week.words.map((_,i)=>i));state.reviewQueue=[];state.cumulative=false;$('#week-select').value=String(week.id);$('#pack-title').textContent=week.title;$('#week-review').textContent=`이번 주 ${week.words.length}단어`;renderWords();renderPhrase();renderFind();renderNumbers();renderTeacher();renderSchedule();startQuiz(false);save();navigate('words')}
+function chunks(list,size){return Array.from({length:Math.ceil(list.length/size)},(_,i)=>list.slice(i*size,(i+1)*size))}
+function paperHeader(w,label){return `<header class="paper-header"><b>일본어 업무 첫걸음</b><span>${w.id}주차 · ${w.stage} · ${label}</span></header>`}
+function printLearner(w){const wordPages=chunks(w.words,6).map((list,i)=>`<section class="paper">${paperHeader(w,`단어 ${i*6+1}~${i*6+list.length}`)}<h1>${w.title}</h1><div class="print-vocabulary">${list.map(x=>`<article><div>${ruby(x.text,x.reading)}</div><h2>${x.meaning}</h2><p>${x.source}</p><p>□ 듣고 뜻 알기　□ 글자 찾기　□ 말하기</p></article>`).join('')}</div><h2>가리고 떠올리기</h2><table class="paper-review"><thead><tr><th>뜻</th><th>일본어를 쓰거나 위에서 찾아 가리키기</th></tr></thead><tbody>${list.map(x=>`<tr><th>${x.meaning}</th><td></td></tr>`).join('')}</tbody></table></section>`).join('');const phrasePages=chunks(w.phrases,2).map(list=>`<section class="paper">${paperHeader(w,'표현 연습')}<h1>상황을 보고 말해요</h1>${list.map(p=>`<article class="print-phrase"><p>${p.situation}</p><div class="print-sentence">${phraseRuby(p)}</div><h2>${p.meaning}</h2><p>${p.source} · ${p.kind}</p><p>${p.note}</p><p>□ 듣고 따라 말하기　□ 가리고 말하기</p></article>`).join('')}<footer>원문 전체의 조건을 담지 않은 학습용 표현입니다.</footer></section>`).join('');const reportPages=chunks(w.reports,2).map(list=>`<section class="paper">${paperHeader(w,'자료 찾기')}<h1>소리와 표기를 연결해요</h1><p>교사가 뜻 또는 일본어 소리를 제시하면 같은 단어를 가리켜요.</p>${list.map(r=>`<div class="print-report">${reportMarkup(w,false,r)}</div>`).join('')}<footer>숫자 연습: ${w.numbers.map(n=>n.value+' ('+n.reading+')').join(' / ')}</footer></section>`).join('');return wordPages+phrasePages+reportPages}
+function printTeacher(w){return `<section class="paper teacher-paper">${paperHeader(w,'진행안')}<h1>${w.title}</h1><p>${w.goal}</p><p>${w.stage} · 새 단어 ${w.words.length}개 · 표현 ${w.phrases.length}개</p><h2>수업 A / B</h2><p>${w.a}.<br>${w.b}.</p><p>${w.teacher}<br>${w.transfer}</p><h2>복습과 분량 조절</h2><p>부교재 어휘를 A/B 회차와 매일 복습으로 분산합니다. 듣고 고르기 → 뜻을 가리고 떠올리기 → 상황만 보고 말하기로 확인합니다. 어려운 묶음은 다음 회차로 넘깁니다.</p><h2>이전 내용 확인</h2><p>전주와 3주 전에서 표현 1~2개를 골라 한국어 상황만 제시합니다. ‘혼자 / 힌트 / 따라 하기’로 기록합니다. 개별 어휘·표현의 출처와 조건은 학습자용 인쇄물과 화면 안내에서 확인합니다.</p><footer>반품 기준서는 초안입니다. 학습 내용은 확정된 현장 판정 규칙을 대신하지 않습니다.</footer></section>`}
+function printSchedule(){return chunks(course.weeks,2).map((list,i)=>`<section class="paper schedule-paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>8주 일정 ${i+1} / 4</span></header><h1>기초에서 심화까지</h1><p>총 ${course.newWordCount}단어 · ${course.newPhraseCount}표현. 매주 새 내용과 누적 복습을 병행합니다.</p>${scheduleTable(list)}<footer>A/B 두 회차에 나누고 하루 4~5개씩 복습합니다. 시작 주 ${state.start||'미정'}.</footer></section>`).join('')}
 function preparePrint(kind){const all=kind.startsWith('all-'),base=kind.replace('all-','');$('#print-learner').innerHTML=base==='learner'?(all?course.weeks:[week]).map(printLearner).join(''):'';$('#print-teacher').innerHTML=base==='teacher'?(all?course.weeks:[week]).map(printTeacher).join(''):'';$('#print-schedule').innerHTML=base==='schedule'?printSchedule():'';document.body.dataset.print=base}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.nav)navigate(b.dataset.nav);if(b.dataset.speak)say(b.dataset.speak);if(b.dataset.word!==undefined){state.wordIndex=Number(b.dataset.word);renderWords();$(`[data-word="${state.wordIndex}"]`).focus()}if(b.dataset.hotspot)chooseHotspot(b.dataset.hotspot);if(b.dataset.answer)answer(b.dataset.answer);if(b.dataset.print){preparePrint(b.dataset.print);window.print()}if(b.dataset.response!==undefined){if(state.response===null){$('#response-feedback').textContent='먼저 ‘응답 듣고 구별하기’를 눌러 주세요.'}else{$('#response-feedback').textContent=Number(b.dataset.response)===state.response?'맞아요. '+week.responses[state.response].meaning:'이번 응답은 ‘'+week.responses[state.response].meaning+'’예요. 다시 들어보세요.'}}});
-document.addEventListener('keydown',e=>{const tab=e.target.closest('#word-tabs [role=tab]');if(!tab||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let i=state.wordIndex+(e.key==='ArrowLeft'?-1:1);if(e.key==='Home')i=0;if(e.key==='End')i=2;$(`[data-word="${(i+3)%3}"]`).click()});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.nav)navigate(b.dataset.nav);if(b.dataset.speak)say(b.dataset.speak);if(b.dataset.word!==undefined){state.wordIndex=Number(b.dataset.word);renderWords();$(`[data-word="${state.wordIndex}"]`).focus()}if(b.dataset.phrase!==undefined){state.phraseIndex=Number(b.dataset.phrase);renderPhrase();$(`[data-phrase="${state.phraseIndex}"]`).focus()}if(b.dataset.hotspot)chooseHotspot(b.dataset.hotspot);if(b.dataset.answer)answer(b.dataset.answer);if(b.dataset.print){preparePrint(b.dataset.print);window.print()}if(b.dataset.response!==undefined){if(state.response===null){$('#response-feedback').textContent='먼저 ‘응답 듣고 구별하기’를 눌러 주세요.'}else{$('#response-feedback').textContent=Number(b.dataset.response)===state.response?'맞아요. '+week.responses[state.response].meaning:'이번 응답은 ‘'+week.responses[state.response].meaning+'’예요. 다시 들어보세요.'}}});
+document.addEventListener('keydown',e=>{const tab=e.target.closest('[role=tab]');if(!tab||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const isWord=tab.dataset.word!==undefined,len=isWord?week.words.length:week.phrases.length;let i=(isWord?state.wordIndex:state.phraseIndex)+(e.key==='ArrowLeft'?-1:1);if(e.key==='Home')i=0;if(e.key==='End')i=len-1;$(`[data-${isWord?'word':'phrase'}="${(i+len)%len}"]`).click()});
+$('#prev-phrase').addEventListener('click',()=>{if(state.phraseIndex>0){state.phraseIndex--;renderPhrase()}});
+$('#next-phrase').addEventListener('click',()=>{if(state.phraseIndex===week.phrases.length-1)navigate('find');else{state.phraseIndex++;renderPhrase()}});
 $('#week-select').addEventListener('change',e=>loadWeek(Number(e.target.value)));
 $('#course-start').addEventListener('change',e=>{state.start=e.target.value;save();renderSchedule()});
 $('#prev-word').addEventListener('click',()=>{if(state.wordIndex>0){state.wordIndex--;renderWords()}});
-$('#next-word').addEventListener('click',()=>{if(state.wordIndex===2)navigate('phrases');else{state.wordIndex++;renderWords()}});
+$('#next-word').addEventListener('click',()=>{if(state.wordIndex===week.words.length-1)navigate('phrases');else{state.wordIndex++;renderWords()}});
 $('#toggle-meaning').addEventListener('click',()=>{state.meaning=!state.meaning;meaning()});
 $('#reading-toggle').addEventListener('change',e=>{state.reading=e.target.checked;setReading();save()});
 $('#familiar-word').addEventListener('change',e=>{const id=week.words[state.wordIndex].id;state.familiar=state.familiar.filter(x=>x!==id);if(e.target.checked)state.familiar.push(id);save();updateProgress()});
-$('#phrase-ready').addEventListener('change',e=>{state.used=state.used.filter(x=>x!==week.phrase.id);if(e.target.checked)state.used.push(week.phrase.id);save()});
+$('#phrase-ready').addEventListener('change',e=>{const id=currentPhrase().id;state.used=state.used.filter(x=>x!==id);if(e.target.checked)state.used.push(id);save()});
 $('#reveal-phrase').addEventListener('click',()=>{const hidden=!$('#phrase-answer').hidden;$('#phrase-answer').hidden=hidden;$('#reveal-phrase').textContent=hidden?'문장 다시 보기':'문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded',String(!hidden))});
-$('#next-find').addEventListener('click',()=>{if(state.findIndex===2)navigate('review');else{state.findIndex++;renderFind()}});
-$('#find-meaning-mode').addEventListener('click',()=>{state.findMode='meaning';state.findIndex=0;state.findOrder=shuffle([0,1,2]);renderFind()});
-$('#find-listening-mode').addEventListener('click',()=>{state.findMode='listening';state.findIndex=0;state.findOrder=shuffle([0,1,2]);renderFind()});
+$('#next-find').addEventListener('click',()=>{if(state.findIndex===week.words.length-1)navigate('review');else{state.findIndex++;renderFind()}});
+$('#find-meaning-mode').addEventListener('click',()=>{state.findMode='meaning';state.findIndex=0;state.findOrder=shuffle(week.words.map((_,i)=>i));renderFind()});
+$('#find-listening-mode').addEventListener('click',()=>{state.findMode='listening';state.findIndex=0;state.findOrder=shuffle(week.words.map((_,i)=>i));renderFind()});
 $('#meaning-review').addEventListener('click',()=>startQuiz(state.cumulative,'meaning'));
 $('#sound-review').addEventListener('click',()=>startQuiz(state.cumulative,'sound'));
 $('#week-review').addEventListener('click',()=>startQuiz(false));$('#cumulative-review').addEventListener('click',()=>startQuiz(true));
@@ -261,7 +3796,7 @@ $('#next-quiz').addEventListener('click',nextQuiz);$('#retry-quiz').addEventList
 $('#listen-response').addEventListener('click',()=>{state.response=Math.floor(Math.random()*2);say(week.responses[state.response].reading);$('#response-feedback').textContent='들은 응답의 뜻을 골라 주세요.'});
 $('#reset-progress').addEventListener('click',()=>{$('#reset-confirm').hidden=false;$('#confirm-reset').focus()});$('#cancel-reset').addEventListener('click',()=>{$('#reset-confirm').hidden=true;$('#reset-progress').focus()});
 $('#confirm-reset').addEventListener('click',()=>{state.familiar=[];state.used=[];save();renderWords();renderPhrase();$('#reset-confirm').hidden=true;$('#reset-progress').focus();$('#reset-status').textContent='전체 주차의 단어·표현 체크를 지웠어요.'});
-$('#week-select').innerHTML=course.weeks.map(w=>`<option value="${w.id}">${w.id}주 · ${w.title}</option>`).join('');$('#course-start').value=state.start;setReading();loadWeek(week.id);voices();if('speechSynthesis'in window)speechSynthesis.addEventListener('voiceschanged',voices);
+$('#week-select').innerHTML=course.weeks.map(w=>`<option value="${w.id}">${w.id}주 · ${w.stage} · ${w.title}</option>`).join('');$('#course-start').value=state.start;setReading();loadWeek(week.id);voices();if('speechSynthesis'in window)speechSynthesis.addEventListener('voiceschanged',voices);
 
 </script>
 </body>
