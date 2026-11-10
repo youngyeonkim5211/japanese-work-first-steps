@@ -93,7 +93,7 @@
       <div class="word-tabs" id="word-tabs" role="tablist" aria-label="배울 단어"></div>
       <div id="word-panel" class="learning-surface" role="tabpanel" aria-labelledby="word-tab-document">
         <div class="word-face"><p class="item-status" id="word-status">이번 주 단어</p><div class="large-term" id="word-term"></div><button class="button sound-button" type="button" id="word-sound" data-speak="しりょう">소리 듣기</button></div>
-        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content"><h2 id="word-meaning">자료</h2><p id="word-context"></p></div><p id="meaning-placeholder" class="meaning-placeholder" hidden>무슨 뜻이었는지<br>떠올려 보세요.</p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="true">뜻 가리기</button><p class="learning-hint" id="word-hint"></p><p class="source-note" id="word-source"></p></div>
+        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content" hidden><h2 id="word-meaning">자료</h2><p id="word-context"></p></div><p id="meaning-placeholder" class="meaning-placeholder">무슨 뜻이었는지<br>떠올려 보세요.</p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="false">뜻 표시하기</button><p class="learning-hint" id="word-hint"></p><p class="source-note" id="word-source" hidden></p></div>
       </div>
       <div class="word-actions"><label class="check-control"><input type="checkbox" id="familiar-word">이 단어가 익숙해졌어요</label><div class="button-group"><button class="button" type="button" id="prev-word">이전 단어</button><button class="button primary" type="button" id="next-word">다음 단어</button></div></div>
       <div class="lesson-footer"><p id="progress-label"></p><p>한자를 쓰거나 문장을 만들 필요는 없어요.</p></div>
@@ -3713,13 +3713,13 @@ try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};localStorage.se
 let week=course.weeks.find(w=>w.id===Number(saved.week))||course.weeks[0];
 const validWords=new Set(course.weeks.flatMap(w=>w.words.map(x=>x.id)));
 const validPhrases=new Set(course.weeks.flatMap(w=>w.phrases.map(p=>p.id)));
-const state={section:'words',wordIndex:0,phraseIndex:0,reading:saved.reading!==false,meaning:saved.meaning!==false,
+const state={section:'words',wordIndex:0,phraseIndex:0,reading:saved.reading!==false,meaning:false,
   familiar:Array.isArray(saved.familiar)?saved.familiar.filter(x=>validWords.has(x)):[],
   used:Array.isArray(saved.used)?saved.used.filter(x=>validPhrases.has(x)):[],
   start:typeof saved.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.start)?saved.start:'',
   voice:null,soundBroken:false,findIndex:0,findDone:false,findMode:'meaning',findOrder:[],findChoices:[],quizMode:'meaning',quizIndex:0,quizAnswered:false,correct:0,
   reviewWords:[],reviewQueue:[],cumulative:false,response:null};
-function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stringify({week:week.id,reading:state.reading,meaning:state.meaning,familiar:state.familiar,used:state.used,start:state.start}))}catch(_){canSave=false;updateProgress()}}
+function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stringify({week:week.id,reading:state.reading,familiar:state.familiar,used:state.used,start:state.start}))}catch(_){canSave=false;updateProgress()}}
 function ruby(text,reading){return `<ruby lang="ja">${text}<rt>${reading}</rt></ruby>`}
 function phraseRuby(p){return p.chunks.map(c=>`<span class="phrase-chunk">${c.text===c.reading?`<span lang="ja">${c.text}</span>`:ruby(c.text,c.reading)}</span>`).join('')}
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -3731,7 +3731,7 @@ function soundButtons(){$$('[data-speak],#listen-response').forEach(b=>{b.disabl
 function updateProgress(){$('#progress-label').textContent=`이번 주 체크 ${week.words.filter(w=>state.familiar.includes(w.id)).length} / ${week.words.length}단어 · 전체 ${state.familiar.length} / ${course.newWordCount}단어`;
   $('#storage-status').textContent=canSave?'체크와 주차는 이 브라우저에 저장돼요.':'현재 창에서만 기록이 유지돼요.'}
 function setReading(){document.body.classList.toggle('hide-reading',!state.reading);$('#reading-toggle').checked=state.reading}
-function renderWords(){const word=week.words[state.wordIndex];$('#words-heading').textContent=`${week.id}주차 · ${week.title}`;$('#words-description').textContent=`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
+function renderWords(){state.meaning=false;const word=week.words[state.wordIndex];$('#words-heading').textContent=`${week.id}주차 · ${week.title}`;$('#words-description').textContent=`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
   $('#word-tabs').innerHTML=week.words.map((w,i)=>`<button type="button" role="tab" id="word-tab-${w.id}" aria-controls="word-panel" aria-selected="${i===state.wordIndex}" tabindex="${i===state.wordIndex?0:-1}" data-word="${i}">${i+1} · <span lang="ja">${w.text}</span></button>`).join('');
   $('#word-panel').setAttribute('aria-labelledby',`word-tab-${word.id}`);$('#word-counter').textContent=`${state.wordIndex+1} / ${week.words.length}`;
   $('#word-term').innerHTML=ruby(word.text,word.reading);$('#word-term').dataset.length=word.text.length>6?'long':word.text.length>4?'medium':'short';$('#word-meaning').textContent=word.meaning;$('#word-context').textContent=word.context;
@@ -3742,9 +3742,9 @@ function updateStudyChrome(){const concealed=(state.section==='words'&&!state.me
   $('#pack-title').textContent=concealed?`${week.id}주차 · ${week.stage}`:week.title;
   [...$('#week-select').options].forEach(option=>{const w=course.weeks.find(item=>item.id===Number(option.value));option.textContent=concealed?`${w.id}주 · ${w.stage} · 단어 ${w.words.length}개`:`${w.id}주 · ${w.stage} · ${w.title}`});
   $('#words-heading').textContent=!state.meaning?`${week.id}주차 · ${week.stage} · 뜻 떠올리기`:`${week.id}주차 · ${week.title}`;
-  $('#words-description').textContent=!state.meaning?`일본어를 보고 뜻을 떠올린 뒤 ‘뜻 확인하기’로 확인해요. 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개.`:`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
+  $('#words-description').textContent=!state.meaning?`일본어를 보고 뜻을 떠올린 뒤 ‘뜻 표시하기’를 눌러 확인해요. 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개.`:`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
 }
-function meaning(){$('#word-meaning-content').hidden=!state.meaning;$('#meaning-placeholder').hidden=state.meaning;$('#word-source').hidden=!state.meaning;$('#toggle-meaning').textContent=state.meaning?'뜻 가리기':'뜻 확인하기';$('#toggle-meaning').setAttribute('aria-expanded',String(state.meaning));updateStudyChrome()}
+function meaning(){$('#word-meaning-content').hidden=!state.meaning;$('#meaning-placeholder').hidden=state.meaning;$('#word-source').hidden=!state.meaning;$('#toggle-meaning').textContent=state.meaning?'뜻 가리기':'뜻 표시하기';$('#toggle-meaning').setAttribute('aria-expanded',String(state.meaning));updateStudyChrome()}
 function renderPhrase(){const p=currentPhrase();$('#phrase-counter').textContent=`${state.phraseIndex+1} / ${week.phrases.length}`;$('#phrase-tabs').innerHTML=week.phrases.map((item,i)=>`<button type="button" role="tab" id="phrase-tab-${item.id}" aria-selected="${i===state.phraseIndex}" tabindex="${i===state.phraseIndex?0:-1}" aria-controls="phrase-panel" data-phrase="${i}">${i+1} · ${item.meaning}</button>`).join('');$('#phrase-panel').setAttribute('aria-labelledby',`phrase-tab-${p.id}`);
   $('#phrase-situation').textContent=p.situation;$('#phrase-japanese').innerHTML=phraseRuby(p);$('#phrase-meaning').textContent=p.meaning;$('#phrase-action').textContent=p.action;
   $('#phrase-source').textContent=`${p.kind} · ${p.source} · ${p.note}`;$('#phrase-sound').dataset.speak=p.reading;$('#phrase-ready').checked=state.used.includes(p.id);$('#phrase-answer').hidden=false;$('#reveal-phrase').textContent='문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded','true');
