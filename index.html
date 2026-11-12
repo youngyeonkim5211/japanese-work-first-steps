@@ -289,6 +289,16 @@ summary{align-content:center}
 @media screen{
   button.button[aria-busy="true"],button.button[aria-busy="true"]:hover:not(:disabled){background:#d3e2fb;color:var(--blue-dark);border-color:var(--blue);box-shadow:inset 4px 0 0 var(--blue),inset 0 0 0 1px var(--blue)}
 }
+/* Phrase/response reading aids sit on kanji only (rubyParts in study.js). A kanji group and its reading stay together;
+   the surrounding kana wraps naturally. Word/number ruby is unchanged. */
+.phrase-chunk .kanji-ruby,.response-ja .kanji-ruby{ruby-align:center;white-space:nowrap}
+.phrase-chunk .kanji-ruby rt,.response-ja .kanji-ruby rt{letter-spacing:normal}
+/* Screen only: balance the phrase card lines so a short tail (e.g. いします。) is not left alone. No forced breaks or font shrink. */
+@media screen{#phrase-japanese{text-wrap:balance}}
+/* Responses: the Japanese line has one size, so plain kana matches the kanji with readings (was set on ruby only). */
+.response-row .response-ja{font:21px/2 var(--jp)}
+.response-row .response-ja ruby{font:inherit}
+@media(max-width:520px){.response-row .response-ja{font-size:19px}}
 
 </style>
 </head>
@@ -571,15 +581,34 @@ window.COURSE = {
           "chunks": [
             {
               "text": "これを",
-              "reading": "これを"
+              "reading": "これを",
+              "parts": [
+                [
+                  "これを"
+                ]
+              ]
             },
             {
               "text": "共有して",
-              "reading": "きょうゆうして"
+              "reading": "きょうゆうして",
+              "parts": [
+                [
+                  "共有",
+                  "きょうゆう"
+                ],
+                [
+                  "して"
+                ]
+              ]
             },
             {
               "text": "ください。",
-              "reading": "ください。"
+              "reading": "ください。",
+              "parts": [
+                [
+                  "ください。"
+                ]
+              ]
             }
           ],
           "reading": "これを きょうゆうして ください。",
@@ -596,15 +625,34 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ここを",
-              "reading": "ここを"
+              "reading": "ここを",
+              "parts": [
+                [
+                  "ここを"
+                ]
+              ]
             },
             {
               "text": "確認して",
-              "reading": "かくにんして"
+              "reading": "かくにんして",
+              "parts": [
+                [
+                  "確認",
+                  "かくにん"
+                ],
+                [
+                  "して"
+                ]
+              ]
             },
             {
               "text": "ください。",
-              "reading": "ください。"
+              "reading": "ください。",
+              "parts": [
+                [
+                  "ください。"
+                ]
+              ]
             }
           ],
           "reading": "ここを かくにんして ください。",
@@ -621,7 +669,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "お疲れ様です。",
-              "reading": "おつかれさまです。"
+              "reading": "おつかれさまです。",
+              "parts": [
+                [
+                  "お"
+                ],
+                [
+                  "疲",
+                  "つか"
+                ],
+                [
+                  "れ"
+                ],
+                [
+                  "様",
+                  "さま"
+                ],
+                [
+                  "です。"
+                ]
+              ]
             }
           ],
           "reading": "おつかれさまです。",
@@ -639,7 +706,12 @@ window.COURSE = {
           "chunks": [
             {
               "text": "はい、そのとおりです。",
-              "reading": "はい、そのとおりです。"
+              "reading": "はい、そのとおりです。",
+              "parts": [
+                [
+                  "はい、そのとおりです。"
+                ]
+              ]
             }
           ],
           "reading": "はい、そのとおりです。",
@@ -658,15 +730,34 @@ window.COURSE = {
         "chunks": [
           {
             "text": "これを",
-            "reading": "これを"
+            "reading": "これを",
+            "parts": [
+              [
+                "これを"
+              ]
+            ]
           },
           {
             "text": "共有して",
-            "reading": "きょうゆうして"
+            "reading": "きょうゆうして",
+            "parts": [
+              [
+                "共有",
+                "きょうゆう"
+              ],
+              [
+                "して"
+              ]
+            ]
           },
           {
             "text": "ください。",
-            "reading": "ください。"
+            "reading": "ください。",
+            "parts": [
+              [
+                "ください。"
+              ]
+            ]
           }
         ],
         "reading": "これを きょうゆうして ください。",
@@ -1040,15 +1131,38 @@ window.COURSE = {
           "chunks": [
             {
               "text": "会議室を",
-              "reading": "かいぎしつを"
+              "reading": "かいぎしつを",
+              "parts": [
+                [
+                  "会議室",
+                  "かいぎしつ"
+                ],
+                [
+                  "を"
+                ]
+              ]
             },
             {
               "text": "予約して",
-              "reading": "よやくして"
+              "reading": "よやくして",
+              "parts": [
+                [
+                  "予約",
+                  "よやく"
+                ],
+                [
+                  "して"
+                ]
+              ]
             },
             {
               "text": "ください。",
-              "reading": "ください。"
+              "reading": "ください。",
+              "parts": [
+                [
+                  "ください。"
+                ]
+              ]
             }
           ],
           "reading": "かいぎしつを よやくして ください。",
@@ -1065,11 +1179,29 @@ window.COURSE = {
           "chunks": [
             {
               "text": "入庫は",
-              "reading": "にゅうこは"
+              "reading": "にゅうこは",
+              "parts": [
+                [
+                  "入庫",
+                  "にゅうこ"
+                ],
+                [
+                  "は"
+                ]
+              ]
             },
             {
               "text": "完了しましたか。",
-              "reading": "かんりょうしましたか。"
+              "reading": "かんりょうしましたか。",
+              "parts": [
+                [
+                  "完了",
+                  "かんりょう"
+                ],
+                [
+                  "しましたか。"
+                ]
+              ]
             }
           ],
           "reading": "にゅうこは かんりょうしましたか。",
@@ -1086,7 +1218,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "会議室を押さえてください。",
-              "reading": "かいぎしつをおさえてください。"
+              "reading": "かいぎしつをおさえてください。",
+              "parts": [
+                [
+                  "会議室",
+                  "かいぎしつ"
+                ],
+                [
+                  "を"
+                ],
+                [
+                  "押",
+                  "お"
+                ],
+                [
+                  "さえてください。"
+                ]
+              ]
             }
           ],
           "reading": "かいぎしつをおさえてください。",
@@ -1104,7 +1252,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "少し遅れそうです。",
-              "reading": "すこしおくれそうです。"
+              "reading": "すこしおくれそうです。",
+              "parts": [
+                [
+                  "少",
+                  "すこ"
+                ],
+                [
+                  "し"
+                ],
+                [
+                  "遅",
+                  "おく"
+                ],
+                [
+                  "れそうです。"
+                ]
+              ]
             }
           ],
           "reading": "すこしおくれそうです。",
@@ -1123,15 +1287,38 @@ window.COURSE = {
         "chunks": [
           {
             "text": "会議室を",
-            "reading": "かいぎしつを"
+            "reading": "かいぎしつを",
+            "parts": [
+              [
+                "会議室",
+                "かいぎしつ"
+              ],
+              [
+                "を"
+              ]
+            ]
           },
           {
             "text": "予約して",
-            "reading": "よやくして"
+            "reading": "よやくして",
+            "parts": [
+              [
+                "予約",
+                "よやく"
+              ],
+              [
+                "して"
+              ]
+            ]
           },
           {
             "text": "ください。",
-            "reading": "ください。"
+            "reading": "ください。",
+            "parts": [
+              [
+                "ください。"
+              ]
+            ]
           }
         ],
         "reading": "かいぎしつを よやくして ください。",
@@ -1313,12 +1500,26 @@ window.COURSE = {
         {
           "text": "完了しました。",
           "reading": "かんりょうしました。",
-          "meaning": "완료됐습니다."
+          "meaning": "완료됐습니다.",
+          "parts": [
+            [
+              "完了",
+              "かんりょう"
+            ],
+            [
+              "しました。"
+            ]
+          ]
         },
         {
           "text": "まだです。",
           "reading": "まだです。",
-          "meaning": "아직입니다."
+          "meaning": "아직입니다.",
+          "parts": [
+            [
+              "まだです。"
+            ]
+          ]
         }
       ]
     },
@@ -1576,19 +1777,43 @@ window.COURSE = {
           "chunks": [
             {
               "text": "これは",
-              "reading": "これは"
+              "reading": "これは",
+              "parts": [
+                [
+                  "これは"
+                ]
+              ]
             },
             {
               "text": "保留に",
-              "reading": "ほりゅうに"
+              "reading": "ほりゅうに",
+              "parts": [
+                [
+                  "保留",
+                  "ほりゅう"
+                ],
+                [
+                  "に"
+                ]
+              ]
             },
             {
               "text": "して",
-              "reading": "して"
+              "reading": "して",
+              "parts": [
+                [
+                  "して"
+                ]
+              ]
             },
             {
               "text": "ください。",
-              "reading": "ください。"
+              "reading": "ください。",
+              "parts": [
+                [
+                  "ください。"
+                ]
+              ]
             }
           ],
           "reading": "これは ほりゅうに して ください。",
@@ -1605,7 +1830,37 @@ window.COURSE = {
           "chunks": [
             {
               "text": "恐れ入りますが、確認をお願いします。",
-              "reading": "おそれいりますが、かくにんをおねがいします。"
+              "reading": "おそれいりますが、かくにんをおねがいします。",
+              "parts": [
+                [
+                  "恐",
+                  "おそ"
+                ],
+                [
+                  "れ"
+                ],
+                [
+                  "入",
+                  "い"
+                ],
+                [
+                  "りますが、"
+                ],
+                [
+                  "確認",
+                  "かくにん"
+                ],
+                [
+                  "をお"
+                ],
+                [
+                  "願",
+                  "ねが"
+                ],
+                [
+                  "いします。"
+                ]
+              ]
             }
           ],
           "reading": "おそれいりますが、かくにんをおねがいします。",
@@ -1623,7 +1878,33 @@ window.COURSE = {
           "chunks": [
             {
               "text": "お手数ですが、確認をお願いします。",
-              "reading": "おてすうですが、かくにんをおねがいします。"
+              "reading": "おてすうですが、かくにんをおねがいします。",
+              "parts": [
+                [
+                  "お"
+                ],
+                [
+                  "手数",
+                  "てすう"
+                ],
+                [
+                  "ですが、"
+                ],
+                [
+                  "確認",
+                  "かくにん"
+                ],
+                [
+                  "をお"
+                ],
+                [
+                  "願",
+                  "ねが"
+                ],
+                [
+                  "いします。"
+                ]
+              ]
             }
           ],
           "reading": "おてすうですが、かくにんをおねがいします。",
@@ -1641,7 +1922,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "簡単で構いません。",
-              "reading": "かんたんでかまいません。"
+              "reading": "かんたんでかまいません。",
+              "parts": [
+                [
+                  "簡単",
+                  "かんたん"
+                ],
+                [
+                  "で"
+                ],
+                [
+                  "構",
+                  "かま"
+                ],
+                [
+                  "いません。"
+                ]
+              ]
             }
           ],
           "reading": "かんたんでかまいません。",
@@ -1659,7 +1956,30 @@ window.COURSE = {
           "chunks": [
             {
               "text": "必要な部分があればお知らせください。",
-              "reading": "ひつようなぶぶんがあればおしらせください。"
+              "reading": "ひつようなぶぶんがあればおしらせください。",
+              "parts": [
+                [
+                  "必要",
+                  "ひつよう"
+                ],
+                [
+                  "な"
+                ],
+                [
+                  "部分",
+                  "ぶぶん"
+                ],
+                [
+                  "があればお"
+                ],
+                [
+                  "知",
+                  "し"
+                ],
+                [
+                  "らせください。"
+                ]
+              ]
             }
           ],
           "reading": "ひつようなぶぶんがあればおしらせください。",
@@ -1678,19 +1998,43 @@ window.COURSE = {
         "chunks": [
           {
             "text": "これは",
-            "reading": "これは"
+            "reading": "これは",
+            "parts": [
+              [
+                "これは"
+              ]
+            ]
           },
           {
             "text": "保留に",
-            "reading": "ほりゅうに"
+            "reading": "ほりゅうに",
+            "parts": [
+              [
+                "保留",
+                "ほりゅう"
+              ],
+              [
+                "に"
+              ]
+            ]
           },
           {
             "text": "して",
-            "reading": "して"
+            "reading": "して",
+            "parts": [
+              [
+                "して"
+              ]
+            ]
           },
           {
             "text": "ください。",
-            "reading": "ください。"
+            "reading": "ください。",
+            "parts": [
+              [
+                "ください。"
+              ]
+            ]
           }
         ],
         "reading": "これは ほりゅうに して ください。",
@@ -2142,7 +2486,27 @@ window.COURSE = {
           "chunks": [
             {
               "text": "本日中にお願いします。",
-              "reading": "ほんじつちゅうにおねがいします。"
+              "reading": "ほんじつちゅうにおねがいします。",
+              "parts": [
+                [
+                  "本日",
+                  "ほんじつ"
+                ],
+                [
+                  "中",
+                  "ちゅう"
+                ],
+                [
+                  "にお"
+                ],
+                [
+                  "願",
+                  "ねが"
+                ],
+                [
+                  "いします。"
+                ]
+              ]
             }
           ],
           "reading": "ほんじつちゅうにおねがいします。",
@@ -2160,7 +2524,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "対応をお願いします。",
-              "reading": "たいおうをおねがいします。"
+              "reading": "たいおうをおねがいします。",
+              "parts": [
+                [
+                  "対応",
+                  "たいおう"
+                ],
+                [
+                  "をお"
+                ],
+                [
+                  "願",
+                  "ねが"
+                ],
+                [
+                  "いします。"
+                ]
+              ]
             }
           ],
           "reading": "たいおうをおねがいします。",
@@ -2178,7 +2558,34 @@ window.COURSE = {
           "chunks": [
             {
               "text": "入庫結果の共有をお願いします。",
-              "reading": "にゅうこけっかのきょうゆうをおねがいします。"
+              "reading": "にゅうこけっかのきょうゆうをおねがいします。",
+              "parts": [
+                [
+                  "入庫",
+                  "にゅうこ"
+                ],
+                [
+                  "結果",
+                  "けっか"
+                ],
+                [
+                  "の"
+                ],
+                [
+                  "共有",
+                  "きょうゆう"
+                ],
+                [
+                  "をお"
+                ],
+                [
+                  "願",
+                  "ねが"
+                ],
+                [
+                  "いします。"
+                ]
+              ]
             }
           ],
           "reading": "にゅうこけっかのきょうゆうをおねがいします。",
@@ -2196,7 +2603,27 @@ window.COURSE = {
           "chunks": [
             {
               "text": "到着予定日を教えてください。",
-              "reading": "とうちゃくよていびをおしえてください。"
+              "reading": "とうちゃくよていびをおしえてください。",
+              "parts": [
+                [
+                  "到着",
+                  "とうちゃく"
+                ],
+                [
+                  "予定日",
+                  "よていび"
+                ],
+                [
+                  "を"
+                ],
+                [
+                  "教",
+                  "おし"
+                ],
+                [
+                  "えてください。"
+                ]
+              ]
             }
           ],
           "reading": "とうちゃくよていびをおしえてください。",
@@ -2214,7 +2641,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "先に進めておいていただけますか。",
-              "reading": "さきにすすめておいていただけますか。"
+              "reading": "さきにすすめておいていただけますか。",
+              "parts": [
+                [
+                  "先",
+                  "さき"
+                ],
+                [
+                  "に"
+                ],
+                [
+                  "進",
+                  "すす"
+                ],
+                [
+                  "めておいていただけますか。"
+                ]
+              ]
             }
           ],
           "reading": "さきにすすめておいていただけますか。",
@@ -2233,7 +2676,27 @@ window.COURSE = {
         "chunks": [
           {
             "text": "本日中にお願いします。",
-            "reading": "ほんじつちゅうにおねがいします。"
+            "reading": "ほんじつちゅうにおねがいします。",
+            "parts": [
+              [
+                "本日",
+                "ほんじつ"
+              ],
+              [
+                "中",
+                "ちゅう"
+              ],
+              [
+                "にお"
+              ],
+              [
+                "願",
+                "ねが"
+              ],
+              [
+                "いします。"
+              ]
+            ]
           }
         ],
         "reading": "ほんじつちゅうにおねがいします。",
@@ -2731,11 +3194,25 @@ window.COURSE = {
           "chunks": [
             {
               "text": "合計は",
-              "reading": "ごうけいは"
+              "reading": "ごうけいは",
+              "parts": [
+                [
+                  "合計",
+                  "ごうけい"
+                ],
+                [
+                  "は"
+                ]
+              ]
             },
             {
               "text": "いくらですか。",
-              "reading": "いくらですか。"
+              "reading": "いくらですか。",
+              "parts": [
+                [
+                  "いくらですか。"
+                ]
+              ]
             }
           ],
           "reading": "ごうけいは いくらですか。",
@@ -2752,15 +3229,38 @@ window.COURSE = {
           "chunks": [
             {
               "text": "明細書を",
-              "reading": "めいさいしょを"
+              "reading": "めいさいしょを",
+              "parts": [
+                [
+                  "明細書",
+                  "めいさいしょ"
+                ],
+                [
+                  "を"
+                ]
+              ]
             },
             {
               "text": "送って",
-              "reading": "おくって"
+              "reading": "おくって",
+              "parts": [
+                [
+                  "送",
+                  "おく"
+                ],
+                [
+                  "って"
+                ]
+              ]
             },
             {
               "text": "ください。",
-              "reading": "ください。"
+              "reading": "ください。",
+              "parts": [
+                [
+                  "ください。"
+                ]
+              ]
             }
           ],
           "reading": "めいさいしょを おくって ください。",
@@ -2777,7 +3277,19 @@ window.COURSE = {
           "chunks": [
             {
               "text": "お教えいただけますでしょうか。",
-              "reading": "おおしえいただけますでしょうか。"
+              "reading": "おおしえいただけますでしょうか。",
+              "parts": [
+                [
+                  "お"
+                ],
+                [
+                  "教",
+                  "おし"
+                ],
+                [
+                  "えいただけますでしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "おおしえいただけますでしょうか。",
@@ -2795,7 +3307,19 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ご共有いただけますでしょうか。",
-              "reading": "ごきょうゆういただけますでしょうか。"
+              "reading": "ごきょうゆういただけますでしょうか。",
+              "parts": [
+                [
+                  "ご"
+                ],
+                [
+                  "共有",
+                  "きょうゆう"
+                ],
+                [
+                  "いただけますでしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "ごきょうゆういただけますでしょうか。",
@@ -2813,7 +3337,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "費用が発生します。",
-              "reading": "ひようがはっせいします。"
+              "reading": "ひようがはっせいします。",
+              "parts": [
+                [
+                  "費用",
+                  "ひよう"
+                ],
+                [
+                  "が"
+                ],
+                [
+                  "発生",
+                  "はっせい"
+                ],
+                [
+                  "します。"
+                ]
+              ]
             }
           ],
           "reading": "ひようがはっせいします。",
@@ -2832,11 +3372,25 @@ window.COURSE = {
         "chunks": [
           {
             "text": "合計は",
-            "reading": "ごうけいは"
+            "reading": "ごうけいは",
+            "parts": [
+              [
+                "合計",
+                "ごうけい"
+              ],
+              [
+                "は"
+              ]
+            ]
           },
           {
             "text": "いくらですか。",
-            "reading": "いくらですか。"
+            "reading": "いくらですか。",
+            "parts": [
+              [
+                "いくらですか。"
+              ]
+            ]
           }
         ],
         "reading": "ごうけいは いくらですか。",
@@ -3391,7 +3945,16 @@ window.COURSE = {
           "chunks": [
             {
               "text": "申請してください。",
-              "reading": "しんせいしてください。"
+              "reading": "しんせいしてください。",
+              "parts": [
+                [
+                  "申請",
+                  "しんせい"
+                ],
+                [
+                  "してください。"
+                ]
+              ]
             }
           ],
           "reading": "しんせいしてください。",
@@ -3409,7 +3972,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ご提出で結構です。",
-              "reading": "ごていしゅつでけっこうです。"
+              "reading": "ごていしゅつでけっこうです。",
+              "parts": [
+                [
+                  "ご"
+                ],
+                [
+                  "提出",
+                  "ていしゅつ"
+                ],
+                [
+                  "で"
+                ],
+                [
+                  "結構",
+                  "けっこう"
+                ],
+                [
+                  "です。"
+                ]
+              ]
             }
           ],
           "reading": "ごていしゅつでけっこうです。",
@@ -3427,7 +4009,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ご提出いただかなくて結構です。",
-              "reading": "ごていしゅついただかなくてけっこうです。"
+              "reading": "ごていしゅついただかなくてけっこうです。",
+              "parts": [
+                [
+                  "ご"
+                ],
+                [
+                  "提出",
+                  "ていしゅつ"
+                ],
+                [
+                  "いただかなくて"
+                ],
+                [
+                  "結構",
+                  "けっこう"
+                ],
+                [
+                  "です。"
+                ]
+              ]
             }
           ],
           "reading": "ごていしゅついただかなくてけっこうです。",
@@ -3445,7 +4046,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "上げていただかなくて大丈夫です。",
-              "reading": "あげていただかなくてだいじょうぶです。"
+              "reading": "あげていただかなくてだいじょうぶです。",
+              "parts": [
+                [
+                  "上",
+                  "あ"
+                ],
+                [
+                  "げていただかなくて"
+                ],
+                [
+                  "大丈夫",
+                  "だいじょうぶ"
+                ],
+                [
+                  "です。"
+                ]
+              ]
             }
           ],
           "reading": "あげていただかなくてだいじょうぶです。",
@@ -3463,7 +4080,34 @@ window.COURSE = {
           "chunks": [
             {
               "text": "実行稟議の番号は何番になりますか。",
-              "reading": "じっこうりんぎのばんごうはなんばんになりますか。"
+              "reading": "じっこうりんぎのばんごうはなんばんになりますか。",
+              "parts": [
+                [
+                  "実行",
+                  "じっこう"
+                ],
+                [
+                  "稟議",
+                  "りんぎ"
+                ],
+                [
+                  "の"
+                ],
+                [
+                  "番号",
+                  "ばんごう"
+                ],
+                [
+                  "は"
+                ],
+                [
+                  "何番",
+                  "なんばん"
+                ],
+                [
+                  "になりますか。"
+                ]
+              ]
             }
           ],
           "reading": "じっこうりんぎのばんごうはなんばんになりますか。",
@@ -3481,7 +4125,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "この流れで合っていますか。",
-              "reading": "このながれであっていますか。"
+              "reading": "このながれであっていますか。",
+              "parts": [
+                [
+                  "この"
+                ],
+                [
+                  "流",
+                  "なが"
+                ],
+                [
+                  "れで"
+                ],
+                [
+                  "合",
+                  "あ"
+                ],
+                [
+                  "っていますか。"
+                ]
+              ]
             }
           ],
           "reading": "このながれであっていますか。",
@@ -3500,7 +4163,16 @@ window.COURSE = {
         "chunks": [
           {
             "text": "申請してください。",
-            "reading": "しんせいしてください。"
+            "reading": "しんせいしてください。",
+            "parts": [
+              [
+                "申請",
+                "しんせい"
+              ],
+              [
+                "してください。"
+              ]
+            ]
           }
         ],
         "reading": "しんせいしてください。",
@@ -4102,7 +4774,16 @@ window.COURSE = {
           "chunks": [
             {
               "text": "以下のとおりです。",
-              "reading": "いかのとおりです。"
+              "reading": "いかのとおりです。",
+              "parts": [
+                [
+                  "以下",
+                  "いか"
+                ],
+                [
+                  "のとおりです。"
+                ]
+              ]
             }
           ],
           "reading": "いかのとおりです。",
@@ -4120,7 +4801,27 @@ window.COURSE = {
           "chunks": [
             {
               "text": "減少幅が大きくなっています。",
-              "reading": "げんしょうはばがおおきくなっています。"
+              "reading": "げんしょうはばがおおきくなっています。",
+              "parts": [
+                [
+                  "減少",
+                  "げんしょう"
+                ],
+                [
+                  "幅",
+                  "はば"
+                ],
+                [
+                  "が"
+                ],
+                [
+                  "大",
+                  "おお"
+                ],
+                [
+                  "きくなっています。"
+                ]
+              ]
             }
           ],
           "reading": "げんしょうはばがおおきくなっています。",
@@ -4138,7 +4839,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "整理して共有いたします。",
-              "reading": "せいりしてきょうゆういたします。"
+              "reading": "せいりしてきょうゆういたします。",
+              "parts": [
+                [
+                  "整理",
+                  "せいり"
+                ],
+                [
+                  "して"
+                ],
+                [
+                  "共有",
+                  "きょうゆう"
+                ],
+                [
+                  "いたします。"
+                ]
+              ]
             }
           ],
           "reading": "せいりしてきょうゆういたします。",
@@ -4156,7 +4873,37 @@ window.COURSE = {
           "chunks": [
             {
               "text": "期待値と比べるとかなり高い水準です。",
-              "reading": "きたいちとくらべるとかなりたかいすいじゅんです。"
+              "reading": "きたいちとくらべるとかなりたかいすいじゅんです。",
+              "parts": [
+                [
+                  "期待値",
+                  "きたいち"
+                ],
+                [
+                  "と"
+                ],
+                [
+                  "比",
+                  "くら"
+                ],
+                [
+                  "べるとかなり"
+                ],
+                [
+                  "高",
+                  "たか"
+                ],
+                [
+                  "い"
+                ],
+                [
+                  "水準",
+                  "すいじゅん"
+                ],
+                [
+                  "です。"
+                ]
+              ]
             }
           ],
           "reading": "きたいちとくらべるとかなりたかいすいじゅんです。",
@@ -4174,7 +4921,19 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ご参考までに。",
-              "reading": "ごさんこうまでに。"
+              "reading": "ごさんこうまでに。",
+              "parts": [
+                [
+                  "ご"
+                ],
+                [
+                  "参考",
+                  "さんこう"
+                ],
+                [
+                  "までに。"
+                ]
+              ]
             }
           ],
           "reading": "ごさんこうまでに。",
@@ -4192,7 +4951,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "いただき次第、確認します。",
-              "reading": "いただきしだい、かくにんします。"
+              "reading": "いただきしだい、かくにんします。",
+              "parts": [
+                [
+                  "いただき"
+                ],
+                [
+                  "次第",
+                  "しだい"
+                ],
+                [
+                  "、"
+                ],
+                [
+                  "確認",
+                  "かくにん"
+                ],
+                [
+                  "します。"
+                ]
+              ]
             }
           ],
           "reading": "いただきしだい、かくにんします。",
@@ -4210,7 +4988,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "資料をもとに検討します。",
-              "reading": "しりょうをもとにけんとうします。"
+              "reading": "しりょうをもとにけんとうします。",
+              "parts": [
+                [
+                  "資料",
+                  "しりょう"
+                ],
+                [
+                  "をもとに"
+                ],
+                [
+                  "検討",
+                  "けんとう"
+                ],
+                [
+                  "します。"
+                ]
+              ]
             }
           ],
           "reading": "しりょうをもとにけんとうします。",
@@ -4229,7 +5023,16 @@ window.COURSE = {
         "chunks": [
           {
             "text": "以下のとおりです。",
-            "reading": "いかのとおりです。"
+            "reading": "いかのとおりです。",
+            "parts": [
+              [
+                "以下",
+                "いか"
+              ],
+              [
+                "のとおりです。"
+              ]
+            ]
           }
         ],
         "reading": "いかのとおりです。",
@@ -4879,7 +5682,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "という理解で合っていますでしょうか。",
-              "reading": "というりかいであっていますでしょうか。"
+              "reading": "というりかいであっていますでしょうか。",
+              "parts": [
+                [
+                  "という"
+                ],
+                [
+                  "理解",
+                  "りかい"
+                ],
+                [
+                  "で"
+                ],
+                [
+                  "合",
+                  "あ"
+                ],
+                [
+                  "っていますでしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "というりかいであっていますでしょうか。",
@@ -4897,7 +5719,33 @@ window.COURSE = {
           "chunks": [
             {
               "text": "どのような形で受け取っているのでしょうか。",
-              "reading": "どのようなかたちでうけとっているのでしょうか。"
+              "reading": "どのようなかたちでうけとっているのでしょうか。",
+              "parts": [
+                [
+                  "どのような"
+                ],
+                [
+                  "形",
+                  "かたち"
+                ],
+                [
+                  "で"
+                ],
+                [
+                  "受",
+                  "う"
+                ],
+                [
+                  "け"
+                ],
+                [
+                  "取",
+                  "と"
+                ],
+                [
+                  "っているのでしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "どのようなかたちでうけとっているのでしょうか。",
@@ -4915,7 +5763,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "どなたが行う想定でしょうか。",
-              "reading": "どなたがおこなうそうていでしょうか。"
+              "reading": "どなたがおこなうそうていでしょうか。",
+              "parts": [
+                [
+                  "どなたが"
+                ],
+                [
+                  "行",
+                  "おこな"
+                ],
+                [
+                  "う"
+                ],
+                [
+                  "想定",
+                  "そうてい"
+                ],
+                [
+                  "でしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "どなたがおこなうそうていでしょうか。",
@@ -4933,7 +5800,23 @@ window.COURSE = {
           "chunks": [
             {
               "text": "一度ご教示いただけますか。",
-              "reading": "いちどごきょうじいただけますか。"
+              "reading": "いちどごきょうじいただけますか。",
+              "parts": [
+                [
+                  "一度",
+                  "いちど"
+                ],
+                [
+                  "ご"
+                ],
+                [
+                  "教示",
+                  "きょうじ"
+                ],
+                [
+                  "いただけますか。"
+                ]
+              ]
             }
           ],
           "reading": "いちどごきょうじいただけますか。",
@@ -4951,7 +5834,26 @@ window.COURSE = {
           "chunks": [
             {
               "text": "ひとまず承認で進めてください。",
-              "reading": "ひとまずしょうにんですすめてください。"
+              "reading": "ひとまずしょうにんですすめてください。",
+              "parts": [
+                [
+                  "ひとまず"
+                ],
+                [
+                  "承認",
+                  "しょうにん"
+                ],
+                [
+                  "で"
+                ],
+                [
+                  "進",
+                  "すす"
+                ],
+                [
+                  "めてください。"
+                ]
+              ]
             }
           ],
           "reading": "ひとまずしょうにんですすめてください。",
@@ -4969,7 +5871,30 @@ window.COURSE = {
           "chunks": [
             {
               "text": "引き下げることで合意しました。",
-              "reading": "ひきさげることでごういしました。"
+              "reading": "ひきさげることでごういしました。",
+              "parts": [
+                [
+                  "引",
+                  "ひ"
+                ],
+                [
+                  "き"
+                ],
+                [
+                  "下",
+                  "さ"
+                ],
+                [
+                  "げることで"
+                ],
+                [
+                  "合意",
+                  "ごうい"
+                ],
+                [
+                  "しました。"
+                ]
+              ]
             }
           ],
           "reading": "ひきさげることでごういしました。",
@@ -4987,7 +5912,19 @@ window.COURSE = {
           "chunks": [
             {
               "text": "お時間をいただけますでしょうか。",
-              "reading": "おじかんをいただけますでしょうか。"
+              "reading": "おじかんをいただけますでしょうか。",
+              "parts": [
+                [
+                  "お"
+                ],
+                [
+                  "時間",
+                  "じかん"
+                ],
+                [
+                  "をいただけますでしょうか。"
+                ]
+              ]
             }
           ],
           "reading": "おじかんをいただけますでしょうか。",
@@ -5006,7 +5943,26 @@ window.COURSE = {
         "chunks": [
           {
             "text": "という理解で合っていますでしょうか。",
-            "reading": "というりかいであっていますでしょうか。"
+            "reading": "というりかいであっていますでしょうか。",
+            "parts": [
+              [
+                "という"
+              ],
+              [
+                "理解",
+                "りかい"
+              ],
+              [
+                "で"
+              ],
+              [
+                "合",
+                "あ"
+              ],
+              [
+                "っていますでしょうか。"
+              ]
+            ]
           }
         ],
         "reading": "というりかいであっていますでしょうか。",
@@ -5337,7 +6293,9 @@ const state={section:'words',wordIndex:0,phraseIndex:0,reading:saved.reading!==f
   reviewWords:[],reviewQueue:[],cumulative:false,response:null,scope:'all',findWords:[],baseWords:[],pool:[],missed:[],retry:false,selfCheck:false};
 function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stringify({week:week.id,reading:state.reading,familiar:state.familiar,used:state.used,learnedNumbers:state.learnedNumbers,start:state.start,pos:{section:state.section,wordId:week.words[state.wordIndex]?.id,phraseId:week.phrases[state.phraseIndex]?.id}}))}catch(_){canSave=false;updateProgress()}}
 function ruby(text,reading){return `<ruby lang="ja">${text}<rt>${reading}</rt></ruby>`}
-function phraseRuby(p){return p.chunks.map(c=>`<span class="phrase-chunk">${c.text===c.reading?`<span lang="ja">${c.text}</span>`:ruby(c.text,c.reading)}</span>`).join('')}
+// 문장 요미가나: 한자 묶음에만 rt(data/phrase_ruby.json → parts). 가나·조사·문장부호는 본문 그대로.
+function rubyParts(parts){return parts.map(p=>p.length===2?`<ruby class="kanji-ruby">${p[0]}<rt>${p[1]}</rt></ruby>`:p[0]).join('')}
+function phraseRuby(p){return p.chunks.map(c=>`<span class="phrase-chunk" lang="ja">${rubyParts(c.parts)}</span>`).join('')}
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function allWords(){return course.weeks.slice(0,week.id).flatMap(w=>w.words)}
 function currentPhrase(){return week.phrases[state.phraseIndex]}
@@ -5375,7 +6333,7 @@ function renderPhrase(){stopSound();const p=currentPhrase();$('#phrase-counter')
   const plain=t=>t.replace(/[。.\s]+$/,'');$('#phrase-cue').classList.toggle('cue-repeats',plain(p.cue)===plain(p.situation));
   $('#prev-phrase').disabled=state.phraseIndex===0;$('#next-phrase').textContent=state.phraseIndex===week.phrases.length-1?'자료에서 찾기로':'다음 표현';save();
   $('#response-practice').hidden=!week.responses;state.response=null;$('#response-feedback').textContent='먼저 아래 두 응답을 듣고 뜻을 확인해요.';
-  $('#response-list').innerHTML=(week.responses||[]).map((r,i)=>`<div class="response-row"><div>${ruby(r.text,r.reading)}</div><span>${r.meaning}</span><button type="button" class="button" data-audio="${responseAudio(week,i)}">응답 ${i+1} 듣기</button></div>`).join('');soundButtons()}
+  $('#response-list').innerHTML=(week.responses||[]).map((r,i)=>`<div class="response-row"><div class="response-ja" lang="ja">${rubyParts(r.parts)}</div><span>${r.meaning}</span><button type="button" class="button" data-audio="${responseAudio(week,i)}">응답 ${i+1} 듣기</button></div>`).join('');soundButtons()}
 function reportMarkup(w=week,interactive=false,report=w.reports[0]){return report.html.replace(/\[\[([^\]]+)\]\]/g,(_,id)=>{const word=w.words.find(x=>x.id===id);if(!word)return'';const content=ruby(word.text,word.reading);return interactive?`<button type="button" class="report-word" data-hotspot="${id}" aria-label="${word.text}, ${word.reading}">${content}</button>`:`<span class="report-print-word">${content}</span>`})}
 // Source-backed supplements and curated relations. Related words show Japanese, relation and week only, never their Korean meaning.
 function renderWordNotes(word){const note=$('#word-source-note'),related=$('#word-related');note.hidden=!word.sourceNote;note.innerHTML=word.sourceNote?`<span class="note-kind">원문 보충</span>${word.sourceNote.text}<span class="note-ref">${word.sourceNote.ref}</span>`:'';
