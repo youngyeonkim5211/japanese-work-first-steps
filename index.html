@@ -79,7 +79,211 @@
 /* Every item stays in the page flow, including on narrow screens. */
 .word-tabs{max-height:none;overflow:visible}
 @media(max-width:1150px){.find-word-board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Whole-course lookup uses the existing flat learning palette. */
+select:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+button,summary,.check-control{min-height:44px}
+summary{align-content:center}
+.word-lookup{max-width:1060px;margin:0 auto 28px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.word-lookup summary{color:var(--blue);font-size:14px;font-weight:700;cursor:pointer}
+.word-lookup summary span{font-size:12px;font-weight:400;color:var(--muted);margin-left:12px}
+.word-lookup form{margin-top:18px}
+.word-lookup label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+.search-controls{display:flex;gap:10px;max-width:640px}
+.search-controls input{width:100%;min-width:0;min-height:44px;border:1px solid var(--muted);border-radius:8px;background:white;color:var(--ink);padding:10px 12px;font-size:16px;caret-color:var(--blue)}
+.search-controls input::placeholder{color:var(--muted);opacity:1}
+.search-controls button{flex-shrink:0}
+#word-search-help,#word-search-status{font-size:14px;color:var(--muted);margin:10px 0 0}
+#word-search-status:empty{display:none}
+.search-results{list-style:none;margin:12px 0 0;padding:0;max-width:640px}
+.search-results:empty{display:none}
+.search-results li{border-top:1px solid var(--line)}
+.search-results button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:12px;text-align:left;border:0;background:transparent;font-size:16px;border-radius:8px}
+.search-results button span{min-width:0;overflow-wrap:anywhere}
+.search-results button span:last-child{color:var(--muted);font-size:14px}
+.search-results button:hover{background:var(--soft)}
+@media screen and (max-width:800px){
+  .sidebar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:8px 12px}
+  .sidebar nav button{min-height:48px;font-size:13px;justify-content:center;padding:10px 6px}
+  .sidebar-bottom .teacher-nav{min-height:44px}
+}
+@media screen and (max-width:520px){
+  .sidebar nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sidebar nav button{flex-direction:column;gap:2px;font-size:13px;min-height:64px}
+  .sidebar nav .nav-step{display:block;width:auto;font-size:12px}
+  .header-tools .button,.teacher-nav{min-height:44px}
+  .header-tools .check-control,.word-actions .check-control{min-height:44px;font-size:14px}
+  .header-tools input{width:18px;height:18px}
+  .page-heading p,.meaning-face p,.meaning-face .learning-hint,.lesson-footer p,.next-section p,.situation,.action-copy,.feedback,.review-modes button,.teacher-note p,.teacher-check p,.teacher-check li,details p{font-size:14px}
+  .button{font-size:14px}
+  .word-lookup summary span{display:block;margin-left:18px}
+  .search-results button{align-items:flex-start;flex-direction:column;gap:2px}
+  #page-words>.word-tabs{margin-top:24px}
+}
 @media(max-width:520px){.find-word-board{gap:8px}.find-word-board .report-word{min-height:86px;font-size:18px!important;padding:12px 6px}.find-instruction{top:0;padding:14px 0;border-bottom:1px solid var(--line)}.find-instruction h2{margin-bottom:12px}.find-instruction .feedback{margin-top:10px;padding:10px 12px;min-height:0}.find-instruction .align-end{margin-top:10px}.find-word-board rt{font-size:11px}}
+
+/* Study workspace: the current exercise leads; reference material follows.
+   Screen-only rules keep the separately composed A4 lesson sheets stable. */
+@media screen{
+  :root{--ground:#f3f5f8;--soft:#e7edf5;--line:#d2dbe6;--muted:#526278;--radius:16px}
+  .app-shell{grid-template-columns:240px minmax(0,1fr);grid-template-rows:80px 1fr}
+  .app-header{padding:0 32px;border-color:var(--line)}
+  .brand{font-size:20px;letter-spacing:-.025em}.brand span{margin-top:5px}
+  .sidebar{background:#142e55;padding:30px 16px;min-height:calc(100vh - 80px)}
+  .sidebar .pack-title{padding:0 12px 28px}.pack-title label{font-size:14px}
+  .pack-title select{font-size:14px;padding:10px;margin-bottom:16px;border-color:#6b8bc3}
+  .pack-title h2{font-size:16px;font-weight:500;color:#d5e2ff}
+  .sidebar nav{gap:6px}.sidebar nav button{min-height:52px;font-size:15px;padding:12px 16px}
+  .sidebar nav button:hover,.teacher-nav:hover{background:#23456f}
+  .sidebar nav button[aria-current=page],.teacher-nav[aria-current=page]{background:#e7effc;color:#163c83}
+  .nav-step{font-size:12px;color:#c0d1ec}
+  .sidebar nav button[aria-current=page] .nav-step{color:var(--blue)}
+  .sidebar-bottom{padding-top:36px}.course-size{font-size:13px}.teacher-nav{font-size:13px}
+  .content{padding:24px 40px 28px;max-width:1360px}
+  .word-lookup{margin-bottom:28px;padding:0 0 12px;border-top:0}
+  .word-lookup summary{font-weight:500;min-height:40px}
+  .page-heading{margin-bottom:24px;align-items:center}.page-heading h1{font-size:28px;letter-spacing:-.03em}
+  .page-heading p{font-size:15px;line-height:1.8;max-width:68ch}
+  .page-count{font-size:15px;padding:7px 12px;background:var(--soft);border-radius:8px;font-weight:700;color:var(--blue)}
+  .learning-surface{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding:0;min-height:350px;border:1px solid var(--line);border-radius:16px}
+  .word-face{background:#e7eef9;border-radius:15px 0 0 15px;padding:28px 24px;min-height:350px}
+  .item-status{margin-bottom:12px;font-size:14px;color:var(--muted)}
+  .large-term{min-height:160px;font-size:80px;line-height:1.7;max-width:100%;justify-content:center}
+  .large-term[data-length=medium]{font-size:52px}.large-term[data-length=long]{font-size:36px}
+  .large-term rt{font-size:20px;letter-spacing:.04em}.word-face .sound-button{margin-top:12px;background:white}
+  .meaning-face{padding:32px;border-left:1px solid var(--line);margin:0;min-height:350px;align-items:flex-start;text-align:left}
+  .meaning-slot{min-height:120px;justify-content:center}.meaning-face h2{font-size:28px}
+  .meaning-placeholder{font-size:20px!important;line-height:1.7!important;color:var(--ink)!important}
+  .meaning-face .learning-hint{margin-top:20px;padding-top:16px;font-size:14px;border:0;max-width:30ch}
+  #toggle-meaning{border:1px solid var(--blue);border-radius:8px;padding:10px 18px;font-size:15px;text-decoration:none;min-width:140px;font-weight:700;background:white}
+  #toggle-meaning:hover{background:var(--soft)}
+  .button{font-size:15px;min-height:46px;padding:10px 20px}.button.small{min-height:44px;font-size:14px}
+  .word-actions{margin-top:18px;gap:12px}.word-actions .check-control{font-size:14px}
+  .word-actions .button-group .button{min-width:116px}
+  .word-library{margin-top:36px;padding-top:24px;border-top:1px solid var(--line)}
+  .word-library-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .word-library-heading h2{font-size:18px;margin:0}.word-library-heading p{font-size:14px;margin:0;color:var(--muted)}
+  .word-tabs{border:0;padding:0;gap:8px;margin:0;max-height:none;overflow:visible}
+  .word-tabs button{font-size:14px;min-height:44px;border:1px solid var(--line);border-radius:8px;background:white;padding:9px 12px;text-align:left}
+  .word-tabs button[aria-selected=true]{background:var(--blue);color:white;border-color:var(--blue);box-shadow:none}
+  .word-tabs button:hover:not([aria-selected=true]){background:var(--soft);border-color:var(--muted)}
+  #phrase-tabs{margin-bottom:24px}.lesson-footer{margin-top:24px;padding-top:18px}.lesson-footer p{font-size:13px}
+  .app-footer{margin-top:36px}.app-footer p{font-size:12px}
+  .phrase-workspace{gap:20px}.phrase-face{padding:32px}.document-cue{border-radius:0}
+  .situation{font-size:16px;margin-bottom:18px}.action-copy{font-size:14px}
+  .quiz-surface,.quiz-result{padding:28px}.review-modes button{font-size:14px}
+  .number-practice{margin-top:0;border-top:0;padding-top:0}.number-practice p,.quiet-label{font-size:14px}
+  #number-items{gap:0 24px;background:white;padding:8px 24px;border-radius:16px}
+  #number-items>div{flex:1 1 210px;border-radius:0;border-bottom:1px solid var(--line);padding:20px 0}
+  #number-items label{font-size:14px}.teacher-note p,.teacher-check li,.teacher-check p,.schedule p,details p{font-size:14px}
+  .teacher-columns{gap:28px}.time-allocation p,.source-guide p,.print-course-actions p{font-size:14px}
+  .find-instruction{background:var(--ground)}
+}
+@media screen and (min-width:801px) and (max-width:1150px){
+  .app-shell{grid-template-columns:208px minmax(0,1fr)}.content{padding:24px}
+  .meaning-face{padding:24px}.word-face{padding:24px 16px}.large-term{font-size:68px}
+  .large-term[data-length=medium]{font-size:44px}.large-term[data-length=long]{font-size:30px}
+  .word-actions{align-items:flex-start}.word-actions .button-group{margin-left:auto}
+}
+@media screen and (max-width:800px){
+  .app-shell{display:block}.app-header{min-height:76px;padding:12px 20px}.brand{font-size:18px}
+  .header-tools{gap:12px}.header-tools .check-control{font-size:14px}
+  .header-tools .button{font-size:14px;min-height:44px}
+  .sidebar{padding:0;min-height:0}.sidebar .pack-title{padding:12px 20px 8px;gap:12px}
+  .pack-title select{font-size:14px;min-height:44px;margin:0;max-width:none}
+  .sidebar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:4px 16px 10px;overflow:visible}
+  .sidebar nav button{width:100%;min-height:48px;padding:8px 4px;font-size:14px;line-height:1.5;white-space:normal;flex-direction:row;justify-content:center}
+  .sidebar nav .nav-step{display:none}.sidebar-bottom{padding:4px 20px;border-top:1px solid #3b5374;gap:8px}
+  .sidebar-bottom .teacher-nav{font-size:13px;min-height:44px;padding:8px 4px}.course-size,.save-note{display:none}
+  .content{padding:20px 24px 24px}.word-lookup{margin-bottom:20px;padding-bottom:8px}
+  .page-heading h1{font-size:25px}.page-heading p{font-size:14px}.page-heading{margin-bottom:20px}
+  .learning-surface,.word-face,.meaning-face{min-height:320px}.meaning-face{padding:24px}
+  .large-term{font-size:68px}.large-term[data-length=medium]{font-size:46px}.large-term[data-length=long]{font-size:30px}
+  .large-term rt{font-size:17px}.word-library-heading{align-items:flex-start;flex-direction:column;gap:4px}
+}
+@media screen and (max-width:520px){
+  .app-header{padding:12px 16px;align-items:center;min-height:76px}.brand{font-size:17px;white-space:normal;max-width:180px}
+  .brand span{font-size:11px}.header-tools{flex-direction:column;gap:0;align-items:flex-end}
+  .header-tools .check-control{font-size:12px;min-height:32px}.header-tools .button{min-height:36px;font-size:12px;padding:6px 10px}
+  .sidebar .pack-title{padding:10px 16px 6px}.pack-title label{font-size:13px}.pack-title select{font-size:13px}
+  .sidebar nav{padding:4px 12px 8px;gap:2px}.sidebar nav button{min-height:48px;font-size:12px;padding:6px 3px;gap:0;border-radius:6px}
+  .sidebar-bottom{padding:0 16px}.sidebar-bottom .teacher-nav{font-size:12px}
+  .content{padding:16px}.word-lookup{margin-bottom:18px;padding-bottom:8px}.word-lookup summary{font-size:13px}
+  .word-lookup summary span{display:inline;font-size:12px;margin-left:6px}
+  .page-heading{align-items:flex-start;gap:10px;margin-bottom:16px}.page-heading h1{font-size:22px}
+  .page-heading p{font-size:14px;line-height:1.7}.page-count{font-size:13px;padding:5px 8px}
+  .learning-surface{grid-template-columns:1fr;min-height:0}.word-face{border-radius:15px 15px 0 0;min-height:206px;padding:18px 16px}
+  .item-status{font-size:13px;margin-bottom:0}.large-term{font-size:64px;min-height:104px;line-height:1.65}
+  .large-term[data-length=medium]{font-size:42px}.large-term[data-length=long]{font-size:30px}.large-term rt{font-size:16px}
+  .word-face .sound-button{margin-top:4px;min-height:44px;padding:8px 18px;font-size:14px}
+  .meaning-face{min-height:184px;border-left:0;border-top:1px solid var(--line);padding:20px;align-items:center;text-align:center}
+  .meaning-slot{min-height:78px}.meaning-placeholder{font-size:17px!important;line-height:1.6!important}
+  .meaning-placeholder br{display:none}.meaning-face h2{font-size:24px;margin-bottom:8px}
+  .meaning-face p{font-size:14px;margin-bottom:8px}.meaning-face .learning-hint{display:none}
+  #toggle-meaning{font-size:14px;padding:8px 18px;min-height:44px;margin-top:8px}
+  .word-actions{gap:8px;margin-top:12px}.word-actions .check-control{font-size:14px}
+  .word-actions .button-group{width:100%;gap:10px}.word-actions .button-group .button{flex:1;min-width:0}
+  .word-library{margin-top:28px;padding-top:20px}.word-library-heading h2{font-size:17px}.word-library-heading p{font-size:13px}
+  #page-words .word-tabs{margin-top:0;gap:6px}.word-tabs button{font-size:13px;max-width:100%;overflow-wrap:anywhere;padding:8px 10px}
+  .lesson-footer{gap:6px;margin-top:20px}.lesson-footer p{font-size:12px}.app-footer{margin-top:28px}
+  .phrase-face,.quiz-surface,.quiz-result{padding:22px}.phrase-japanese{font-size:25px}.situation{font-size:15px}
+  #number-items{padding:0 18px}#number-items>div{flex-basis:100%}.number-practice>p{line-height:1.9}
+  .review-modes button{font-size:14px}.quiz-options{gap:10px}.quiz-option{min-height:88px}
+  .time-allocation{padding:20px}.source-guide{gap:18px}
+}
+/* The Japanese term keeps its place when the meaning side grows on reveal.
+   Top offsets equal the previous centered resting position at each width. */
+@media screen and (min-width:521px){.word-face{justify-content:flex-start;padding-top:48px}}
+@media screen and (min-width:521px) and (max-width:800px){.word-face{padding-top:33px}}
+#word-panel{scroll-margin-top:16px}
+/* Long readings must not spread kanji apart (共 有 read as two words). */
+@media screen{.report-word ruby,.quiz-option ruby,.find-word-board ruby{ruby-align:center}}
+/* Mid-width rail (208px): give the short week label the full rail width. */
+@media screen and (min-width:801px) and (max-width:1150px){.sidebar .pack-title{padding-left:2px;padding-right:2px}.pack-title select{font-size:13px;padding-left:8px;padding-right:8px}}
+/* Find and review terms: as large as the cell allows on one line (cell width / characters),
+   capped at 28px wide and 24px on phones. Korean sound-mode options keep their size. */
+@media screen{
+  .find-word-board .report-word[style*="--chars"],.quiz-option[style*="--chars"]{container-type:inline-size;--term-max:28px}
+  .find-word-board .report-word[style*="--chars"]>ruby,.quiz-option[style*="--chars"]>ruby{font-size:clamp(16px,calc((100cqi - 2px) / var(--chars)),var(--term-max))}
+  .find-word-board .report-word[style*="--chars"] rt,.quiz-option[style*="--chars"] rt{font-size:clamp(9px,calc((100cqi - 2px) / var(--kana)),12px)}
+}
+@media screen and (max-width:520px){.find-word-board .report-word[style*="--chars"],.quiz-option[style*="--chars"]{--term-max:24px}}
+/* Round 3: learner notes, A/B practice scope, missed-item review. Screen only; print is unchanged. */
+@media screen{
+  .word-note{margin:10px 0 0;font-size:14px;line-height:1.7;color:var(--ink);max-width:40ch}
+  .note-kind{display:block;font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--muted);margin-bottom:2px}
+  .word-note.source-backed .note-kind{color:var(--blue)}
+  .note-ref{display:block;font-size:12px;color:var(--muted)}
+  .word-related{margin-top:12px}
+  .word-related .note-kind{margin:0 0 4px}
+  .word-related ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+  .word-related li{display:flex;align-items:baseline;gap:6px;font-size:14px}
+  .word-related li ruby{font-family:var(--jp);font-size:17px}
+  .word-related li span{font-size:12px;color:var(--muted)}
+  .placeholder-allow{display:block;margin-top:8px;font-size:13px;line-height:1.6;color:var(--muted)}
+  .practice-scope{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:-14px 0 24px}
+  .practice-scope label{font-size:14px;font-weight:700}
+  .scope-select{min-height:44px;border:1px solid #6b8bc3;border-radius:8px;background:#fff;color:var(--ink);padding:8px 10px;font:14px var(--sans);max-width:100%}
+  .scope-select:disabled{opacity:.55}
+  .practice-scope .quiet-label{flex-basis:100%;margin:0}
+  .missed-list h3{font-size:16px;margin:18px 0 8px}
+  .missed-list ul{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:6px}
+  .missed-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:8px 12px;background:var(--retry-bg);border-radius:8px}
+  .missed-list li ruby{font-family:var(--jp);font-size:20px}
+  .missed-list li span{font-size:14px}
+  .self-check-answer{font-size:20px;margin:0 0 12px;width:100%}
+  .self-check-answer ruby{font-family:var(--jp)}
+  #phrase-panel{scroll-margin-top:16px}
+}
+/* Round 3 polish: positive spacing between a mode group and its scope select; phones show the phrase situation once. */
+@media screen{
+  .practice-scope{margin:0 0 24px}
+  .review-modes:has(+ .practice-scope){margin-bottom:14px}
+}
+@media screen and (max-width:520px){
+  #phrase-cue.cue-repeats{display:none}
+  #phrase-cue .cue-top,#phrase-cue>p:last-child{display:none}
+  #phrase-cue .cue-situation{margin:0!important}
+}
 
 </style>
 </head>
@@ -103,42 +307,53 @@
       <button type="button" data-nav="review" aria-current="false"><span class="nav-step">5</span>복습하기</button>
     </nav>
     <div class="sidebar-bottom"><p class="course-size">총 152단어 · 43표현<br>기초 → 실무 → 응용 → 심화</p><button class="teacher-nav" type="button" data-nav="schedule" aria-current="false">8주 수업 일정</button><button class="teacher-nav" type="button" data-nav="teacher" aria-current="false">이번 주 교사용 안내</button><p class="save-note" id="storage-status"></p></div></aside>
-  <main id="main-content" class="content">
+  <main id="main-content" class="content" tabindex="-1">
+    <details class="word-lookup" id="word-lookup">
+      <summary>배울 단어 찾아보기 <span>8주 전체에서 검색</span></summary>
+      <form id="word-search" role="search" aria-label="전체 학습 단어 검색">
+        <label for="word-query">찾을 단어</label>
+        <div class="search-controls"><input id="word-query" type="search" maxlength="80" placeholder="일본어 · 읽는 법 · 한국어 뜻" autocomplete="off" aria-describedby="word-search-help"><button type="submit" class="button primary">검색</button></div>
+        <p id="word-search-help">검색한 단어를 선택하면 해당 주차의 학습 카드로 이동해요.</p>
+      </form>
+      <p id="word-search-status" role="status"></p>
+      <ul id="word-search-results" class="search-results"></ul>
+    </details>
     <section class="page" id="page-words" aria-labelledby="words-heading">
       <div class="page-heading"><div><h1 id="words-heading" tabindex="-1">기초에서 업무 응용까지.</h1><p id="words-description">이번 주 단어의 소리와 뜻을 연결해요.</p></div><span class="page-count" id="word-counter">1 / 10</span></div>
-      <div class="word-tabs" id="word-tabs" role="tablist" aria-label="배울 단어"></div>
       <div id="word-panel" class="learning-surface" role="tabpanel" aria-labelledby="word-tab-document">
         <div class="word-face"><p class="item-status" id="word-status">이번 주 단어</p><div class="large-term" id="word-term"></div><button class="button sound-button" type="button" id="word-sound" data-speak="しりょう">소리 듣기</button></div>
-        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content" hidden><h2 id="word-meaning">자료</h2><p id="word-context"></p></div><p id="meaning-placeholder" class="meaning-placeholder">무슨 뜻이었는지<br>떠올려 보세요.</p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="false">뜻 표시하기</button><p class="learning-hint" id="word-hint"></p><p class="source-note" id="word-source" hidden></p></div>
+        <div class="meaning-face"><div class="meaning-slot"><div id="word-meaning-content" hidden><h2 id="word-meaning">자료</h2><p class="word-note"><span class="note-kind">학습용 설명</span><span id="word-context"></span></p><p class="word-note source-backed" id="word-source-note" hidden></p><div class="word-related" id="word-related" hidden></div></div><p id="meaning-placeholder" class="meaning-placeholder">무슨 뜻이었는지 <br>떠올려 보세요.<small class="placeholder-allow">처음 보는 단어는 바로 뜻을 표시해 배워도 돼요.</small></p></div><button type="button" class="text-button" id="toggle-meaning" aria-controls="word-meaning-content" aria-expanded="false">뜻 표시하기</button><p class="learning-hint" id="word-hint"></p><p class="source-note" id="word-source" hidden></p></div>
       </div>
       <div class="word-actions"><label class="check-control"><input type="checkbox" id="familiar-word">이 단어가 익숙해졌어요</label><div class="button-group"><button class="button" type="button" id="prev-word">이전 단어</button><button class="button primary" type="button" id="next-word">다음 단어</button></div></div>
+      <section class="word-library" aria-labelledby="word-library-heading"><div class="word-library-heading"><h2 id="word-library-heading">이번 주 단어</h2><p>단어를 골라 다시 연습할 수 있어요.</p></div><div class="word-tabs" id="word-tabs" role="tablist" aria-label="배울 단어"></div></section>
       <div class="lesson-footer"><p id="progress-label"></p><p>한자를 쓰거나 문장을 만들 필요는 없어요.</p></div>
     </section>
 
 <section class="page" id="page-numbers" aria-labelledby="numbers-heading" hidden><div class="page-heading"><div><h1 id="numbers-heading" tabindex="-1">숫자를 먼저 익혀요.</h1><p>여기서 새 숫자를 배우고, 복습에서는 연습한 숫자만 다시 떠올려요.</p></div></div>      <section class="number-practice"><h2 id="number-title">주차별 숫자 듣기</h2><p id="number-caption"></p><p>① 소리와 읽는 법을 확인해요. ② 따라 읽고, 읽는 법을 가린 뒤 말해 봐요. ③ 다룬 숫자에 ‘연습했어요’를 표시해요. 이 표시는 숙달 평가가 아니에요.</p><div id="number-items"></div><p id="number-progress" role="status" class="quiet-label"></p><button type="button" class="button" id="number-study-all">이번 주 숫자를 모두 연습했어요</button></section><div class="next-section"><p>숫자를 다룬 뒤 업무 표현을 익혀요.</p><button class="button primary" type="button" id="numbers-to-phrases" data-nav="phrases">업무 표현으로</button></div></section>
     <section class="page" id="page-phrases" aria-labelledby="phrases-heading" hidden>
       <div class="page-heading"><div><h1 id="phrases-heading" tabindex="-1">가리키고, 통째로 말해요.</h1><p>쉬운 요청부터 정중한 확인·보고까지, 상황과 함께 익혀요.</p></div><span class="page-count" id="phrase-counter"></span></div>
-      <div class="word-tabs" id="phrase-tabs" role="tablist" aria-label="배울 업무 표현"></div>
       <div id="phrase-panel" role="tabpanel" aria-labelledby="phrase-tab-send">
         <p class="situation" id="phrase-situation"></p>
         <div class="phrase-workspace"><div class="document-cue" id="phrase-cue"></div><div class="phrase-face"><div id="phrase-answer"><div class="phrase-japanese" id="phrase-japanese"></div><h2 id="phrase-meaning"></h2></div><p class="action-copy" id="phrase-action"></p><button class="button sound-button" type="button" id="phrase-sound" data-speak="これを おくって ください。">문장 듣기</button></div></div>
         <div class="word-actions"><label class="check-control"><input type="checkbox" id="phrase-ready">상황을 보고 말해 봤어요</label><button type="button" id="reveal-phrase" class="button" aria-expanded="true" aria-controls="phrase-answer">문장 가리고 말해 보기</button></div><p class="source-note" id="phrase-source"></p><div class="button-group phrase-navigation"><button type="button" class="button" id="prev-phrase">이전 표현</button><button type="button" class="button primary" id="next-phrase">다음 표현</button></div>
       </div>
+      <section class="word-library phrase-library" aria-labelledby="phrase-library-heading"><div class="word-library-heading"><h2 id="phrase-library-heading">이번 주 표현</h2><p>표현을 골라 다시 연습할 수 있어요.</p></div><div class="word-tabs" id="phrase-tabs" role="tablist" aria-label="배울 업무 표현"></div></section>
       <section id="response-practice" class="response-practice" hidden><h2>이번 주는 두 응답만 구별해요.</h2><div id="response-list"></div><button type="button" id="listen-response" class="button">응답 듣고 구별하기</button><div class="button-group response-choices"><button type="button" class="button" data-response="0">완료됐음</button><button type="button" class="button" data-response="1">아직임</button></div><p id="response-feedback" class="feedback neutral" role="status"></p></section><div class="next-section"><p>한국어 상황을 떠올리고, 그 상황에 맞는 요청이나 질문을 통째로 써요.</p><button type="button" class="button primary" data-nav="find">자료에서 단어 찾기</button></div>
     </section>
 
     <section class="page" id="page-find" aria-labelledby="find-heading" hidden>
       <div class="page-heading"><div><h1 id="find-heading" tabindex="-1">이번 주 모든 단어에서 찾아요.</h1><p>뜻을 보거나 소리를 듣고, 이번 주 단어 전체에서 골라요.</p></div><span class="page-count" id="find-counter">1 / 10</span></div>
-      <div class="review-modes" aria-label="자료 찾기 방식"><button type="button" id="find-meaning-mode" aria-pressed="true">뜻 보고 찾기</button><button type="button" id="find-listening-mode" aria-pressed="false">소리만 듣고 찾기</button></div>
+      <div class="review-modes" role="group" aria-label="자료 찾기 방식"><button type="button" id="find-meaning-mode" aria-pressed="true">뜻 보고 찾기</button><button type="button" id="find-listening-mode" aria-pressed="false">소리만 듣고 찾기</button></div>
+      <div class="practice-scope"><label for="find-scope">학습 범위</label><select id="find-scope" class="scope-select" aria-describedby="find-scope-note"></select><p id="find-scope-note" class="quiet-label" role="status"></p></div>
       <div class="find-workspace"><div class="find-instruction"><h2 id="find-prompt"></h2><button class="button sound-button" type="button" id="find-sound" data-speak="すうりょう">단어 소리 듣기</button><details id="find-teacher" hidden><summary>교사용 읽을 단어</summary><p id="find-teacher-cue" lang="ja"></p><p>단어만 확인하고 닫은 뒤 읽어 주세요. 한국어 뜻이나 정답 위치는 먼저 알려 주지 않아요.</p></details><p id="find-feedback" class="feedback neutral" role="status" aria-live="polite"></p><div class="align-end"><button class="button primary" type="button" id="next-find" hidden>다음 항목 찾기</button></div></div><div class="report-paper" id="practice-report"></div></div>
     </section>
 
     <section class="page" id="page-review" aria-labelledby="review-heading" hidden>
       <div class="page-heading"><div><h1 id="review-heading" tabindex="-1">배운 내용을 다시 떠올려요.</h1><p>헷갈리면 정답을 확인하고 다시 해보세요.</p></div></div>
-      <div class="review-modes review-scope"><button type="button" id="week-review" aria-pressed="true">이번 주 단어 전체</button><button type="button" id="cumulative-review" aria-pressed="false">누적 단어 다섯 개씩</button></div><p id="review-scope" class="quiet-label"></p><div class="review-modes" aria-label="복습 방식"><button type="button" id="meaning-review" aria-pressed="true">뜻 보고 고르기</button><button type="button" id="sound-review" aria-pressed="false">소리 듣고 고르기</button></div>
+      <div class="review-modes review-scope" role="group" aria-label="복습 대상"><button type="button" id="week-review" aria-pressed="true">이번 주 복습</button><button type="button" id="cumulative-review" aria-pressed="false">누적 단어 다섯 개씩</button></div><div class="practice-scope"><label for="review-range">학습 범위</label><select id="review-range" class="scope-select" aria-describedby="review-scope"></select><p id="review-scope" class="quiet-label" role="status"></p></div><div class="review-modes" role="group" aria-label="복습 방식"><button type="button" id="meaning-review" aria-pressed="true">뜻 보고 고르기</button><button type="button" id="sound-review" aria-pressed="false">소리 듣고 고르기</button></div>
       <div class="quiz-surface" id="quiz-active"><div class="quiz-heading"><h2 id="quiz-question"></h2><span id="quiz-counter" class="page-count"></span></div><button class="button sound-button" type="button" id="quiz-play" data-speak="しりょう" hidden>문제 단어 듣기</button><div id="quiz-options" class="quiz-options"></div><p class="feedback neutral" id="quiz-feedback" role="status" aria-live="polite"></p><div class="align-end"><button class="button primary" type="button" id="next-quiz" hidden>다음 문제</button></div></div>
-      <div id="quiz-result" class="quiz-result" hidden><h2 id="quiz-score"></h2><p id="quiz-result-copy"></p><div class="button-group"><button type="button" id="next-batch" class="button primary" hidden>다음 다섯 단어</button><button type="button" id="retry-quiz" class="button primary">한 번 더 복습하기</button><button type="button" data-nav="words" class="button">단어로 돌아가기</button></div></div>
-<section class="number-review"><h2>배운 숫자 복습</h2><p>숫자 익히기에서 연습 표시한 항목만 나와요. 소리를 듣고 정답을 떠올린 뒤 고르세요.</p><div class="review-modes"><button type="button" id="number-week-review" aria-pressed="true">이번 주 배운 숫자</button><button type="button" id="number-cumulative-review" aria-pressed="false">누적 배운 숫자</button></div><p id="number-review-scope" class="quiet-label"></p><div id="number-review-empty"><p>아직 연습 표시한 숫자가 없어요. 숫자 익히기에서 먼저 배우고 표시해 주세요.</p><button class="button primary" type="button" data-nav="numbers">숫자 먼저 익히기</button></div><div class="quiz-surface" id="number-review-active" hidden><div class="quiz-heading"><h3>소리를 듣고 숫자를 떠올려요.</h3><span id="number-review-counter" class="page-count"></span></div><button class="button sound-button" type="button" id="number-review-play" data-speak="">문제 숫자 듣기</button><details id="number-review-teacher"><summary>기기 음성이 없을 때 · 교사용 읽을 소리</summary><p id="number-review-teacher-reading" lang="ja"></p></details><div id="number-review-options" class="quiz-options"></div><button class="button" type="button" id="number-review-reveal" hidden>떠올린 뒤 정답 확인하기</button><p id="number-review-feedback" class="feedback neutral" role="status"></p><div class="align-end"><button class="button primary" type="button" id="number-review-next" hidden>다음 숫자</button></div></div><div id="number-review-result" class="quiz-result" hidden><h3 id="number-review-score"></h3><p>헷갈린 숫자는 숫자 익히기로 돌아가 소리와 읽는 법을 다시 확인해요.</p><button class="button" type="button" id="number-review-retry">숫자 한 번 더 복습하기</button></div></section><div class="review-homework"><h2>부교재 복습은 주 40분.</h2><p><b>10분씩 세 번</b> 단어 듣고 뜻 확인 / 상황 보고 표현 말하기 / 자료에서 단어 찾기<br><b>5분씩 두 번</b> 이전 주 단어와 숫자 짧게 다시 듣기</p><p>주교재 복습 140분과 합쳐 주 180분 안에서 조정해요.</p></div>
+      <div id="quiz-result" class="quiz-result" hidden><h2 id="quiz-score"></h2><p id="quiz-result-copy"></p><div id="quiz-missed" class="missed-list"></div><div class="button-group"><button type="button" id="retry-missed" class="button primary" hidden>틀린 항목만 다시</button><button type="button" id="next-batch" class="button primary" hidden>다음 다섯 단어</button><button type="button" id="retry-quiz" class="button">전체 다시</button><button type="button" data-nav="words" class="button">단어로 돌아가기</button></div></div>
+<section class="number-review"><h2>배운 숫자 복습</h2><p>숫자 익히기에서 연습 표시한 항목만 나와요. 소리를 듣고 정답을 떠올린 뒤 고르세요.</p><div class="review-modes" role="group" aria-label="숫자 복습 범위"><button type="button" id="number-week-review" aria-pressed="true">이번 주 배운 숫자</button><button type="button" id="number-cumulative-review" aria-pressed="false">누적 배운 숫자</button></div><p id="number-review-scope" class="quiet-label"></p><div id="number-review-empty"><p>아직 연습 표시한 숫자가 없어요. 숫자 익히기에서 먼저 배우고 표시해 주세요.</p><button class="button primary" type="button" data-nav="numbers">숫자 먼저 익히기</button></div><div class="quiz-surface" id="number-review-active" hidden><div class="quiz-heading"><h3>소리를 듣고 숫자를 떠올려요.</h3><span id="number-review-counter" class="page-count"></span></div><button class="button sound-button" type="button" id="number-review-play" data-speak="">문제 숫자 듣기</button><details id="number-review-teacher"><summary>기기 음성이 없을 때 · 교사용 읽을 소리</summary><p id="number-review-teacher-reading" lang="ja"></p></details><div id="number-review-options" class="quiz-options"></div><button class="button" type="button" id="number-review-reveal" hidden>떠올린 뒤 정답 확인하기</button><p id="number-review-feedback" class="feedback neutral" role="status"></p><div class="align-end"><button class="button primary" type="button" id="number-review-next" hidden>다음 숫자</button></div></div><div id="number-review-result" class="quiz-result" hidden><h3 id="number-review-score"></h3><p>헷갈린 숫자는 숫자 익히기로 돌아가 소리와 읽는 법을 다시 확인해요.</p><button class="button" type="button" id="number-review-retry">숫자 한 번 더 복습하기</button></div></section><div class="review-homework"><h2>부교재 복습은 주 40분.</h2><p><b>10분씩 세 번</b> 단어 듣고 뜻 확인 / 상황 보고 표현 말하기 / 자료에서 단어 찾기<br><b>5분씩 두 번</b> 이전 주 단어와 숫자 짧게 다시 듣기</p><p>주교재 복습 140분과 합쳐 주 180분 안에서 조정해요.</p></div>
     </section>
 
     <section class="page teacher-page" id="page-teacher" aria-labelledby="teacher-heading" hidden><div class="page-heading"><div><h1 id="teacher-heading" tabindex="-1">이번 주 교사용 진행안</h1><p>주교재 중심 수업 안에 부교재 25~30분을 배치해요.</p></div><button class="button" type="button" data-print="teacher">이번 주 교사용 인쇄</button></div><div id="teacher-content"></div><details><summary>첫 수업과 주교재 연결은 어떻게 하나요?</summary><p><b>첫 10분:</b> 가나 읽기와 쉬운 숫자를 짧게 확인하고, 실제 자주 하는 요청 두 가지를 한국어로 물어봐요. 모르는 업무 단어를 시험하는 시간은 아니에요.</p><p><b>수업 A:</b> 주교재로 기초를 배우고, 부교재의 앞쪽 어휘와 표현을 익혀요. 단어를 4~5개씩 나누어 소리·뜻·글자를 연결해요. 요청은 뜻을 먼저 알려 준 뒤 듣기 → 따라 말하기 → 문장 가리고 가리키며 말하기로 진행해요.</p><p><b>수업 B:</b> 지난 표현을 상황만 주고 떠올린 뒤 이번 주 뒤쪽 어휘와 표현을 익혀요. 자료 찾기는 뜻 보고 찾기 → 소리만 듣고 찾기로 이어가요. 익숙해진 뒤에만 읽는 법을 가리고, 실제 제공자료의 같은 단어를 찾게 해요.</p><p><b>주교재 연결:</b> 주차별 10~26단어와 4~7표현을 A/B 두 회차에 나누어요. 문자·기초 어휘·문법은 주교재에서 배워요. 문법을 배우기 전에 통암기 표현을 분석시키지 말고, 나중에 관련 문형을 배웠을 때 연결해요. 주교재 단원명은 목차 확인 후 기록해요.</p></details><details><summary>다음 묶음으로 넘어갈지 어떻게 판단하나요?</summary><p>화면을 보며 따라 읽는 것과 혼자 꺼내 쓰는 것을 구분해요. 수업 끝과 다음 수업 시작에 소리를 듣고 단어를 고르는지, 상황만 주면 요청을 말하는지 확인해요. 모든 단어를 말로 설명하거나 한자로 쓸 필요는 없어요.</p><p>각 항목을 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 기록해요. 한 단어가 약하면 다음 묶음에서 복습하며 진행하고, 대부분이 따라 하기만 가능하면 새 단어 대신 지금 묶음을 반복해요. 이미 쉬우면 끝없는 반복보다 원자료에서 찾기와 보조 줄이기로 난도를 조정해요.</p><p>마지막 5분에는 주교재 진도, 부교재의 도움 수준, 다음 업무에서 써볼 표현 한 가지를 기록해요. 업무에서 써봤다면 다음 수업에 어디서 막혔는지 짧게 들어요.</p></details><details><summary>공통 진행 원칙과 인쇄</summary><p>한국어로 상황과 뜻을 안내하고, 일본어는 학습 대상으로만 제시합니다. 문법 설명·자유 문장 만들기·긴 원문 독해는 초기에 요구하지 않습니다. 실제 요청은 학습자와 업무 빈도를 확인하며 조정합니다.</p><p>기기 일본어 합성 음성을 사용합니다. 음성이 없거나 재생에 실패하면 교사가 읽어 주세요. 사람의 원어민 녹음과 자동 발음 평가는 포함하지 않습니다.</p><p>학습자용은 단어 6개·표현 2개 단위로 페이지를 나누고, 찾기는 이번 주 모든 단어를 한 페이지에 표시합니다. 교사용은 주차별 1쪽, 일정은 4쪽입니다. A4·배율 100%·머리글/바닥글 끄기를 권합니다. 읽는 법 표시 설정이 학습자 인쇄에도 반영됩니다.</p></details><div class="reset-area"><button class="text-button" type="button" id="reset-progress">전체 주차의 단어·숫자·표현 체크 지우기</button><div id="reset-confirm" hidden><p>이 브라우저에 기록한 전체 주차의 단어·숫자·표현 체크를 지울까요?</p><div class="button-group"><button class="button" type="button" id="cancel-reset">취소</button><button class="button" type="button" id="confirm-reset">체크 지우기</button></div></div><p id="reset-status" role="status"></p></div></section>
@@ -203,8 +418,9 @@ window.COURSE = {
           "text": "資料",
           "reading": "しりょう",
           "meaning": "자료",
-          "context": "함께 보는 문서나 파일",
+          "context": "함께 보는 문서나 파일이에요.",
           "source": "표현집 p.1 사례 01",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -214,8 +430,9 @@ window.COURSE = {
           "text": "共有",
           "reading": "きょうゆう",
           "meaning": "공유",
-          "context": "같은 파일이나 정보를 팀원에게 전달하는 일",
+          "context": "같은 파일이나 정보를 팀원에게 전달하는 일이에요.",
           "source": "표현집 p.2 사례 05·06",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -225,8 +442,9 @@ window.COURSE = {
           "text": "確認",
           "reading": "かくにん",
           "meaning": "확인",
-          "context": "내용이 맞는지 살펴보는 일",
+          "context": "내용이 맞는지 살펴보는 일이에요.",
           "source": "표현집 p.1 사례 01",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -236,8 +454,9 @@ window.COURSE = {
           "text": "会議",
           "reading": "かいぎ",
           "meaning": "회의",
-          "context": "업무를 논의하는 자리",
+          "context": "업무를 논의하는 자리예요.",
           "source": "표현집 p.2 사례 04",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -247,8 +466,9 @@ window.COURSE = {
           "text": "会議室",
           "reading": "かいぎしつ",
           "meaning": "회의실",
-          "context": "회의를 하는 공간",
+          "context": "회의를 하는 공간이에요.",
           "source": "표현집 p.2 사례 04",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -258,8 +478,9 @@ window.COURSE = {
           "text": "予約",
           "reading": "よやく",
           "meaning": "예약",
-          "context": "공간이나 시간을 미리 확보하는 일",
+          "context": "공간이나 시간을 미리 확보하는 일이에요.",
           "source": "교사 보완어: 원문의 押さえる를 쉬운 말로 바꿈",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -269,9 +490,11 @@ window.COURSE = {
           "text": "担当者",
           "reading": "たんとうしゃ",
           "meaning": "담당자",
-          "context": "현장·보고에서 쓰는 말 · 담당자",
+          "context": "어떤 일을 맡아 처리하는 사람이에요. 문의할 상대를 가리킬 때 자주 써요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -281,9 +504,11 @@ window.COURSE = {
           "text": "報告",
           "reading": "ほうこく",
           "meaning": "보고",
-          "context": "현장·보고에서 쓰는 말 · 보고",
+          "context": "한 일이나 확인한 결과를 윗사람이나 관계자에게 알리는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -293,9 +518,20 @@ window.COURSE = {
           "text": "先方",
           "reading": "せんぽう",
           "meaning": "상대처·거래처",
-          "context": "계약·사내 절차에서 쓰는 말 · 상대처·거래처",
+          "context": "이쪽에서 보아 상대편 회사나 사람을 가리키는 말이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "当社",
+              "reading": "とうしゃ",
+              "week": 1,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -305,9 +541,20 @@ window.COURSE = {
           "text": "当社",
           "reading": "とうしゃ",
           "meaning": "당사",
-          "context": "계약·사내 절차에서 쓰는 말 · 당사",
+          "context": "말하는 사람이 속한 우리 회사를 가리키는 말이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "先方",
+              "reading": "せんぽう",
+              "week": 1,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 1",
           "week": 1
@@ -524,8 +771,25 @@ window.COURSE = {
           "text": "入庫",
           "reading": "にゅうこ",
           "meaning": "입고",
-          "context": "상품이 창고로 들어오는 일",
+          "context": "상품이 창고로 들어오는 일이에요.",
           "source": "표현집 p.6 사례 15 · 반품 판정 기준서 p.2",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "出庫",
+              "reading": "しゅっこ",
+              "week": 2,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.13"
+            },
+            {
+              "text": "入庫費",
+              "reading": "にゅうこひ",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -535,9 +799,27 @@ window.COURSE = {
           "text": "出庫",
           "reading": "しゅっこ",
           "meaning": "출고",
-          "context": "물류·창고에서 쓰는 말 · 출고",
+          "context": "보관하던 상품을 창고 밖으로 꺼내는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "入庫",
+              "reading": "にゅうこ",
+              "week": 2,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.13"
+            },
+            {
+              "text": "出庫料",
+              "reading": "しゅっこりょう",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -547,8 +829,9 @@ window.COURSE = {
           "text": "出荷",
           "reading": "しゅっか",
           "meaning": "출하",
-          "context": "상품을 보내기 위해 창고에서 내보내는 일",
+          "context": "상품을 보내기 위해 창고에서 내보내는 일이에요.",
           "source": "표현집 p.6 사례 15 · 반품 판정 기준서 p.2",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -558,9 +841,20 @@ window.COURSE = {
           "text": "在庫",
           "reading": "ざいこ",
           "meaning": "재고",
-          "context": "물류·창고에서 쓰는 말 · 재고",
+          "context": "지금 창고에 보관하고 있는 상품이나 그 수량이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "在庫移動",
+              "reading": "ざいこいどう",
+              "week": 4,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -570,9 +864,24 @@ window.COURSE = {
           "text": "宅配便",
           "reading": "たくはいびん",
           "meaning": "택배",
-          "context": "물류·창고에서 쓰는 말 · 택배",
+          "context": "짐을 받는 곳까지 운송해 주는 택배 서비스예요. 便 없이 宅配라고 하면 집·사무실까지 배달하는 일 자체를 말할 때도 있어요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "비용 표에는 便 없이 宅配로 적은 항목도 있어요(大型宅配, 宅配その他).",
+            "ref": "물류비 보고서 p.4"
+          },
+          "related": [
+            {
+              "text": "大型宅配便",
+              "reading": "おおがたたくはいびん",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -582,9 +891,20 @@ window.COURSE = {
           "text": "搬入",
           "reading": "はんにゅう",
           "meaning": "반입",
-          "context": "물류·창고에서 쓰는 말 · 반입",
+          "context": "물건을 어떤 장소 안으로 옮겨 들이는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "搬出",
+              "reading": "はんしゅつ",
+              "week": 2,
+              "relation": "반대 방향",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -594,9 +914,20 @@ window.COURSE = {
           "text": "搬出",
           "reading": "はんしゅつ",
           "meaning": "반출",
-          "context": "물류·창고에서 쓰는 말 · 반출",
+          "context": "물건을 어떤 장소 밖으로 옮겨 내가는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "搬入",
+              "reading": "はんにゅう",
+              "week": 2,
+              "relation": "반대 방향",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -606,9 +937,11 @@ window.COURSE = {
           "text": "仕分け",
           "reading": "しわけ",
           "meaning": "분류 작업",
-          "context": "물류·창고에서 쓰는 말 · 분류 작업",
+          "context": "상품을 보낼 곳이나 종류별로 나누는 작업이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -618,9 +951,11 @@ window.COURSE = {
           "text": "ピッキング",
           "reading": "ピッキング",
           "meaning": "피킹",
-          "context": "물류·창고에서 쓰는 말 · 피킹",
+          "context": "주문에 맞는 상품을 선반에서 골라 꺼내는 작업이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -630,9 +965,11 @@ window.COURSE = {
           "text": "区画",
           "reading": "くかく",
           "meaning": "구획",
-          "context": "물류·창고에서 쓰는 말 · 구획",
+          "context": "창고 안을 나눈 한 구역이에요. 위치를 말할 때 써요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -642,9 +979,11 @@ window.COURSE = {
           "text": "現物",
           "reading": "げんぶつ",
           "meaning": "실물",
-          "context": "반품·상품 상태에서 쓰는 말 · 실물",
+          "context": "서류나 화면이 아니라 실제로 있는 물건이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -654,8 +993,9 @@ window.COURSE = {
           "text": "完了",
           "reading": "かんりょう",
           "meaning": "완료",
-          "context": "작업이 끝난 상태",
+          "context": "작업이 끝난 상태예요.",
           "source": "반품 판정 기준서 p.2 상태 표",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -665,9 +1005,11 @@ window.COURSE = {
           "text": "進行中",
           "reading": "しんこうちゅう",
           "meaning": "진행 중",
-          "context": "반품·작업 상태에서 쓰는 말 · 진행 중",
+          "context": "작업을 시작했지만 아직 끝나지 않은 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -677,9 +1019,11 @@ window.COURSE = {
           "text": "未着手",
           "reading": "みちゃくしゅ",
           "meaning": "미착수",
-          "context": "반품·작업 상태에서 쓰는 말 · 미착수",
+          "context": "작업을 아직 시작하지 않은 상태예요. 未는 ‘아직 ~하지 않음’을 나타내요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 1,
           "difficulty": "기초 2",
           "week": 2
@@ -985,8 +1329,13 @@ window.COURSE = {
           "text": "返品",
           "reading": "へんぴん",
           "meaning": "반품",
-          "context": "거래처 등에서 되돌아온 상품",
+          "context": "거래처 등에서 되돌아온 상품이에요.",
           "source": "반품 판정 기준서 p.1 제목",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "返品活用率(반품 활용률)라는 표현도 나와요.",
+            "ref": "업무 일본어 표현집 p.13"
+          },
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -996,8 +1345,9 @@ window.COURSE = {
           "text": "検品",
           "reading": "けんぴん",
           "meaning": "검품",
-          "context": "상품의 상태를 살펴보는 작업",
+          "context": "상품의 상태를 살펴보는 작업이에요.",
           "source": "반품 판정 기준서 p.1~2",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1007,8 +1357,9 @@ window.COURSE = {
           "text": "保留",
           "reading": "ほりゅう",
           "meaning": "보류",
-          "context": "결정이나 다음 처리를 잠시 미룬 상태",
+          "context": "결정이나 다음 처리를 잠시 미룬 상태예요.",
           "source": "반품 판정 기준서 p.2~3",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1018,9 +1369,20 @@ window.COURSE = {
           "text": "未開封",
           "reading": "みかいふう",
           "meaning": "미개봉",
-          "context": "반품·상품 상태에서 쓰는 말 · 미개봉",
+          "context": "포장을 한 번도 열지 않은 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "開封",
+              "reading": "かいふう",
+              "week": 3,
+              "relation": "반대 상태",
+              "ref": "반품 판정 기준서 · 초안 p.1"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1030,9 +1392,20 @@ window.COURSE = {
           "text": "開封",
           "reading": "かいふう",
           "meaning": "개봉",
-          "context": "반품·상품 상태에서 쓰는 말 · 개봉",
+          "context": "포장이나 봉한 것을 연 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "未開封",
+              "reading": "みかいふう",
+              "week": 3,
+              "relation": "반대 상태",
+              "ref": "반품 판정 기준서 · 초안 p.1"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1042,9 +1415,11 @@ window.COURSE = {
           "text": "内容物",
           "reading": "ないようぶつ",
           "meaning": "내용물",
-          "context": "반품·상품 상태에서 쓰는 말 · 내용물",
+          "context": "용기나 상자 안에 든 것이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1054,9 +1429,11 @@ window.COURSE = {
           "text": "外箱",
           "reading": "そとばこ",
           "meaning": "겉상자",
-          "context": "반품·상품 상태에서 쓰는 말 · 겉상자",
+          "context": "상품을 감싸는 바깥쪽 상자예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1066,9 +1443,11 @@ window.COURSE = {
           "text": "損傷",
           "reading": "そんしょう",
           "meaning": "손상",
-          "context": "반품·상품 상태에서 쓰는 말 · 손상",
+          "context": "상품이나 포장이 깨지거나 찌그러지는 등 상한 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1078,9 +1457,11 @@ window.COURSE = {
           "text": "液漏れ",
           "reading": "えきもれ",
           "meaning": "액 누출",
-          "context": "반품·상품 상태에서 쓰는 말 · 액 누출",
+          "context": "용기 안의 액체가 밖으로 새어 나온 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1090,9 +1471,11 @@ window.COURSE = {
           "text": "使用期限",
           "reading": "しようきげん",
           "meaning": "사용 기한",
-          "context": "반품·상품 상태에서 쓰는 말 · 사용 기한",
+          "context": "상품을 쓸 수 있는 마지막 날짜예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1102,9 +1485,11 @@ window.COURSE = {
           "text": "期限切れ",
           "reading": "きげんぎれ",
           "meaning": "기한 만료",
-          "context": "반품·상품 상태에서 쓰는 말 · 기한 만료",
+          "context": "정해진 기한이 이미 지난 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1114,9 +1499,11 @@ window.COURSE = {
           "text": "良品",
           "reading": "りょうひん",
           "meaning": "정상품",
-          "context": "반품·상품 상태에서 쓰는 말 · 정상품",
+          "context": "문제가 없어 그대로 쓸 수 있는 상품이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1126,9 +1513,11 @@ window.COURSE = {
           "text": "廃棄",
           "reading": "はいき",
           "meaning": "폐기",
-          "context": "반품·상품 상태에서 쓰는 말 · 폐기",
+          "context": "쓸 수 없는 물건을 버려 처분하는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1138,9 +1527,11 @@ window.COURSE = {
           "text": "再販売",
           "reading": "さいはんばい",
           "meaning": "재판매",
-          "context": "반품·상품 상태에서 쓰는 말 · 재판매",
+          "context": "돌아온 상품을 다시 파는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1150,9 +1541,11 @@ window.COURSE = {
           "text": "未定",
           "reading": "みてい",
           "meaning": "미정",
-          "context": "반품·상품 상태에서 쓰는 말 · 미정",
+          "context": "아직 정해지지 않은 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1162,9 +1555,11 @@ window.COURSE = {
           "text": "草案",
           "reading": "そうあん",
           "meaning": "초안",
-          "context": "반품·상품 상태에서 쓰는 말 · 초안",
+          "context": "확정 전에 먼저 써 본 문서예요. 반품 기준서도 초안이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 1",
           "week": 3
@@ -1435,9 +1830,11 @@ window.COURSE = {
           "text": "出荷指示",
           "reading": "しゅっかしじ",
           "meaning": "출하 지시",
-          "context": "물류·창고에서 쓰는 말 · 출하 지시",
+          "context": "어떤 상품을 언제 내보낼지 창고에 알리는 지시예요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1447,9 +1844,20 @@ window.COURSE = {
           "text": "船積み",
           "reading": "ふなづみ",
           "meaning": "선적",
-          "context": "물류·창고에서 쓰는 말 · 선적",
+          "context": "화물을 배에 싣는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "船積書類",
+              "reading": "ふなづみしょるい",
+              "week": 4,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1459,9 +1867,11 @@ window.COURSE = {
           "text": "通関",
           "reading": "つうかん",
           "meaning": "통관",
-          "context": "물류·창고에서 쓰는 말 · 통관",
+          "context": "수출입 화물이 세관 절차를 거쳐 통과하는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1471,9 +1881,20 @@ window.COURSE = {
           "text": "船積書類",
           "reading": "ふなづみしょるい",
           "meaning": "선적 서류",
-          "context": "물류·창고에서 쓰는 말 · 선적 서류",
+          "context": "수출입 화물 운송에 필요한 송장·포장명세서·운송서류 등을 통틀어 이르는 말이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "船積み",
+              "reading": "ふなづみ",
+              "week": 4,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1483,9 +1904,11 @@ window.COURSE = {
           "text": "フォワーダー",
           "reading": "フォワーダー",
           "meaning": "포워더·운송주선업자",
-          "context": "물류·창고에서 쓰는 말 · 포워더·운송주선업자",
+          "context": "화물 운송을 대신 맡아 수배하고 처리하는 업체예요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1495,9 +1918,11 @@ window.COURSE = {
           "text": "国内配送",
           "reading": "こくないはいそう",
           "meaning": "국내 배송",
-          "context": "비용·집계에서 쓰는 말 · 국내 배송",
+          "context": "나라 안에서 상품을 받는 곳까지 보내는 일이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1507,9 +1932,11 @@ window.COURSE = {
           "text": "国際輸送",
           "reading": "こくさいゆそう",
           "meaning": "국제 운송",
-          "context": "비용·집계에서 쓰는 말 · 국제 운송",
+          "context": "나라와 나라 사이에 화물을 옮기는 일이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1519,9 +1946,15 @@ window.COURSE = {
           "text": "横持ち",
           "reading": "よこもち",
           "meaning": "거점 간 운송",
-          "context": "물류·창고에서 쓰는 말 · 거점 간 운송",
+          "context": "창고나 거점 사이에서 상품을 옮기는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "拠点間の横移動(거점 사이의 이동)이라고 적혀 있어요.",
+            "ref": "업무 일본어 표현집 p.13"
+          },
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1531,9 +1964,11 @@ window.COURSE = {
           "text": "デバンニング",
           "reading": "デバンニング",
           "meaning": "컨테이너 적출 작업",
-          "context": "물류·창고에서 쓰는 말 · 컨테이너 적출 작업",
+          "context": "도착한 컨테이너에서 화물을 꺼내는 작업이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1543,9 +1978,20 @@ window.COURSE = {
           "text": "在庫移動",
           "reading": "ざいこいどう",
           "meaning": "재고 이동",
-          "context": "물류·창고에서 쓰는 말 · 재고 이동",
+          "context": "재고를 다른 창고나 위치로 옮기는 일이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "在庫",
+              "reading": "ざいこ",
+              "week": 2,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1555,9 +2001,15 @@ window.COURSE = {
           "text": "什器",
           "reading": "じゅうき",
           "meaning": "집기",
-          "context": "물류·창고에서 쓰는 말 · 집기",
+          "context": "매장이나 사무실에서 쓰는 진열대·선반 같은 기구예요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "販促什器(판촉 집기)라는 표현도 나와요.",
+            "ref": "업무 일본어 표현집 p.13"
+          },
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1567,9 +2019,20 @@ window.COURSE = {
           "text": "販促",
           "reading": "はんそく",
           "meaning": "판촉",
-          "context": "물류·창고에서 쓰는 말 · 판촉",
+          "context": "판매를 늘리려는 활동이에요. 販売促進을 줄인 말이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "販促物",
+              "reading": "はんそくぶつ",
+              "week": 4,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1579,9 +2042,20 @@ window.COURSE = {
           "text": "販促物",
           "reading": "はんそくぶつ",
           "meaning": "판촉물",
-          "context": "물류·창고에서 쓰는 말 · 판촉물",
+          "context": "판매를 늘리려고 쓰는 전단·샘플 같은 물건이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "販促",
+              "reading": "はんそく",
+              "week": 4,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1591,9 +2065,11 @@ window.COURSE = {
           "text": "拠点",
           "reading": "きょてん",
           "meaning": "거점",
-          "context": "비교·분석에서 쓰는 말 · 거점",
+          "context": "창고나 사무소처럼 업무의 중심이 되는 장소예요.",
           "source": "물류비 보고서 p.3",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1603,9 +2079,11 @@ window.COURSE = {
           "text": "段ボール",
           "reading": "だんボール",
           "meaning": "골판지 상자",
-          "context": "비용 항목·조건에서 쓰는 말 · 골판지 상자",
+          "context": "택배 등에 쓰는 골판지 상자예요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1615,9 +2093,11 @@ window.COURSE = {
           "text": "物量",
           "reading": "ぶつりょう",
           "meaning": "물동량",
-          "context": "물류·창고에서 쓰는 말 · 물동량",
+          "context": "다루는 물건의 양이에요. 출하·입고 건수나 개수로 말해요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1627,9 +2107,11 @@ window.COURSE = {
           "text": "当日中",
           "reading": "とうじつちゅう",
           "meaning": "당일 중",
-          "context": "현장·보고에서 쓰는 말 · 당일 중",
+          "context": "말하고 있는 바로 그날 안에 끝낸다는 뜻이에요. 오늘을 가리키면 오늘 안에라는 뜻이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1639,9 +2121,11 @@ window.COURSE = {
           "text": "格納する",
           "reading": "かくのうする",
           "meaning": "폴더 등에 저장하다",
-          "context": "계약·사내 절차에서 쓰는 말 · 폴더 등에 저장하다",
+          "context": "파일을 정해진 폴더 등에 넣어 보관한다는 뜻이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 2,
           "difficulty": "실무 2",
           "week": 4
@@ -1900,8 +2384,9 @@ window.COURSE = {
           "text": "物流費",
           "reading": "ぶつりゅうひ",
           "meaning": "물류비",
-          "context": "물류 업무에 드는 비용",
+          "context": "물류 업무에 드는 비용이에요.",
           "source": "물류비 보고서 p.1 제목",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1911,8 +2396,9 @@ window.COURSE = {
           "text": "運送費",
           "reading": "うんそうひ",
           "meaning": "운송비",
-          "context": "운송에 드는 비용 항목",
+          "context": "운송에 드는 비용 항목이에요.",
           "source": "물류비 보고서 p.4 표",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1922,8 +2408,9 @@ window.COURSE = {
           "text": "保管費",
           "reading": "ほかんひ",
           "meaning": "보관비",
-          "context": "상품 보관에 드는 비용 항목",
+          "context": "상품 보관에 드는 비용 항목이에요.",
           "source": "물류비 보고서 p.4 표",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1933,9 +2420,15 @@ window.COURSE = {
           "text": "保管料",
           "reading": "ほかんりょう",
           "meaning": "보관료",
-          "context": "물류·창고에서 쓰는 말 · 보관료",
+          "context": "창고에 물건을 맡겨 두는 대가로 내는 요금이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "3期制保管料(3기제 보관료)라는 표현도 나와요.",
+            "ref": "업무 일본어 표현집 p.13"
+          },
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1945,9 +2438,20 @@ window.COURSE = {
           "text": "入庫費",
           "reading": "にゅうこひ",
           "meaning": "입고비",
-          "context": "물류·창고에서 쓰는 말 · 입고비",
+          "context": "상품을 창고에 들일 때 드는 작업 요금이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "入庫",
+              "reading": "にゅうこ",
+              "week": 2,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1957,9 +2461,20 @@ window.COURSE = {
           "text": "出庫料",
           "reading": "しゅっこりょう",
           "meaning": "출고료",
-          "context": "물류·창고에서 쓰는 말 · 출고료",
+          "context": "상품을 창고에서 꺼낼 때 드는 작업 요금이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "出庫",
+              "reading": "しゅっこ",
+              "week": 2,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1969,9 +2484,11 @@ window.COURSE = {
           "text": "運搬費",
           "reading": "うんぱんひ",
           "meaning": "운반비",
-          "context": "물류·창고에서 쓰는 말 · 운반비",
+          "context": "물건을 옮기는 데 드는 비용이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1981,9 +2498,11 @@ window.COURSE = {
           "text": "庫内作業費",
           "reading": "こないさぎょうひ",
           "meaning": "창고 내 작업비",
-          "context": "비용 항목·조건에서 쓰는 말 · 창고 내 작업비",
+          "context": "창고 안에서 하는 작업에 드는 비용이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -1993,9 +2512,11 @@ window.COURSE = {
           "text": "資材費",
           "reading": "しざいひ",
           "meaning": "자재비",
-          "context": "비용 항목·조건에서 쓰는 말 · 자재비",
+          "context": "상자·완충재처럼 포장에 쓰는 재료의 비용이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2005,9 +2526,11 @@ window.COURSE = {
           "text": "管理費",
           "reading": "かんりひ",
           "meaning": "관리비",
-          "context": "비용 항목·조건에서 쓰는 말 · 관리비",
+          "context": "관리 업무에 드는 비용이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2017,9 +2540,11 @@ window.COURSE = {
           "text": "固定費",
           "reading": "こていひ",
           "meaning": "고정비",
-          "context": "비용 항목·조건에서 쓰는 말 · 고정비",
+          "context": "물량이 늘거나 줄어도 크게 변하지 않는 비용이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2029,8 +2554,9 @@ window.COURSE = {
           "text": "金額",
           "reading": "きんがく",
           "meaning": "금액",
-          "context": "돈의 액수",
+          "context": "돈의 액수예요.",
           "source": "물류비 보고서 p.2 표 머리글",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2040,8 +2566,9 @@ window.COURSE = {
           "text": "合計",
           "reading": "ごうけい",
           "meaning": "합계",
-          "context": "여러 값을 더한 전체 값",
+          "context": "여러 값을 더한 전체 값이에요.",
           "source": "물류비 보고서 p.4 표",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2051,8 +2578,18 @@ window.COURSE = {
           "text": "単価",
           "reading": "たんか",
           "meaning": "단가",
-          "context": "한 단위에 적용되는 가격",
+          "context": "한 단위에 적용되는 가격이에요.",
           "source": "표현집 p.12 · 물류비 보고서 p.4 설명",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "単価調整",
+              "reading": "たんかちょうせい",
+              "week": 8,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2062,8 +2599,9 @@ window.COURSE = {
           "text": "請求書",
           "reading": "せいきゅうしょ",
           "meaning": "청구서",
-          "context": "지급할 금액을 청구하는 문서",
+          "context": "지급할 금액을 청구하는 문서예요.",
           "source": "표현집 p.12 · 물류비 보고서 p.4~6",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2073,8 +2611,18 @@ window.COURSE = {
           "text": "明細書",
           "reading": "めいさいしょ",
           "meaning": "명세서",
-          "context": "항목별 상세내역을 보여 주는 문서",
+          "context": "항목별 상세 내역을 보여 주는 문서예요.",
           "source": "표현집 p.2 사례 06, p.12",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "運賃明細",
+              "reading": "うんちんめいさい",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2084,9 +2632,15 @@ window.COURSE = {
           "text": "見積書",
           "reading": "みつもりしょ",
           "meaning": "견적서",
-          "context": "품의·회계에서 쓰는 말 · 견적서",
+          "context": "일을 맡기기 전에 예상 비용을 적어 받는 문서예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "상대가 보낸 견적은 御見積書라고도 써요.",
+            "ref": "업무 일본어 표현집 p.12"
+          },
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2096,9 +2650,20 @@ window.COURSE = {
           "text": "運賃明細",
           "reading": "うんちんめいさい",
           "meaning": "운임 명세",
-          "context": "물류·창고에서 쓰는 말 · 운임 명세",
+          "context": "운송 요금을 건별로 나누어 적은 내역이에요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "明細書",
+              "reading": "めいさいしょ",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2108,9 +2673,11 @@ window.COURSE = {
           "text": "支払先",
           "reading": "しはらいさき",
           "meaning": "지급처",
-          "context": "품의·회계에서 쓰는 말 · 지급처",
+          "context": "돈을 지급하는 상대 회사나 사람이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2120,9 +2687,11 @@ window.COURSE = {
           "text": "支払額",
           "reading": "しはらいがく",
           "meaning": "지급액",
-          "context": "비용·집계에서 쓰는 말 · 지급액",
+          "context": "실제로 지급하는 금액이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2132,9 +2701,20 @@ window.COURSE = {
           "text": "大型宅配便",
           "reading": "おおがたたくはいびん",
           "meaning": "대형 택배",
-          "context": "물류·창고에서 쓰는 말 · 대형 택배",
+          "context": "크기가 큰 짐을 따로 구분해 보내는 택배예요.",
           "source": "업무 일본어 표현집 p.13",
           "sourceKey": "phrases",
+          "category": "물류·창고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "宅配便",
+              "reading": "たくはいびん",
+              "week": 2,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.13"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 1",
           "week": 5
@@ -2406,9 +2986,34 @@ window.COURSE = {
           "text": "稟議",
           "reading": "りんぎ",
           "meaning": "품의",
-          "context": "품의·회계에서 쓰는 말 · 품의",
+          "context": "결재권자에게 안건을 올려 승인을 받는 사내 절차예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "事前稟議",
+              "reading": "じぜんりんぎ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            },
+            {
+              "text": "実行稟議",
+              "reading": "じっこうりんぎ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            },
+            {
+              "text": "事後稟議書",
+              "reading": "じごりんぎしょ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2418,9 +3023,11 @@ window.COURSE = {
           "text": "申請する",
           "reading": "しんせいする",
           "meaning": "신청하다",
-          "context": "품의·회계에서 쓰는 말 · 신청하다",
+          "context": "필요한 일을 허가해 달라고 정식으로 요청한다는 뜻이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2430,9 +3037,20 @@ window.COURSE = {
           "text": "承認",
           "reading": "しょうにん",
           "meaning": "승인",
-          "context": "현장·보고에서 쓰는 말 · 승인",
+          "context": "요청한 내용을 결재권자가 허락하는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "未承認",
+              "reading": "みしょうにん",
+              "week": 6,
+              "relation": "반대 상태",
+              "ref": "물류비 보고서 p.1"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2442,9 +3060,20 @@ window.COURSE = {
           "text": "未承認",
           "reading": "みしょうにん",
           "meaning": "미승인",
-          "context": "비용·집계에서 쓰는 말 · 미승인",
+          "context": "아직 허락을 받지 못한 상태예요. 未는 ‘아직 ~하지 않음’을 나타내요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "承認",
+              "reading": "しょうにん",
+              "week": 6,
+              "relation": "반대 상태",
+              "ref": "물류비 보고서 p.1"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2454,9 +3083,20 @@ window.COURSE = {
           "text": "事前稟議",
           "reading": "じぜんりんぎ",
           "meaning": "사전 품의",
-          "context": "품의·회계에서 쓰는 말 · 사전 품의",
+          "context": "일을 진행하기 전에 미리 올리는 품의예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "稟議",
+              "reading": "りんぎ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2466,9 +3106,20 @@ window.COURSE = {
           "text": "実行稟議",
           "reading": "じっこうりんぎ",
           "meaning": "실행 품의",
-          "context": "품의·회계에서 쓰는 말 · 실행 품의",
+          "context": "실제로 일을 실행하기 위해 올리는 품의예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "稟議",
+              "reading": "りんぎ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2478,9 +3129,20 @@ window.COURSE = {
           "text": "事後稟議書",
           "reading": "じごりんぎしょ",
           "meaning": "사후 품의서",
-          "context": "품의·회계에서 쓰는 말 · 사후 품의서",
+          "context": "일이 끝난 뒤에 올리는 품의 문서예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "稟議",
+              "reading": "りんぎ",
+              "week": 6,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2490,9 +3152,20 @@ window.COURSE = {
           "text": "税抜",
           "reading": "ぜいぬき",
           "meaning": "세금 별도",
-          "context": "비용·집계에서 쓰는 말 · 세금 별도",
+          "context": "세금을 빼고 계산한 금액이라는 표시예요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "税込",
+              "reading": "ぜいこみ",
+              "week": 6,
+              "relation": "함께 구별할 말",
+              "ref": "물류비 보고서 p.1"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2502,9 +3175,20 @@ window.COURSE = {
           "text": "税込",
           "reading": "ぜいこみ",
           "meaning": "세금 포함",
-          "context": "비용·집계에서 쓰는 말 · 세금 포함",
+          "context": "세금을 포함해 계산한 금액이라는 표시예요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "税抜",
+              "reading": "ぜいぬき",
+              "week": 6,
+              "relation": "함께 구별할 말",
+              "ref": "물류비 보고서 p.1"
+            }
+          ],
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2514,9 +3198,11 @@ window.COURSE = {
           "text": "消費税",
           "reading": "しょうひぜい",
           "meaning": "소비세",
-          "context": "비용·집계에서 쓰는 말 · 소비세",
+          "context": "상품이나 서비스 값에 붙는 일본의 세금이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2526,9 +3212,11 @@ window.COURSE = {
           "text": "関税・付帯費用",
           "reading": "かんぜい・ふたいひよう",
           "meaning": "관세·부대비용",
-          "context": "품의·회계에서 쓰는 말 · 관세·부대비용",
+          "context": "수입할 때 내는 관세와 그에 딸린 비용을 함께 이르는 말이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2538,9 +3226,15 @@ window.COURSE = {
           "text": "納付する",
           "reading": "のうふする",
           "meaning": "납부하다",
-          "context": "품의·회계에서 쓰는 말 · 납부하다",
+          "context": "세금 등 내야 할 돈을 기관에 낸다는 뜻이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "税関への支払い(세관에 내는 돈)에 쓰는 말로 적혀 있어요.",
+            "ref": "업무 일본어 표현집 p.12"
+          },
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2550,9 +3244,11 @@ window.COURSE = {
           "text": "輸入附帯費",
           "reading": "ゆにゅうふたいひ",
           "meaning": "수입 부대비용",
-          "context": "비용·집계에서 쓰는 말 · 수입 부대비용",
+          "context": "수입 과정에서 상품 값 외에 따로 드는 비용이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2562,9 +3258,11 @@ window.COURSE = {
           "text": "商品原価",
           "reading": "しょうひんげんか",
           "meaning": "상품 원가",
-          "context": "비용·집계에서 쓰는 말 · 상품 원가",
+          "context": "상품을 들여오거나 만드는 데 든 원래 비용이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2574,9 +3272,11 @@ window.COURSE = {
           "text": "計上",
           "reading": "けいじょう",
           "meaning": "계상",
-          "context": "비교·분석에서 쓰는 말 · 계상",
+          "context": "금액을 장부나 보고서의 항목에 넣어 기록하는 일이에요.",
           "source": "물류비 보고서 p.2",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2586,9 +3286,11 @@ window.COURSE = {
           "text": "控除",
           "reading": "こうじょ",
           "meaning": "공제",
-          "context": "정산·일정에서 쓰는 말 · 공제",
+          "context": "전체 금액에서 일부를 빼는 일이에요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2598,9 +3300,11 @@ window.COURSE = {
           "text": "相殺する",
           "reading": "そうさいする",
           "meaning": "상계하다",
-          "context": "품의·회계에서 쓰는 말 · 상계하다",
+          "context": "서로 주고받을 금액을 맞대어 없앤다는 뜻이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2610,9 +3314,11 @@ window.COURSE = {
           "text": "支払期日",
           "reading": "しはらいきじつ",
           "meaning": "지급 기일",
-          "context": "정산·일정에서 쓰는 말 · 지급 기일",
+          "context": "돈을 지급해야 하는 정해진 날짜예요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2622,9 +3328,11 @@ window.COURSE = {
           "text": "重複申請",
           "reading": "じゅうふくしんせい",
           "meaning": "중복 신청",
-          "context": "비용·집계에서 쓰는 말 · 중복 신청",
+          "context": "같은 내용을 두 번 신청한 것이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2634,9 +3342,11 @@ window.COURSE = {
           "text": "重複請求",
           "reading": "じゅうふくせいきゅう",
           "meaning": "중복 청구",
-          "context": "정산·일정에서 쓰는 말 · 중복 청구",
+          "context": "같은 거래나 비용을 중복해서 청구한 것이에요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2646,9 +3356,11 @@ window.COURSE = {
           "text": "訂正",
           "reading": "ていせい",
           "meaning": "정정",
-          "context": "정산·일정에서 쓰는 말 · 정정",
+          "context": "틀린 내용을 바로잡는 일이에요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2658,9 +3370,11 @@ window.COURSE = {
           "text": "除外",
           "reading": "じょがい",
           "meaning": "제외",
-          "context": "비용·집계에서 쓰는 말 · 제외",
+          "context": "대상이나 계산에서 빼는 일이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 3,
           "difficulty": "응용 2",
           "week": 6
@@ -2959,8 +3673,9 @@ window.COURSE = {
           "text": "増減",
           "reading": "ぞうげん",
           "meaning": "증감",
-          "context": "비교 기준에 비해 늘거나 줄어든 값",
+          "context": "비교 기준에 비해 늘거나 줄어든 값이에요.",
           "source": "물류비 보고서 p.3~4 표 머리글",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -2970,9 +3685,20 @@ window.COURSE = {
           "text": "前月比",
           "reading": "ぜんげつひ",
           "meaning": "전월 대비",
-          "context": "품의·회계에서 쓰는 말 · 전월 대비",
+          "context": "지난달 값과 견주어 본 비교예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "前年同月比",
+              "reading": "ぜんねんどうげつひ",
+              "week": 7,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -2982,9 +3708,20 @@ window.COURSE = {
           "text": "前年同月比",
           "reading": "ぜんねんどうげつひ",
           "meaning": "전년 동월 대비",
-          "context": "품의·회계에서 쓰는 말 · 전년 동월 대비",
+          "context": "작년 같은 달 값과 견주어 본 비교예요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "前月比",
+              "reading": "ぜんげつひ",
+              "week": 7,
+              "relation": "짝을 이루는 말",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -2994,9 +3731,11 @@ window.COURSE = {
           "text": "売上高",
           "reading": "うりあげだか",
           "meaning": "매출액",
-          "context": "비교·분석에서 쓰는 말 · 매출액",
+          "context": "일정 기간 동안 팔아서 번 금액의 합계예요.",
           "source": "물류비 보고서 p.2",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3006,9 +3745,11 @@ window.COURSE = {
           "text": "比率",
           "reading": "ひりつ",
           "meaning": "비율",
-          "context": "비교·분석에서 쓰는 말 · 비율",
+          "context": "어떤 값이 다른 값에 비해 차지하는 정도예요.",
           "source": "물류비 보고서 p.2",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3018,9 +3759,11 @@ window.COURSE = {
           "text": "構成比",
           "reading": "こうせいひ",
           "meaning": "구성비",
-          "context": "비교·분석에서 쓰는 말 · 구성비",
+          "context": "전체 가운데 각 항목이 차지하는 비율이에요.",
           "source": "물류비 보고서 p.2",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3030,9 +3773,11 @@ window.COURSE = {
           "text": "月平均",
           "reading": "つきへいきん",
           "meaning": "월평균",
-          "context": "비교·분석에서 쓰는 말 · 월평균",
+          "context": "여러 달의 값을 한 달 기준으로 고르게 나눈 값이에요.",
           "source": "물류비 보고서 p.2",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3042,9 +3787,11 @@ window.COURSE = {
           "text": "集計",
           "reading": "しゅうけい",
           "meaning": "집계",
-          "context": "비용·집계에서 쓰는 말 · 집계",
+          "context": "흩어진 숫자를 모아서 합하거나 정리하는 일이에요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3054,9 +3801,11 @@ window.COURSE = {
           "text": "内訳",
           "reading": "うちわけ",
           "meaning": "상세 내역",
-          "context": "비교·분석에서 쓰는 말 · 상세 내역",
+          "context": "전체 금액이나 수량을 항목별로 나눈 내용이에요.",
           "source": "물류비 보고서 p.3",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3066,9 +3815,11 @@ window.COURSE = {
           "text": "増加寄与度",
           "reading": "ぞうかきよど",
           "meaning": "증가 기여도",
-          "context": "비교·분석에서 쓰는 말 · 증가 기여도",
+          "context": "한 항목의 변화가 전체 증가에 얼마나 영향을 주었는지 나타내는 값이에요.",
           "source": "물류비 보고서 p.3",
           "sourceKey": "costs",
+          "category": "비교·분석에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3078,9 +3829,11 @@ window.COURSE = {
           "text": "費目",
           "reading": "ひもく",
           "meaning": "비목·비용 항목",
-          "context": "비용 항목·조건에서 쓰는 말 · 비목·비용 항목",
+          "context": "비용을 종류별로 나눈 항목 이름이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3090,9 +3843,11 @@ window.COURSE = {
           "text": "出荷量",
           "reading": "しゅっかりょう",
           "meaning": "출하량",
-          "context": "비용 항목·조건에서 쓰는 말 · 출하량",
+          "context": "일정 기간에 내보낸 상품의 양이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3102,9 +3857,11 @@ window.COURSE = {
           "text": "在庫量",
           "reading": "ざいこりょう",
           "meaning": "재고량",
-          "context": "비용 항목·조건에서 쓰는 말 · 재고량",
+          "context": "창고에 남아 있는 상품의 양이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3114,9 +3871,11 @@ window.COURSE = {
           "text": "在庫評価額",
           "reading": "ざいこひょうかがく",
           "meaning": "재고 평가액",
-          "context": "반품·상품 상태에서 쓰는 말 · 재고 평가액",
+          "context": "재고를 금액으로 따져 매긴 값이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3126,9 +3885,27 @@ window.COURSE = {
           "text": "按分",
           "reading": "あんぶん",
           "meaning": "안분·배부",
-          "context": "품의·회계에서 쓰는 말 · 안분·배부",
+          "context": "비용 등을 기준에 따라 여러 곳에 나누어 매기는 일이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "按分基準",
+              "reading": "あんぶんきじゅん",
+              "week": 7,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            },
+            {
+              "text": "按分ロジック",
+              "reading": "あんぶんロジック",
+              "week": 7,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3138,9 +3915,20 @@ window.COURSE = {
           "text": "按分基準",
           "reading": "あんぶんきじゅん",
           "meaning": "배부 기준",
-          "context": "품의·회계에서 쓰는 말 · 배부 기준",
+          "context": "비용을 나눌 때 무엇을 기준으로 삼을지 정한 것이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "按分",
+              "reading": "あんぶん",
+              "week": 7,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3150,9 +3938,20 @@ window.COURSE = {
           "text": "按分ロジック",
           "reading": "あんぶんロジック",
           "meaning": "배부 로직",
-          "context": "품의·회계에서 쓰는 말 · 배부 로직",
+          "context": "비용을 나누는 계산 방법이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "按分",
+              "reading": "あんぶん",
+              "week": 7,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3162,9 +3961,11 @@ window.COURSE = {
           "text": "役務月",
           "reading": "えきむづき",
           "meaning": "용역이 제공된 월",
-          "context": "비용·집계에서 쓰는 말 · 용역이 제공된 월",
+          "context": "서비스가 실제로 제공된 달이에요. 청구한 달과 다를 수 있어요.",
           "source": "물류비 보고서 p.1",
           "sourceKey": "costs",
+          "category": "비용·집계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3174,9 +3975,11 @@ window.COURSE = {
           "text": "見本費",
           "reading": "みほんひ",
           "meaning": "견본비",
-          "context": "품의·회계에서 쓰는 말 · 견본비",
+          "context": "샘플을 만들거나 보내는 데 드는 비용이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3186,9 +3989,20 @@ window.COURSE = {
           "text": "値上げ",
           "reading": "ねあげ",
           "meaning": "가격 인상",
-          "context": "품의·회계에서 쓰는 말 · 가격 인상",
+          "context": "가격이나 요금을 올리는 일이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "値下げ",
+              "reading": "ねさげ",
+              "week": 7,
+              "relation": "반대 방향",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3198,9 +4012,20 @@ window.COURSE = {
           "text": "値下げ",
           "reading": "ねさげ",
           "meaning": "가격 인하",
-          "context": "품의·회계에서 쓰는 말 · 가격 인하",
+          "context": "가격이나 요금을 내리는 일이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "値上げ",
+              "reading": "ねあげ",
+              "week": 7,
+              "relation": "반대 방향",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3210,9 +4035,11 @@ window.COURSE = {
           "text": "据置",
           "reading": "すえおき",
           "meaning": "가격 등을 그대로 유지함",
-          "context": "비용 항목·조건에서 쓰는 말 · 가격 등을 그대로 유지함",
+          "context": "가격이나 조건을 바꾸지 않고 그대로 두는 일이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3222,9 +4049,11 @@ window.COURSE = {
           "text": "料率",
           "reading": "りょうりつ",
           "meaning": "요율",
-          "context": "비용 항목·조건에서 쓰는 말 · 요율",
+          "context": "요금을 정할 때 쓰는 비율이나 단계별 기준이에요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3234,9 +4063,11 @@ window.COURSE = {
           "text": "運賃表",
           "reading": "うんちんひょう",
           "meaning": "운임표",
-          "context": "비용 항목·조건에서 쓰는 말 · 운임표",
+          "context": "거리·크기 등에 따른 운송 요금을 정리한 표예요.",
           "source": "물류비 보고서 p.4",
           "sourceKey": "costs",
+          "category": "비용 항목·조건에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3246,9 +4077,15 @@ window.COURSE = {
           "text": "販管費",
           "reading": "はんかんひ",
           "meaning": "판매비와 일반관리비",
-          "context": "품의·회계에서 쓰는 말 · 판매비와 일반관리비",
+          "context": "상품을 팔고 회사를 운영하는 데 드는 비용을 묶은 말이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "販売費及び一般管理費를 줄인 말이에요.",
+            "ref": "업무 일본어 표현집 p.12"
+          },
           "level": 4,
           "difficulty": "심화 1",
           "week": 7
@@ -3622,9 +4459,11 @@ window.COURSE = {
           "text": "基本契約書",
           "reading": "きほんけいやくしょ",
           "meaning": "기본 계약서",
-          "context": "계약·사내 절차에서 쓰는 말 · 기본 계약서",
+          "context": "거래의 공통 조건을 정해 두는 바탕이 되는 계약서예요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3634,9 +4473,11 @@ window.COURSE = {
           "text": "業務委託契約",
           "reading": "ぎょうむいたくけいやく",
           "meaning": "업무 위탁 계약",
-          "context": "계약·사내 절차에서 쓰는 말 · 업무 위탁 계약",
+          "context": "일의 일부를 다른 회사에 맡길 때 맺는 계약이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3646,9 +4487,11 @@ window.COURSE = {
           "text": "注文書",
           "reading": "ちゅうもんしょ",
           "meaning": "주문서",
-          "context": "계약·사내 절차에서 쓰는 말 · 주문서",
+          "context": "상품이나 일을 정식으로 주문할 때 보내는 문서예요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3658,9 +4501,11 @@ window.COURSE = {
           "text": "捺印",
           "reading": "なついん",
           "meaning": "날인",
-          "context": "계약·사내 절차에서 쓰는 말 · 날인",
+          "context": "문서에 도장을 찍는 일이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3670,9 +4515,20 @@ window.COURSE = {
           "text": "契約更新",
           "reading": "けいやくこうしん",
           "meaning": "계약 갱신",
-          "context": "계약·사내 절차에서 쓰는 말 · 계약 갱신",
+          "context": "기간이 끝나는 계약을 다시 이어 가는 일이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "解約",
+              "reading": "かいやく",
+              "week": 8,
+              "relation": "함께 구별할 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3682,9 +4538,11 @@ window.COURSE = {
           "text": "移管",
           "reading": "いかん",
           "meaning": "이관",
-          "context": "계약·사내 절차에서 쓰는 말 · 이관",
+          "context": "업무나 관리 책임을 다른 곳으로 넘기는 일이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3694,9 +4552,11 @@ window.COURSE = {
           "text": "法務レビュー",
           "reading": "ほうむレビュー",
           "meaning": "법무 검토",
-          "context": "계약·사내 절차에서 쓰는 말 · 법무 검토",
+          "context": "계약서 등을 법무 담당이 검토하는 일이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3706,9 +4566,20 @@ window.COURSE = {
           "text": "議論する",
           "reading": "ぎろんする",
           "meaning": "논의하다",
-          "context": "계약·사내 절차에서 쓰는 말 · 논의하다",
+          "context": "의견을 주고받으며 따져 본다는 뜻이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "打合せ",
+              "reading": "うちあわせ",
+              "week": 8,
+              "relation": "함께 구별할 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3718,9 +4589,24 @@ window.COURSE = {
           "text": "打合せ",
           "reading": "うちあわせ",
           "meaning": "실무 협의·미팅",
-          "context": "계약·사내 절차에서 쓰는 말 · 실무 협의·미팅",
+          "context": "실무자끼리 일을 맞추려고 하는 협의예요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "sourceNote": {
+            "text": "実務的な会議(실무적인 회의)라고 적혀 있어요.",
+            "ref": "업무 일본어 표현집 p.14"
+          },
+          "related": [
+            {
+              "text": "議論する",
+              "reading": "ぎろんする",
+              "week": 8,
+              "relation": "함께 구별할 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3730,9 +4616,20 @@ window.COURSE = {
           "text": "解約",
           "reading": "かいやく",
           "meaning": "계약 해지",
-          "context": "계약·사내 절차에서 쓰는 말 · 계약 해지",
+          "context": "맺었던 계약을 끝내는 일이에요.",
           "source": "업무 일본어 표현집 p.14",
           "sourceKey": "phrases",
+          "category": "계약·사내 절차에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "契約更新",
+              "reading": "けいやくこうしん",
+              "week": 8,
+              "relation": "함께 구별할 말",
+              "ref": "업무 일본어 표현집 p.14"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3742,9 +4639,20 @@ window.COURSE = {
           "text": "単価調整",
           "reading": "たんかちょうせい",
           "meaning": "단가 조정",
-          "context": "품의·회계에서 쓰는 말 · 단가 조정",
+          "context": "단가를 협의해 다시 맞추는 일이에요.",
           "source": "업무 일본어 표현집 p.12",
           "sourceKey": "phrases",
+          "category": "품의·회계에서 쓰는 말",
+          "contextKind": "학습용 설명",
+          "related": [
+            {
+              "text": "単価",
+              "reading": "たんか",
+              "week": 5,
+              "relation": "같은 계열",
+              "ref": "업무 일본어 표현집 p.12"
+            }
+          ],
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3754,9 +4662,11 @@ window.COURSE = {
           "text": "改定",
           "reading": "かいてい",
           "meaning": "개정",
-          "context": "정산·일정에서 쓰는 말 · 개정",
+          "context": "요금이나 규정을 새로 고쳐 정하는 일이에요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3766,9 +4676,11 @@ window.COURSE = {
           "text": "協議",
           "reading": "きょうぎ",
           "meaning": "협의",
-          "context": "정산·일정에서 쓰는 말 · 협의",
+          "context": "관계자가 모여 조건이나 방법을 의논해 정하는 일이에요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3778,9 +4690,11 @@ window.COURSE = {
           "text": "回答期限",
           "reading": "かいとうきげん",
           "meaning": "회신 기한",
-          "context": "정산·일정에서 쓰는 말 · 회신 기한",
+          "context": "답을 보내야 하는 마감 날짜예요.",
           "source": "물류비 보고서 p.6",
           "sourceKey": "costs",
+          "category": "정산·일정에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3790,9 +4704,11 @@ window.COURSE = {
           "text": "判定基準",
           "reading": "はんていきじゅん",
           "meaning": "판정 기준",
-          "context": "반품·상품 상태에서 쓰는 말 · 판정 기준",
+          "context": "어떤 상태인지 가려 정할 때 쓰는 기준이에요. 반품 기준서는 초안이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3802,9 +4718,11 @@ window.COURSE = {
           "text": "等級",
           "reading": "とうきゅう",
           "meaning": "등급",
-          "context": "반품·상품 상태에서 쓰는 말 · 등급",
+          "context": "상태나 품질을 단계로 나눈 것이에요. 초안 기준서에 나와요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3814,9 +4732,11 @@ window.COURSE = {
           "text": "目視",
           "reading": "もくし",
           "meaning": "육안 확인",
-          "context": "반품·상품 상태에서 쓰는 말 · 육안 확인",
+          "context": "도구 없이 눈으로 직접 확인하는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3826,9 +4746,11 @@ window.COURSE = {
           "text": "識別不可",
           "reading": "しきべつふか",
           "meaning": "식별 불가",
-          "context": "반품·상품 상태에서 쓰는 말 · 식별 불가",
+          "context": "무엇인지 알아볼 수 없는 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3838,9 +4760,11 @@ window.COURSE = {
           "text": "テスター転用",
           "reading": "テスターてんよう",
           "meaning": "테스터로 전용",
-          "context": "반품·상품 상태에서 쓰는 말 · 테스터로 전용",
+          "context": "상품을 매장에서 시험해 보는 테스터 용도로 돌려 쓰는 일이에요. 반품 처리 조건은 초안 기준서에서 확인해요.",
           "source": "반품 판정 기준서 · 초안 p.1",
           "sourceKey": "returns",
+          "category": "반품·상품 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3850,9 +4774,11 @@ window.COURSE = {
           "text": "再分類",
           "reading": "さいぶんるい",
           "meaning": "재분류",
-          "context": "반품·작업 상태에서 쓰는 말 · 재분류",
+          "context": "한 번 나눈 것을 다시 분류하는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3862,9 +4788,11 @@ window.COURSE = {
           "text": "保留区域",
           "reading": "ほりゅうくいき",
           "meaning": "보류 구역",
-          "context": "반품·작업 상태에서 쓰는 말 · 보류 구역",
+          "context": "처리를 미룬 상품을 따로 두는 구역이에요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3874,9 +4802,11 @@ window.COURSE = {
           "text": "再検品",
           "reading": "さいけんぴん",
           "meaning": "재검품",
-          "context": "반품·작업 상태에서 쓰는 말 · 재검품",
+          "context": "한 번 검품한 상품을 다시 확인하는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3886,9 +4816,11 @@ window.COURSE = {
           "text": "判定不可",
           "reading": "はんていふか",
           "meaning": "판정 불가",
-          "context": "반품·작업 상태에서 쓰는 말 · 판정 불가",
+          "context": "기준에 따라 판정할 수 없는 상태예요.",
           "source": "반품 판정 기준서 · 초안 p.2",
           "sourceKey": "returns",
+          "category": "반품·작업 상태에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3898,9 +4830,11 @@ window.COURSE = {
           "text": "事前協議",
           "reading": "じぜんきょうぎ",
           "meaning": "사전 협의",
-          "context": "현장·보고에서 쓰는 말 · 사전 협의",
+          "context": "일을 하기 전에 미리 의논해 맞추는 일이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3910,9 +4844,11 @@ window.COURSE = {
           "text": "履歴",
           "reading": "りれき",
           "meaning": "이력",
-          "context": "현장·보고에서 쓰는 말 · 이력",
+          "context": "지금까지의 처리나 변경 기록이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -3922,9 +4858,11 @@ window.COURSE = {
           "text": "現場責任者",
           "reading": "げんばせきにんしゃ",
           "meaning": "현장 책임자",
-          "context": "현장·보고에서 쓰는 말 · 현장 책임자",
+          "context": "창고 등 현장의 작업을 책임지는 사람이에요.",
           "source": "반품 판정 기준서 · 초안 p.3",
           "sourceKey": "returns",
+          "category": "현장·보고에서 쓰는 말",
+          "contextKind": "학습용 설명",
           "level": 4,
           "difficulty": "심화 2",
           "week": 8
@@ -4323,8 +5261,13 @@ const course=window.COURSE;
 const $=q=>document.querySelector(q);
 const $$=q=>[...document.querySelectorAll(q)];
 const storageKey='work-japanese-8week-v1';
+$('#schedule-table').tabIndex=0;
+$('#schedule-table').setAttribute('role','region');
+$('#schedule-table').setAttribute('aria-label','8주 수업 일정표 · 좌우로 스크롤할 수 있어요');
+// The active card precedes the complete word library at every screen size.
 let saved={},canSave=false;
-try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};localStorage.setItem('jp-check','1');localStorage.removeItem('jp-check');canSave=true}catch(_){saved={}}
+// A damaged saved record falls back to defaults but must not switch saving off.
+try{localStorage.setItem('jp-check','1');localStorage.removeItem('jp-check');canSave=true;saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};if(typeof saved!=='object'||Array.isArray(saved))saved={}}catch(_){saved={}}
 let week=course.weeks.find(w=>w.id===Number(saved.week))||course.weeks[0];
 const validWords=new Set(course.weeks.flatMap(w=>w.words.map(x=>x.id)));
 const validNumbers=new Set(course.weeks.flatMap(w=>w.numbers.map(n=>numberKey(w,n))));
@@ -4336,8 +5279,8 @@ const state={section:'words',wordIndex:0,phraseIndex:0,reading:saved.reading!==f
   used:Array.isArray(saved.used)?saved.used.filter(x=>validPhrases.has(x)):[],
   start:typeof saved.start==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(saved.start)?saved.start:'',
   voice:null,soundBroken:false,findIndex:0,findDone:false,findMode:'meaning',findOrder:[],findChoices:[],quizMode:'meaning',quizIndex:0,quizAnswered:false,correct:0,
-  reviewWords:[],reviewQueue:[],cumulative:false,response:null};
-function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stringify({week:week.id,reading:state.reading,familiar:state.familiar,used:state.used,learnedNumbers:state.learnedNumbers,start:state.start}))}catch(_){canSave=false;updateProgress()}}
+  reviewWords:[],reviewQueue:[],cumulative:false,response:null,scope:'all',findWords:[],baseWords:[],pool:[],missed:[],retry:false,selfCheck:false};
+function save(){if(!canSave)return;try{localStorage.setItem(storageKey,JSON.stringify({week:week.id,reading:state.reading,familiar:state.familiar,used:state.used,learnedNumbers:state.learnedNumbers,start:state.start,pos:{section:state.section,wordId:week.words[state.wordIndex]?.id,phraseId:week.phrases[state.phraseIndex]?.id}}))}catch(_){canSave=false;updateProgress()}}
 function ruby(text,reading){return `<ruby lang="ja">${text}<rt>${reading}</rt></ruby>`}
 function phraseRuby(p){return p.chunks.map(c=>`<span class="phrase-chunk">${c.text===c.reading?`<span lang="ja">${c.text}</span>`:ruby(c.text,c.reading)}</span>`).join('')}
 function shuffle(list){const a=[...list];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -4352,54 +5295,93 @@ function setReading(){document.body.classList.toggle('hide-reading',!state.readi
 function renderWords(){state.meaning=false;const word=week.words[state.wordIndex];$('#words-heading').textContent=`${week.id}주차 · ${week.title}`;$('#words-description').textContent=`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
   $('#word-tabs').innerHTML=week.words.map((w,i)=>`<button type="button" role="tab" id="word-tab-${w.id}" aria-controls="word-panel" aria-selected="${i===state.wordIndex}" tabindex="${i===state.wordIndex?0:-1}" data-word="${i}">${i+1} · <span lang="ja">${w.text}</span></button>`).join('');
   $('#word-panel').setAttribute('aria-labelledby',`word-tab-${word.id}`);$('#word-counter').textContent=`${state.wordIndex+1} / ${week.words.length}`;
-  $('#word-term').innerHTML=ruby(word.text,word.reading);$('#word-term').dataset.length=word.text.length>6?'long':word.text.length>4?'medium':'short';$('#word-meaning').textContent=word.meaning;$('#word-context').textContent=word.context;
+  $('#word-term').innerHTML=ruby(word.text,word.reading);$('#word-term').dataset.length=word.text.length>6?'long':word.text.length>4?'medium':'short';$('#word-meaning').textContent=word.meaning;$('#word-context').textContent=word.context;renderWordNotes(word);
   $('#word-hint').textContent='소리 → 뜻 → 표기를 연결하고 4~5개씩 나누어 떠올려요.';$('#word-source').textContent=`출처: ${word.source}`;
   $('#word-status').textContent=`${week.stage} · 새 단어 ${state.wordIndex+1}`;$('#word-sound').dataset.speak=word.reading;
-  meaning();$('#familiar-word').checked=state.familiar.includes(word.id);$('#prev-word').disabled=state.wordIndex===0;$('#next-word').textContent=state.wordIndex===week.words.length-1?'숫자 익히기로':'다음 단어';soundButtons();updateProgress()}
+  meaning();$('#familiar-word').checked=state.familiar.includes(word.id);$('#prev-word').disabled=state.wordIndex===0;$('#next-word').textContent=state.wordIndex===week.words.length-1?'숫자 익히기로':'다음 단어';soundButtons();updateProgress();save()}
+// The week picker never shows topics, so it fits the rail and leaks nothing during recall.
+function weekOptionLabel(w){return `${w.id}주 · ${w.stage} · ${w.words.length}단어`}
+const termChars=text=>[...text].length;
 function updateStudyChrome(){const concealed=(state.section==='words'&&!state.meaning)||(state.section==='find'&&state.findMode==='listening');
   $('#pack-title').textContent=concealed?`${week.id}주차 · ${week.stage}`:week.title;
-  [...$('#week-select').options].forEach(option=>{const w=course.weeks.find(item=>item.id===Number(option.value));option.textContent=concealed?`${w.id}주 · ${w.stage} · 단어 ${w.words.length}개`:`${w.id}주 · ${w.stage} · ${w.title}`});
-  $('#words-heading').textContent=!state.meaning?`${week.id}주차 · ${week.stage} · 뜻 떠올리기`:`${week.id}주차 · ${week.title}`;
-  $('#words-description').textContent=!state.meaning?`일본어를 보고 뜻을 떠올린 뒤 ‘뜻 표시하기’를 눌러 확인해요. 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개.`:`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`;
+  [...$('#week-select').options].forEach(option=>{const w=course.weeks.find(item=>item.id===Number(option.value));option.textContent=weekOptionLabel(w)});
+  const putWordsHeading=open=>{$('#words-heading').textContent=!open?`${week.id}주차 · ${week.stage} · 뜻 떠올리기`:`${week.id}주차 · ${week.title}`;
+    $('#words-description').textContent=!open?`일본어를 보고 뜻을 떠올린 뒤 ‘뜻 표시하기’를 눌러 확인해요. 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개.`:`${week.stage} · 단어 ${week.words.length}개 · 표현 ${week.phrases.length}개. ${week.goal}`};
+  // Reserve the taller of both heading states so revealing a meaning never moves the card.
+  const headingBox=$('#words-heading').parentElement;headingBox.style.minHeight='';
+  if(headingBox.offsetParent){putWordsHeading(!state.meaning);const otherHeight=headingBox.offsetHeight;putWordsHeading(state.meaning);headingBox.style.minHeight=`${Math.max(otherHeight,headingBox.offsetHeight)}px`}else putWordsHeading(state.meaning);
 }
+let resizeFrame=0;addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>{if(state.section==='words')updateStudyChrome()})});
 function meaning(){$('#word-meaning-content').hidden=!state.meaning;$('#meaning-placeholder').hidden=state.meaning;$('#word-source').hidden=!state.meaning;$('#toggle-meaning').textContent=state.meaning?'뜻 가리기':'뜻 표시하기';$('#toggle-meaning').setAttribute('aria-expanded',String(state.meaning));updateStudyChrome()}
 function renderPhrase(){const p=currentPhrase();$('#phrase-counter').textContent=`${state.phraseIndex+1} / ${week.phrases.length}`;$('#phrase-tabs').innerHTML=week.phrases.map((item,i)=>`<button type="button" role="tab" id="phrase-tab-${item.id}" aria-selected="${i===state.phraseIndex}" tabindex="${i===state.phraseIndex?0:-1}" aria-controls="phrase-panel" data-phrase="${i}">${i+1} · ${item.meaning}</button>`).join('');$('#phrase-panel').setAttribute('aria-labelledby',`phrase-tab-${p.id}`);
   $('#phrase-situation').textContent=p.situation;$('#phrase-japanese').innerHTML=phraseRuby(p);$('#phrase-meaning').textContent=p.meaning;$('#phrase-action').textContent=p.action;
   $('#phrase-source').textContent=`${p.kind} · ${p.source} · ${p.note}`;$('#phrase-sound').dataset.speak=p.reading;$('#phrase-ready').checked=state.used.includes(p.id);$('#phrase-answer').hidden=false;$('#reveal-phrase').textContent='문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded','true');
   $('#phrase-cue').innerHTML=`<div class="cue-top"><span>${week.stage}</span><span>상황을 보고 말해요</span></div><p class="cue-situation">${p.cue}</p><div class="cue-line"></div><p>한국어 상황을 보고, 어떤 요청이나 보고인지 떠올려요.</p>`;
-  $('#prev-phrase').disabled=state.phraseIndex===0;$('#next-phrase').textContent=state.phraseIndex===week.phrases.length-1?'자료에서 찾기로':'다음 표현';
+  // Phones show the situation once: the cue card repeats it, so it collapses there (desktop and print unchanged).
+  const plain=t=>t.replace(/[。.\s]+$/,'');$('#phrase-cue').classList.toggle('cue-repeats',plain(p.cue)===plain(p.situation));
+  $('#prev-phrase').disabled=state.phraseIndex===0;$('#next-phrase').textContent=state.phraseIndex===week.phrases.length-1?'자료에서 찾기로':'다음 표현';save();
   $('#response-practice').hidden=!week.responses;state.response=null;$('#response-feedback').textContent='먼저 아래 두 응답을 듣고 뜻을 확인해요.';
   $('#response-list').innerHTML=(week.responses||[]).map((r,i)=>`<div class="response-row"><div>${ruby(r.text,r.reading)}</div><span>${r.meaning}</span><button type="button" class="button" data-speak="${r.reading}">응답 ${i+1} 듣기</button></div>`).join('');soundButtons()}
 function reportMarkup(w=week,interactive=false,report=w.reports[0]){return report.html.replace(/\[\[([^\]]+)\]\]/g,(_,id)=>{const word=w.words.find(x=>x.id===id);if(!word)return'';const content=ruby(word.text,word.reading);return interactive?`<button type="button" class="report-word" data-hotspot="${id}" aria-label="${word.text}, ${word.reading}">${content}</button>`:`<span class="report-print-word">${content}</span>`})}
-function findTarget(){return week.words[state.findOrder[state.findIndex]]}
-function resetFind(){state.findIndex=0;state.findOrder=shuffle(week.words.map((_,i)=>i));state.findChoices=shuffle(week.words)}
-function renderFind(){const word=findTarget(),listening=state.findMode==='listening';$('#find-counter').textContent=`${state.findIndex+1} / ${week.words.length}`;$('#find-prompt').textContent=listening?'소리를 듣고 같은 단어를 찾아보세요.':`‘${word.meaning}’에 해당하는 일본어를 찾아 눌러 보세요.`;$('#find-sound').dataset.speak=word.reading;$('#find-teacher').hidden=!listening;$('#find-teacher').open=false;$('#find-teacher-cue').textContent=word.text+' · '+word.reading;$('#find-meaning-mode').setAttribute('aria-pressed',String(!listening));$('#find-listening-mode').setAttribute('aria-pressed',String(listening));$('#practice-report').innerHTML=`<h3 class="report-korean">이번 주 ${week.words.length}단어 전체</h3><div class="find-word-board">${state.findChoices.map(w=>`<button type="button" class="report-word" data-hotspot="${w.id}" aria-label="${w.text}, ${w.reading}">${ruby(w.text,w.reading)}</button>`).join('')}</div>`;$('#find-feedback').textContent=listening?'소리를 듣고 골라요. 기기 음성이 없으면 교사가 단어만 읽어 주세요.':`이번 주 ${week.words.length}개 단어가 모두 있어요.`;$('#find-feedback').className='feedback neutral';$('#next-find').hidden=true;state.findDone=false;soundButtons();updateStudyChrome()}
+// Source-backed supplements and curated relations. Related words show Japanese, relation and week only, never their Korean meaning.
+function renderWordNotes(word){const note=$('#word-source-note'),related=$('#word-related');note.hidden=!word.sourceNote;note.innerHTML=word.sourceNote?`<span class="note-kind">원문 보충</span>${word.sourceNote.text}<span class="note-ref">${word.sourceNote.ref}</span>`:'';
+  related.hidden=!word.related;related.innerHTML=word.related?`<p class="note-kind">함께 구별해 보기</p><ul>${word.related.map(r=>`<li>${ruby(r.text,r.reading)}<span>${r.relation} · ${r.week}주</span></li>`).join('')}</ul>`:''}
+// Lesson A/B split shared with the teacher guide; the full week stays the default.
+function lessonHalf(w=week){return Math.ceil(w.words.length/2)}
+function scopeWords(w=week,scope=state.scope){const half=lessonHalf(w);return scope==='a'?w.words.slice(0,half):scope==='b'?w.words.slice(half):w.words}
+function scopeName(scope=state.scope,w=week){const half=lessonHalf(w);return scope==='a'?`수업 A · 앞 ${half}단어`:scope==='b'?`수업 B · 뒤 ${w.words.length-half}단어`:`이번 주 전체 · ${w.words.length}단어`}
+function renderScopeSelects(){const options=['all','a','b'].map(s=>`<option value="${s}">${scopeName(s)}</option>`).join('');['#find-scope','#review-range'].forEach(q=>{$(q).innerHTML=options;$(q).value=state.scope});$('#review-range').disabled=state.cumulative;
+  $('#find-scope-note').textContent=state.scope==='all'?'단어 목록과 인쇄는 늘 이번 주 전체예요.':`${scopeName()}만 찾아요. 범위를 바꾸면 새 연습을 시작해요.`}
+function setScope(scope){state.scope=['a','b'].includes(scope)?scope:'all';resetFind();renderFind();startQuiz(false);renderScopeSelects();$(state.section==='review'?'#review-scope':'#find-scope-note').textContent=`${scopeName()}로 새 연습을 시작했어요.`}
+function findTarget(){return state.findWords[state.findOrder[state.findIndex]]}
+function resetFind(){state.findWords=scopeWords();state.findIndex=0;state.findOrder=shuffle(state.findWords.map((_,i)=>i));state.findChoices=shuffle(state.findWords)}
+function renderFind(){const word=findTarget(),listening=state.findMode==='listening',total=state.findWords.length;$('#find-counter').textContent=`${state.findIndex+1} / ${total}`;$('#find-prompt').textContent=listening?'소리를 듣고 같은 단어를 찾아보세요.':`‘${word.meaning}’에 해당하는 일본어를 찾아 눌러 보세요.`;$('#find-sound').dataset.speak=word.reading;$('#find-teacher').hidden=!listening;$('#find-teacher').open=false;$('#find-teacher-cue').textContent=word.text+' · '+word.reading;$('#find-meaning-mode').setAttribute('aria-pressed',String(!listening));$('#find-listening-mode').setAttribute('aria-pressed',String(listening));$('#practice-report').innerHTML=`<h3 class="report-korean">${state.scope==='all'?`이번 주 ${total}단어 전체`:scopeName()}</h3><div class="find-word-board">${state.findChoices.map(w=>`<button type="button" class="report-word" data-hotspot="${w.id}" style="--chars:${termChars(w.text)};--kana:${termChars(w.reading)}" aria-label="${w.text}, ${w.reading}">${ruby(w.text,w.reading)}</button>`).join('')}</div>`;$('#find-feedback').textContent=listening?'소리를 듣고 골라요. 기기 음성이 없으면 교사가 단어만 읽어 주세요.':`${state.scope==='all'?'이번 주':scopeName()} ${total}개 단어가 모두 있어요.`;$('#find-feedback').className='feedback neutral';$('#next-find').hidden=true;state.findDone=false;soundButtons();updateStudyChrome()}
+// Feedback avoids Korean particles after meanings so 받침 never produces 「등급예요」.
 function chooseHotspot(id){if(state.findDone)return;const target=findTarget(),chosen=week.words.find(w=>w.id===id);$$('[data-hotspot]').forEach(b=>b.classList.remove('wrong'));
-  if(id===target.id){state.findDone=true;$(`[data-hotspot="${id}"]`).classList.add('correct');$('#find-feedback').textContent=`맞아요. ${target.text}는 ‘${target.meaning}’예요.`;$('#find-feedback').className='feedback success';$('#next-find').hidden=false;$('#next-find').textContent=state.findIndex===week.words.length-1?'복습으로 넘어가기':'다음 항목 찾기'}
-  else{$(`[data-hotspot="${id}"]`).classList.add('wrong');$('#find-feedback').textContent=state.findMode==='listening'?'다른 항목이에요. 같은 소리를 다시 듣고 찾아보세요.':`고른 것은 ‘${chosen.meaning}’예요. ‘${target.meaning}’를 다시 찾아보세요.`;$('#find-feedback').className='feedback retry'}}
-function startQuiz(cumulative=state.cumulative,mode=state.quizMode,nextBatch=false){state.cumulative=cumulative;state.quizMode=mode;state.quizIndex=0;state.correct=0;
-  if(cumulative){if(!nextBatch||!state.reviewQueue.length)state.reviewQueue=shuffle(allWords());state.reviewWords=state.reviewQueue.splice(0,5)}else{state.reviewWords=[...week.words];state.reviewQueue=[]}
+  if(id===target.id){state.findDone=true;$(`[data-hotspot="${id}"]`).classList.add('correct');$('#find-feedback').textContent=`맞아요. ${target.text} · ${target.meaning}`;$('#find-feedback').className='feedback success';$('#next-find').hidden=false;$('#next-find').textContent=state.findIndex===state.findWords.length-1?'복습으로 넘어가기':'다음 항목 찾기'}
+  else{$(`[data-hotspot="${id}"]`).classList.add('wrong');$('#find-feedback').textContent=state.findMode==='listening'?'다른 항목이에요. 같은 소리를 다시 듣고 찾아보세요.':`고른 단어의 뜻: ‘${chosen.meaning}’ · 찾을 뜻: ‘${target.meaning}’. 다시 찾아보세요.`;$('#find-feedback').className='feedback retry'}}
+// Review rounds: baseWords is the current set (week scope or one cumulative batch) and owns "전체 다시";
+// a retry round asks only the misses but draws distractors from pool; the cumulative queue is touched only by a new batch.
+function startQuiz(cumulative=state.cumulative,mode=state.quizMode,nextBatch=false){state.cumulative=cumulative;state.quizMode=mode;
+  if(cumulative){if(!nextBatch||!state.reviewQueue.length)state.reviewQueue=shuffle(allWords());state.baseWords=state.reviewQueue.splice(0,5);state.pool=allWords()}else{state.baseWords=[...scopeWords()];state.reviewQueue=[];state.pool=scopeWords()}
   $('#week-review').setAttribute('aria-pressed',String(!cumulative));$('#cumulative-review').setAttribute('aria-pressed',String(cumulative));$('#meaning-review').setAttribute('aria-pressed',String(mode==='meaning'));$('#sound-review').setAttribute('aria-pressed',String(mode==='sound'));
-  $('#review-scope').textContent=cumulative?`여기까지 배운 ${allWords().length}단어 중 ${state.reviewWords.length}개씩 · 다음 묶음 대기 ${state.reviewQueue.length}개`:`이번 주 ${week.words.length}단어 전체`;renderQuiz()}
+  renderScopeSelects();beginRound(state.baseWords,false)}
+function beginRound(list,retry){state.reviewWords=[...list];state.retry=retry;state.missed=[];state.quizIndex=0;state.correct=0;$('#quiz-missed').innerHTML='';
+  $('#review-scope').textContent=state.cumulative?`${retry?`지금은 틀린 ${list.length}개 다시 · `:''}여기까지 배운 ${allWords().length}단어 중 ${state.baseWords.length}개씩 · 다음 묶음 대기 ${state.reviewQueue.length}개 · 학습 범위는 누적에 적용되지 않아요`:retry?`${scopeName()} 중 틀린 ${list.length}개 다시`:`${scopeName()}${state.scope==='all'?'':' · 범위를 바꾸면 새 연습을 시작해요'}`;renderQuiz()}
 function renderQuiz(){if(!state.reviewWords.length)return;const word=state.reviewWords[state.quizIndex];state.quizAnswered=false;$('#quiz-result').hidden=true;$('#quiz-active').hidden=false;$('#quiz-counter').textContent=`${state.quizIndex+1} / ${state.reviewWords.length}`;
   $('#quiz-question').textContent=state.quizMode==='sound'?'소리를 듣고 뜻을 고르세요.':`‘${word.meaning}’에 해당하는 일본어를 고르세요.`;$('#quiz-play').hidden=state.quizMode!=='sound';$('#quiz-play').dataset.speak=word.reading;
-  const seen=new Set([word.meaning]);const others=shuffle(state.cumulative?allWords():week.words).filter(w=>{if(w.id===word.id||seen.has(w.meaning))return false;seen.add(w.meaning);return true}).slice(0,3);state.quizOptions=shuffle([word,...others]);
-  $('#quiz-options').innerHTML=state.quizOptions.map(w=>`<button type="button" class="quiz-option" data-answer="${w.id}">${state.quizMode==='sound'?w.meaning:ruby(w.text,w.reading)}</button>`).join('');$('#quiz-feedback').textContent=state.quizMode==='sound'?'듣기 버튼을 누른 뒤 골라 주세요.':'글자와 뜻을 연결해 보세요.';$('#quiz-feedback').className='feedback neutral';$('#next-quiz').hidden=true;soundButtons()}
-function answer(id){if(state.quizAnswered)return;state.quizAnswered=true;const word=state.reviewWords[state.quizIndex],chosen=state.quizOptions.find(w=>w.id===id);if(id===word.id)state.correct++;
+  const seen=new Set([word.meaning]),seenText=new Set([word.text]);const others=shuffle(state.pool).filter(w=>{if(w.id===word.id||seen.has(w.meaning)||seenText.has(w.text))return false;seen.add(w.meaning);seenText.add(w.text);return true}).slice(0,3);state.quizOptions=shuffle([word,...others]);
+  state.selfCheck=!others.length;if(state.selfCheck){$('#quiz-options').innerHTML=`<button type="button" class="button" id="self-check-reveal">떠올린 뒤 정답 확인하기</button>`;$('#quiz-feedback').textContent='고를 다른 보기가 없어요. 먼저 떠올린 뒤 확인해요.';$('#quiz-feedback').className='feedback neutral';$('#next-quiz').hidden=true;soundButtons();return}
+  $('#quiz-options').innerHTML=state.quizOptions.map(w=>`<button type="button" class="quiz-option" data-answer="${w.id}"${state.quizMode==='sound'?'':` style="--chars:${termChars(w.text)};--kana:${termChars(w.reading)}"`}>${state.quizMode==='sound'?w.meaning:ruby(w.text,w.reading)}</button>`).join('');$('#quiz-feedback').textContent=state.quizMode==='sound'?'듣기 버튼을 누른 뒤 골라 주세요.':'글자와 뜻을 연결해 보세요.';$('#quiz-feedback').className='feedback neutral';$('#next-quiz').hidden=true;soundButtons()}
+function answer(id){if(state.quizAnswered)return;state.quizAnswered=true;const word=state.reviewWords[state.quizIndex],chosen=state.quizOptions.find(w=>w.id===id);if(id===word.id)state.correct++;else state.missed.push(word.id);
   $$('[data-answer]').forEach(b=>{b.disabled=true;if(b.dataset.answer===word.id)b.classList.add('correct');else if(b.dataset.answer===id)b.classList.add('wrong')});
-  $('#quiz-feedback').textContent=id===word.id?`맞아요. ${word.text} · ${word.reading} · ${word.meaning}`:`고른 것은 ‘${chosen.meaning}’예요. 정답은 ${word.text} · ${word.reading} · ${word.meaning}입니다.`;$('#quiz-feedback').className=`feedback ${id===word.id?'success':'retry'}`;$('#next-quiz').hidden=false;$('#next-quiz').textContent=state.quizIndex===state.reviewWords.length-1?'복습 결과 보기':'다음 문제'}
-function nextQuiz(){if(state.quizIndex<state.reviewWords.length-1){state.quizIndex++;renderQuiz()}else{$('#quiz-active').hidden=true;$('#quiz-result').hidden=false;$('#quiz-score').textContent=`${state.reviewWords.length}개 중 ${state.correct}개를 연결했어요.`;$('#quiz-result-copy').textContent='헷갈린 항목은 소리와 뜻을 다시 연결해요. 체크와 정답 수는 발음·숙달 평가가 아니에요.';$('#next-batch').hidden=!state.cumulative||!state.reviewQueue.length}}
+  $('#quiz-feedback').textContent=id===word.id?`맞아요. ${word.text} · ${word.reading} · ${word.meaning}`:`고른 단어의 뜻: ‘${chosen.meaning}’ · 정답: ${word.text} · ${word.reading} · ${word.meaning}`;$('#quiz-feedback').className=`feedback ${id===word.id?'success':'retry'}`;showNextQuiz()}
+function showNextQuiz(){$('#next-quiz').hidden=false;$('#next-quiz').textContent=state.quizIndex===state.reviewWords.length-1?'복습 결과 보기':'다음 문제'}
+function selfCheck(){const word=state.reviewWords[state.quizIndex];$('#quiz-options').innerHTML=`<p class="self-check-answer">${ruby(word.text,word.reading)} · ${word.meaning}</p><button type="button" class="button" data-self="1">떠올렸어요</button><button type="button" class="button" data-self="0">헷갈렸어요</button>`;$('#quiz-feedback').textContent='떠올린 것과 맞는지 스스로 표시해요.'}
+function markSelf(ok){if(state.quizAnswered)return;state.quizAnswered=true;const word=state.reviewWords[state.quizIndex];if(ok)state.correct++;else state.missed.push(word.id);$$('[data-self]').forEach(b=>b.disabled=true);showNextQuiz()}
+function nextQuiz(){if(state.quizIndex<state.reviewWords.length-1){state.quizIndex++;renderQuiz();return}
+  const total=state.reviewWords.length,missed=state.reviewWords.filter(w=>state.missed.includes(w.id));$('#quiz-active').hidden=true;$('#quiz-result').hidden=false;
+  $('#quiz-score').textContent=state.retry?`틀린 ${total}개 중 ${state.correct}개를 다시 연결했어요.`:`${total}개 중 ${state.correct}개를 연결했어요.`;
+  $('#quiz-result-copy').textContent=(missed.length?'아래 틀린 항목의 소리와 뜻을 다시 확인해요. ':'틀린 항목이 없어요. ')+'체크와 정답 수는 발음·숙달 평가가 아니에요.';
+  $('#quiz-missed').innerHTML=missed.length?`<h3>틀린 항목 ${missed.length}개</h3><ul>${missed.map(w=>`<li>${ruby(w.text,w.reading)}<span>${w.meaning}</span></li>`).join('')}</ul>`:'';
+  $('#retry-missed').hidden=!missed.length;$('#retry-missed').textContent=`틀린 ${missed.length}개만 다시`;
+  const hasNext=state.cumulative&&state.reviewQueue.length>0;$('#next-batch').hidden=!hasNext;$('#next-batch').className=`button${missed.length?'':' primary'}`;
+  $('#retry-quiz').textContent=state.cumulative?`이 ${state.baseWords.length}단어 전체 다시`:`전체 다시 · ${state.baseWords.length}단어`;
+  if(state.cumulative&&!hasNext)$('#quiz-result-copy').textContent+=' 누적 단어를 한 바퀴 모두 복습했어요.'}
+function retryMissed(){beginRound(state.reviewWords.filter(w=>state.missed.includes(w.id)),true)}
 function renderNumbers(){renderNumberLearning()}
 function period(w){if(!state.start)return'시작 주 미정';const start=new Date(state.start+'T12:00:00');if(Number.isNaN(start.getTime()))return'시작 주 미정';start.setDate(start.getDate()+(w.id-1)*7);const end=new Date(start);end.setDate(end.getDate()+6);return `${start.getMonth()+1}/${start.getDate()}–${end.getMonth()+1}/${end.getDate()}`}
-function scheduleTable(list){return `<table class="course-schedule"><thead><tr><th>주차·난이도·분량</th><th>수업 A · 앞 묶음</th><th>수업 B · 뒤 묶음과 복습</th></tr></thead><tbody>${list.map(w=>`<tr><th scope="row"><b>${w.id}주차 · ${w.stage}</b><span>${period(w)}</span><span>${w.title}</span><span>단어 ${w.words.length}개 · 표현 ${w.phrases.length}개</span><span>숫자: ${w.numberTitle} (${w.numbers.length}항목)</span></th><td>${w.a}<small>${w.words.slice(0,Math.ceil(w.words.length/2)).map(x=>x.meaning).join(' · ')}</small></td><td>${w.b}<small>${w.words.slice(Math.ceil(w.words.length/2)).map(x=>x.meaning).join(' · ')}</small></td></tr>`).join('')}</tbody></table>`}
+function scheduleTable(list){return `<table class="course-schedule"><thead><tr><th>주차·난이도·분량</th><th>수업 A · 앞 묶음</th><th>수업 B · 뒤 묶음과 복습</th></tr></thead><tbody>${list.map(w=>`<tr><th scope="row"><b>${w.id}주차 · ${w.stage}</b><span>${period(w)}</span><span>${w.title}</span><span>단어 ${w.words.length}개 · 표현 ${w.phrases.length}개</span><span>숫자: ${w.numberTitle} (${w.numbers.length}항목)</span></th><td>${w.a}<small>${w.words.slice(0,lessonHalf(w)).map(x=>x.meaning).join(' · ')}</small></td><td>${w.b}<small>${w.words.slice(lessonHalf(w)).map(x=>x.meaning).join(' · ')}</small></td></tr>`).join('')}</tbody></table>`}
 function renderSchedule(){$('#schedule-table').innerHTML=scheduleTable(course.weeks);$('#level-guide').innerHTML=course.levels.map(l=>`<article><b>${l.name} · ${l.id*2-1}~${l.id*2}주</b><p>${l.description}</p></article>`).join('');$('#source-guide').innerHTML=Object.entries(course.docs).map(([id,d])=>`<article><h2>${d.title}</h2><p>${d.pages}쪽 · ${course.weeks.filter(w=>w.groups.includes(id)).map(w=>w.id+'주차').join(' · ')}</p></article>`).join('')}
-function teacherHTML(w){const half=Math.ceil(w.words.length/2);return `<div class="teacher-note"><b>${w.id}주차 · ${w.stage} · ${w.title}</b><p>${w.goal}</p><p>새 단어 ${w.words.length}개 / 표현 ${w.phrases.length}개. 단일어·복합어를 각각 학습 항목으로 셉니다.</p></div><div class="teacher-columns"><section><h2>수업 A · 앞 ${half}단어</h2><p>${w.a}. 4~5개씩 듣고 뜻을 연결한 뒤 가리고 떠올립니다.</p><p>${w.teacher}</p></section><section><h2>수업 B · 뒤 ${w.words.length-half}단어</h2><p>${w.b}. 시작할 때 A회차 내용을 정답 없이 확인합니다.</p><p>${w.transfer}</p></section></div><details><summary>이번 주 ${w.phrases.length}표현 · 상황과 출처</summary>${w.phrases.map(p=>`<p><b>${phraseRuby(p)}<br>${p.meaning}</b><br>${p.situation}<br>${p.note}<br>${p.source} · ${p.kind}</p>`).join('')}</details><details><summary>이번 주 ${w.words.length}단어 · 출처</summary>${w.words.map(x=>`<p><b>${x.text} · ${x.reading} · ${x.meaning}</b><br>${x.source}</p>`).join('')}</details><div class="teacher-check"><h2>분량과 수행 확인</h2><p>이번 주 분량을 A/B 두 회차에 나누고 하루 4~5개씩 복습합니다. B회차와 다음 주에 소리만 듣고 고르는지, 상황만 보고 표현을 말하는지 확인합니다. 어려우면 뒤 묶음을 다음 회차로 넘기고, 이미 아는 항목은 확인 후 넘어갑니다. 반품 등급 규칙은 초안이며 확정 지침으로 가르치지 않습니다.</p></div>`}
+function teacherHTML(w){const half=lessonHalf(w);return `<div class="teacher-note"><b>${w.id}주차 · ${w.stage} · ${w.title}</b><p>${w.goal}</p><p>새 단어 ${w.words.length}개 / 표현 ${w.phrases.length}개. 단일어·복합어를 각각 학습 항목으로 셉니다.</p></div><div class="teacher-columns"><section><h2>수업 A · 앞 ${half}단어</h2><p>${w.a}. 4~5개씩 듣고 뜻을 연결한 뒤 가리고 떠올립니다.</p><p>${w.teacher}</p></section><section><h2>수업 B · 뒤 ${w.words.length-half}단어</h2><p>${w.b}. 시작할 때 A회차 내용을 정답 없이 확인합니다.</p><p>${w.transfer}</p></section></div><details><summary>이번 주 ${w.phrases.length}표현 · 상황과 출처</summary>${w.phrases.map(p=>`<p><b>${phraseRuby(p)}<br>${p.meaning}</b><br>${p.situation}<br>${p.note}<br>${p.source} · ${p.kind}</p>`).join('')}</details><details><summary>이번 주 ${w.words.length}단어 · 출처</summary>${w.words.map(x=>`<p><b>${x.text} · ${x.reading} · ${x.meaning}</b><br>${x.source}</p>`).join('')}</details><div class="teacher-check"><h2>분량과 수행 확인</h2><p>이번 주 분량을 A/B 두 회차에 나누고 하루 4~5개씩 복습합니다. B회차와 다음 주에 소리만 듣고 고르는지, 상황만 보고 표현을 말하는지 확인합니다. 어려우면 뒤 묶음을 다음 회차로 넘기고, 이미 아는 항목은 확인 후 넘어갑니다. 반품 등급 규칙은 초안이며 확정 지침으로 가르치지 않습니다.</p></div>`}
 function retrievalHTML(w){const prior=[w.id-1,w.id-3].filter(id=>id>=1).map(id=>course.weeks[id-1]);return `<section class="teacher-check"><h2>이전 표현 떠올리기</h2><p>전주와 3주 전에서 각각 표현 1~2개를 골라 한국어 상황만 먼저 제시해요. 첫 수업에는 가나·숫자와 실제 자주 하는 요청을 확인해요.</p>${prior.map(old=>`<details><summary>${old.id}주차 · ${old.title}</summary>${old.phrases.map(p=>`<p>${p.situation}<br>${phraseRuby(p)}<br>${p.meaning}</p>`).join('')}</details>`).join('')}<p>도움 수준은 ‘혼자 가능 / 힌트 있으면 / 따라 말하기’로 기록합니다.</p></section>`}
 function numberTeacherHTML(w){return `<section class="teacher-check"><h2>숫자 · ${w.numberTitle}</h2><p>${w.numberGoal}</p><p>${w.numbers.length}항목 전체를 A/B 수업과 복습에 나누어 다룹니다. 교사가 임의 순서로 읽으면 숫자를 가리키게 하고, 익숙해지면 읽는 법을 가리고 숫자를 말하게 합니다.</p></section>`}
 function renderTeacher(){$('#teacher-heading').textContent=`${week.id}주차 교사용 진행안`;$('#teacher-content').innerHTML=teacherHTML(week)+numberTeacherHTML(week)+retrievalHTML(week)}
 function navigate(section){state.section=section;if('speechSynthesis'in window)speechSynthesis.cancel();$$('.page').forEach(p=>p.hidden=p.id!==`page-${section}`);$$('[data-nav]').forEach(b=>b.setAttribute('aria-current',b.dataset.nav===section?'page':'false'));
-  if(section==='words')renderWords();if(section==='phrases')renderPhrase();if(section==='find')renderFind();if(section==='numbers')renderNumbers();if(section==='review'){startQuiz(false);startNumberReview()}if(section==='teacher')renderTeacher();if(section==='schedule')renderSchedule();updateStudyChrome();const h=$(`#page-${section} h1`);h.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'})}
-function loadWeek(id){week=course.weeks.find(w=>w.id===id)||course.weeks[0];state.wordIndex=0;state.phraseIndex=0;state.findMode='meaning';resetFind();state.reviewQueue=[];state.cumulative=false;$('#week-select').value=String(week.id);$('#pack-title').textContent=week.title;$('#week-review').textContent=`이번 주 ${week.words.length}단어`;renderWords();renderPhrase();renderFind();renderNumbers();renderTeacher();renderSchedule();startQuiz(false);save();navigate('words')}
+  if(section==='words')renderWords();if(section==='phrases')renderPhrase();if(section==='find')renderFind();if(section==='numbers')renderNumbers();if(section==='review'){startQuiz(false);startNumberReview()}if(section==='teacher')renderTeacher();if(section==='schedule')renderSchedule();updateStudyChrome();const h=$(`#page-${section} h1`);h.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});save()}
+function loadWeek(id){week=course.weeks.find(w=>w.id===id)||course.weeks[0];state.wordIndex=0;state.phraseIndex=0;state.findMode='meaning';state.scope='all';resetFind();state.reviewQueue=[];state.cumulative=false;$('#week-select').value=String(week.id);$('#pack-title').textContent=week.title;$('#week-review').textContent='이번 주 복습';renderWords();renderPhrase();renderFind();renderNumbers();renderTeacher();renderSchedule();startQuiz(false);save();navigate('words')}
+// Resume the last word/phrase and activity by id; quizzes start fresh and word meanings stay hidden.
+function resume(pos){if(!pos||typeof pos!=='object'||Array.isArray(pos))return;const wi=week.words.findIndex(w=>w.id===pos.wordId),pi=week.phrases.findIndex(p=>p.id===pos.phraseId);state.wordIndex=wi>=0?wi:0;state.phraseIndex=pi>=0?pi:0;state.meaning=false;renderPhrase();navigate(['words','numbers','phrases','find','review'].includes(pos.section)?pos.section:'words')}
 function chunks(list,size){return Array.from({length:Math.ceil(list.length/size)},(_,i)=>list.slice(i*size,(i+1)*size))}
 function paperHeader(w,label){return `<header class="paper-header"><b>일본어 업무 첫걸음</b><span>${w.id}주차 · ${w.stage} · ${label}</span></header>`}
 function printNumbers(w){return chunks(w.numbers,18).map((list,i)=>`<section class="paper">${paperHeader(w,'숫자 연습 '+(i+1))}<h1>${w.numberTitle}</h1><p>${w.numberGoal}</p><div class="print-number-board">${list.map(n=>`<div data-print-number="${w.id}:${n.value}">${ruby(n.value,n.reading)}</div>`).join('')}</div><footer>앞서 배운 숫자와 섞어 읽고, 듣고 가리키기 → 읽는 법을 가리고 말하기로 확인해요. 금액·수량은 학습용 예시입니다.</footer></section>`).join('')}
@@ -4407,7 +5389,7 @@ function printLearner(w){const wordPages=chunks(w.words,6).map((list,i)=>`<secti
 function printTeacher(w){return `<section class="paper teacher-paper">${paperHeader(w,'진행안')}<h1>${w.title}</h1><p>${w.goal}</p><p>${w.stage} · 새 단어 ${w.words.length}개 · 표현 ${w.phrases.length}개</p><h2>수업 A / B</h2><p>${w.a}.<br>${w.b}.</p><p>${w.teacher}<br>${w.transfer}</p><h2>숫자 · ${w.numberTitle}</h2><p>${w.numberGoal} ${w.numbers.length}항목을 A/B 수업과 복습에 나눕니다.</p><h2>복습과 분량 조절</h2><p>부교재 어휘를 A/B 회차와 매일 복습으로 분산합니다. 듣고 고르기 → 뜻을 가리고 떠올리기 → 상황만 보고 말하기로 확인합니다. 어려운 묶음은 다음 회차로 넘깁니다.</p><h2>이전 내용 확인</h2><p>전주와 3주 전에서 표현 1~2개를 골라 한국어 상황만 제시합니다. ‘혼자 / 힌트 / 따라 하기’로 기록합니다. 개별 어휘·표현의 출처와 조건은 학습자용 인쇄물과 화면 안내에서 확인합니다.</p><footer>반품 기준서는 초안입니다. 학습 내용은 확정된 현장 판정 규칙을 대신하지 않습니다.</footer></section>`}
 function printSchedule(){return chunks(course.weeks,2).map((list,i)=>`<section class="paper schedule-paper"><header class="paper-header"><b>일본어 업무 첫걸음</b><span>8주 일정 ${i+1} / 4</span></header><h1>기초에서 심화까지</h1><p>총 ${course.newWordCount}단어 · ${course.newPhraseCount}표현. 매주 새 내용과 누적 복습을 병행합니다.</p>${scheduleTable(list)}<footer>A/B 두 회차에 나누고 하루 4~5개씩 복습합니다. 시작 주 ${state.start||'미정'}.</footer></section>`).join('')}
 function preparePrint(kind){const all=kind.startsWith('all-'),base=kind.replace('all-','');$('#print-learner').innerHTML=base==='learner'?(all?course.weeks:[week]).map(printLearner).join(''):'';$('#print-teacher').innerHTML=base==='teacher'?(all?course.weeks:[week]).map(printTeacher).join(''):'';$('#print-schedule').innerHTML=base==='schedule'?printSchedule():'';document.body.dataset.print=base}
-document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.nav)navigate(b.dataset.nav);if(b.dataset.speak)say(b.dataset.speak);if(b.dataset.word!==undefined){state.wordIndex=Number(b.dataset.word);renderWords();$(`[data-word="${state.wordIndex}"]`).focus()}if(b.dataset.phrase!==undefined){state.phraseIndex=Number(b.dataset.phrase);renderPhrase();$(`[data-phrase="${state.phraseIndex}"]`).focus()}if(b.dataset.hotspot)chooseHotspot(b.dataset.hotspot);if(b.dataset.answer)answer(b.dataset.answer);if(b.dataset.print){preparePrint(b.dataset.print);window.print()}if(b.dataset.response!==undefined){if(state.response===null){$('#response-feedback').textContent='먼저 ‘응답 듣고 구별하기’를 눌러 주세요.'}else{$('#response-feedback').textContent=Number(b.dataset.response)===state.response?'맞아요. '+week.responses[state.response].meaning:'이번 응답은 ‘'+week.responses[state.response].meaning+'’예요. 다시 들어보세요.'}}});
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;if(b.dataset.nav)navigate(b.dataset.nav);if(b.dataset.speak)say(b.dataset.speak);if(b.dataset.word!==undefined){state.wordIndex=Number(b.dataset.word);renderWords();const pointer=e.detail>0;$(`[data-word="${state.wordIndex}"]`).focus({preventScroll:pointer});const term=$('#word-term').getBoundingClientRect();if(pointer&&(term.top<0||term.bottom>innerHeight))$('#word-panel').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}if(b.dataset.phrase!==undefined){state.phraseIndex=Number(b.dataset.phrase);renderPhrase();const pointer=e.detail>0;$(`[data-phrase="${state.phraseIndex}"]`).focus({preventScroll:pointer});const cue=$('#phrase-japanese').getBoundingClientRect();if(pointer&&(cue.top<0||cue.bottom>innerHeight))$('#phrase-panel').scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}if(b.dataset.hotspot)chooseHotspot(b.dataset.hotspot);if(b.dataset.answer)answer(b.dataset.answer);if(b.id==='self-check-reveal')selfCheck();if(b.dataset.self!==undefined)markSelf(b.dataset.self==='1');if(b.dataset.print){preparePrint(b.dataset.print);window.print()}if(b.dataset.response!==undefined){if(state.response===null){$('#response-feedback').textContent='먼저 ‘응답 듣고 구별하기’를 눌러 주세요.'}else{$('#response-feedback').textContent=Number(b.dataset.response)===state.response?'맞아요. '+week.responses[state.response].meaning:'이번 응답의 뜻: ‘'+week.responses[state.response].meaning+'’. 다시 들어보세요.'}}});
 document.addEventListener('keydown',e=>{const tab=e.target.closest('[role=tab]');if(!tab||!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const isWord=tab.dataset.word!==undefined,len=isWord?week.words.length:week.phrases.length;let i=(isWord?state.wordIndex:state.phraseIndex)+(e.key==='ArrowLeft'?-1:1);if(e.key==='Home')i=0;if(e.key==='End')i=len-1;$(`[data-${isWord?'word':'phrase'}="${(i+len)%len}"]`).click()});
 $('#prev-phrase').addEventListener('click',()=>{if(state.phraseIndex>0){state.phraseIndex--;renderPhrase()}});
 $('#next-phrase').addEventListener('click',()=>{if(state.phraseIndex===week.phrases.length-1)navigate('find');else{state.phraseIndex++;renderPhrase()}});
@@ -4420,18 +5402,304 @@ $('#reading-toggle').addEventListener('change',e=>{state.reading=e.target.checke
 $('#familiar-word').addEventListener('change',e=>{const id=week.words[state.wordIndex].id;state.familiar=state.familiar.filter(x=>x!==id);if(e.target.checked)state.familiar.push(id);save();updateProgress()});
 $('#phrase-ready').addEventListener('change',e=>{const id=currentPhrase().id;state.used=state.used.filter(x=>x!==id);if(e.target.checked)state.used.push(id);save()});
 $('#reveal-phrase').addEventListener('click',()=>{const hidden=!$('#phrase-answer').hidden;$('#phrase-answer').hidden=hidden;$('#reveal-phrase').textContent=hidden?'문장 다시 보기':'문장 가리고 말해 보기';$('#reveal-phrase').setAttribute('aria-expanded',String(!hidden))});
-$('#next-find').addEventListener('click',()=>{if(state.findIndex===week.words.length-1)navigate('review');else{state.findIndex++;renderFind()}});
+$('#next-find').addEventListener('click',()=>{if(state.findIndex===state.findWords.length-1)navigate('review');else{state.findIndex++;renderFind()}});
 $('#find-meaning-mode').addEventListener('click',()=>{state.findMode='meaning';resetFind();renderFind()});
 $('#find-listening-mode').addEventListener('click',()=>{state.findMode='listening';resetFind();renderFind()});
 $('#meaning-review').addEventListener('click',()=>startQuiz(state.cumulative,'meaning'));
 $('#sound-review').addEventListener('click',()=>startQuiz(state.cumulative,'sound'));
 $('#week-review').addEventListener('click',()=>startQuiz(false));$('#cumulative-review').addEventListener('click',()=>startQuiz(true));
-$('#next-quiz').addEventListener('click',nextQuiz);$('#retry-quiz').addEventListener('click',()=>startQuiz());$('#next-batch').addEventListener('click',()=>startQuiz(true,state.quizMode,true));
+$('#next-quiz').addEventListener('click',nextQuiz);$('#retry-quiz').addEventListener('click',()=>beginRound(state.baseWords,false));$('#retry-missed').addEventListener('click',retryMissed);
+$('#find-scope').addEventListener('change',e=>setScope(e.target.value));$('#review-range').addEventListener('change',e=>setScope(e.target.value));$('#next-batch').addEventListener('click',()=>startQuiz(true,state.quizMode,true));
 $('#listen-response').addEventListener('click',()=>{state.response=Math.floor(Math.random()*2);say(week.responses[state.response].reading);$('#response-feedback').textContent='들은 응답의 뜻을 골라 주세요.'});
 $('#reset-progress').addEventListener('click',()=>{$('#reset-confirm').hidden=false;$('#confirm-reset').focus()});$('#cancel-reset').addEventListener('click',()=>{$('#reset-confirm').hidden=true;$('#reset-progress').focus()});
-$('#confirm-reset').addEventListener('click',()=>{state.familiar=[];state.used=[];state.learnedNumbers=[];renderNumbers();startNumberReview();save();renderWords();renderPhrase();$('#reset-confirm').hidden=true;$('#reset-progress').focus();$('#reset-status').textContent='전체 주차의 단어·숫자·표현 체크를 지웠어요.'});
-$('#week-select').innerHTML=course.weeks.map(w=>`<option value="${w.id}">${w.id}주 · ${w.stage} · ${w.title}</option>`).join('');$('#course-start').value=state.start;setReading();loadWeek(week.id);voices();if('speechSynthesis'in window)speechSynthesis.addEventListener('voiceschanged',voices);
+$('#confirm-reset').addEventListener('click',()=>{state.familiar=[];state.used=[];state.learnedNumbers=[];renderNumbers();startNumberReview();save();renderWords();renderPhrase();$('#reset-confirm').hidden=true;$('#reset-progress').focus();$('#reset-status').textContent='전체 주차의 단어·숫자·표현 체크를 지웠어요. 마지막 학습 위치는 그대로예요.'});
+$('#week-select').innerHTML=course.weeks.map(w=>`<option value="${w.id}">${weekOptionLabel(w)}</option>`).join('');$('#course-start').value=state.start;setReading();loadWeek(week.id);resume(saved.pos);voices();if('speechSynthesis'in window)speechSynthesis.addEventListener('voiceschanged',voices);
+
+</script>
+<script>
+/**
+ * Fuse.js v7.1.0 - Lightweight fuzzy-search (http://fusejs.io)
+ *
+ * Copyright (c) 2025 Kiro Risk (http://kiro.me)
+ * All Rights Reserved. Apache Software License 2.0
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+var e,t;e=this,t=function(){"use strict";function e(e,t){var n=Object.keys(e);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(e);t&&(r=r.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),n.push.apply(n,r)}return n}function t(t){for(var n=1;n<arguments.length;n++){var r=null!=arguments[n]?arguments[n]:{};n%2?e(Object(r),!0).forEach((function(e){o(t,e,r[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(r)):e(Object(r)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(r,e))}))}return t}function n(e){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},n(e)}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,v(r.key),r)}}function u(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function o(e,t,n){return(t=v(t))in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&s(e,t)}function a(e){return a=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(e){return e.__proto__||Object.getPrototypeOf(e)},a(e)}function s(e,t){return s=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},s(e,t)}function h(e,t){if(t&&("object"==typeof t||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}function l(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}();return function(){var n,r=a(e);if(t){var i=a(this).constructor;n=Reflect.construct(r,arguments,i)}else n=r.apply(this,arguments);return h(this,n)}}function f(e){return function(e){if(Array.isArray(e))return d(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||function(e,t){if(e){if("string"==typeof e)return d(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?d(e,t):void 0}}(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function d(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function v(e){var t=function(e,t){if("object"!=typeof e||null===e)return e;var n=e[Symbol.toPrimitive];if(void 0!==n){var r=n.call(e,t||"default");if("object"!=typeof r)return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===t?String:Number)(e)}(e,"string");return"symbol"==typeof t?t:String(t)}function g(e){return Array.isArray?Array.isArray(e):"[object Array]"===M(e)}var y=1/0;function p(e){return null==e?"":function(e){if("string"==typeof e)return e;var t=e+"";return"0"==t&&1/e==-y?"-0":t}(e)}function A(e){return"string"==typeof e}function m(e){return"number"==typeof e}function C(e){return!0===e||!1===e||function(e){return k(e)&&null!==e}(e)&&"[object Boolean]"==M(e)}function k(e){return"object"===n(e)}function E(e){return null!=e}function F(e){return!e.trim().length}function M(e){return null==e?void 0===e?"[object Undefined]":"[object Null]":Object.prototype.toString.call(e)}var b=function(e){return"Missing ".concat(e," property in key")},D=function(e){return"Property 'weight' in key '".concat(e,"' must be a positive integer")},B=Object.prototype.hasOwnProperty,x=function(){function e(t){var n=this;r(this,e),this._keys=[],this._keyMap={};var i=0;t.forEach((function(e){var t=w(e);n._keys.push(t),n._keyMap[t.id]=t,i+=t.weight})),this._keys.forEach((function(e){e.weight/=i}))}return u(e,[{key:"get",value:function(e){return this._keyMap[e]}},{key:"keys",value:function(){return this._keys}},{key:"toJSON",value:function(){return JSON.stringify(this._keys)}}]),e}();function w(e){var t=null,n=null,r=null,i=1,u=null;if(A(e)||g(e))r=e,t=S(e),n=L(e);else{if(!B.call(e,"name"))throw new Error(b("name"));var o=e.name;if(r=o,B.call(e,"weight")&&(i=e.weight)<=0)throw new Error(D(o));t=S(o),n=L(o),u=e.getFn}return{path:t,id:n,weight:i,src:r,getFn:u}}function S(e){return g(e)?e:e.split(".")}function L(e){return g(e)?e.join("."):e}var _={useExtendedSearch:!1,getFn:function(e,t){var n=[],r=!1;return function e(t,i,u){if(E(t))if(i[u]){var o=t[i[u]];if(!E(o))return;if(u===i.length-1&&(A(o)||m(o)||C(o)))n.push(p(o));else if(g(o)){r=!0;for(var c=0,a=o.length;c<a;c+=1)e(o[c],i,u+1)}else i.length&&e(o,i,u+1)}else n.push(t)}(e,A(t)?t.split("."):t,0),r?n:n[0]},ignoreLocation:!1,ignoreFieldNorm:!1,fieldNormWeight:1},O=t(t(t(t({},{isCaseSensitive:!1,ignoreDiacritics:!1,includeScore:!1,keys:[],shouldSort:!0,sortFn:function(e,t){return e.score===t.score?e.idx<t.idx?-1:1:e.score<t.score?-1:1}}),{includeMatches:!1,findAllMatches:!1,minMatchCharLength:1}),{location:0,threshold:.6,distance:100}),_),j=/[^ ]+/g,I=function(){function e(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=t.getFn,i=void 0===n?O.getFn:n,u=t.fieldNormWeight,o=void 0===u?O.fieldNormWeight:u;r(this,e),this.norm=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:3,n=new Map,r=Math.pow(10,t);return{get:function(t){var i=t.match(j).length;if(n.has(i))return n.get(i);var u=1/Math.pow(i,.5*e),o=parseFloat(Math.round(u*r)/r);return n.set(i,o),o},clear:function(){n.clear()}}}(o,3),this.getFn=i,this.isCreated=!1,this.setIndexRecords()}return u(e,[{key:"setSources",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[];this.docs=e}},{key:"setIndexRecords",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[];this.records=e}},{key:"setKeys",value:function(){var e=this,t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[];this.keys=t,this._keysMap={},t.forEach((function(t,n){e._keysMap[t.id]=n}))}},{key:"create",value:function(){var e=this;!this.isCreated&&this.docs.length&&(this.isCreated=!0,A(this.docs[0])?this.docs.forEach((function(t,n){e._addString(t,n)})):this.docs.forEach((function(t,n){e._addObject(t,n)})),this.norm.clear())}},{key:"add",value:function(e){var t=this.size();A(e)?this._addString(e,t):this._addObject(e,t)}},{key:"removeAt",value:function(e){this.records.splice(e,1);for(var t=e,n=this.size();t<n;t+=1)this.records[t].i-=1}},{key:"getValueForItemAtKeyId",value:function(e,t){return e[this._keysMap[t]]}},{key:"size",value:function(){return this.records.length}},{key:"_addString",value:function(e,t){if(E(e)&&!F(e)){var n={v:e,i:t,n:this.norm.get(e)};this.records.push(n)}}},{key:"_addObject",value:function(e,t){var n=this,r={i:t,$:{}};this.keys.forEach((function(t,i){var u=t.getFn?t.getFn(e):n.getFn(e,t.path);if(E(u))if(g(u)){for(var o=[],c=[{nestedArrIndex:-1,value:u}];c.length;){var a=c.pop(),s=a.nestedArrIndex,h=a.value;if(E(h))if(A(h)&&!F(h)){var l={v:h,i:s,n:n.norm.get(h)};o.push(l)}else g(h)&&h.forEach((function(e,t){c.push({nestedArrIndex:t,value:e})}))}r.$[i]=o}else if(A(u)&&!F(u)){var f={v:u,n:n.norm.get(u)};r.$[i]=f}})),this.records.push(r)}},{key:"toJSON",value:function(){return{keys:this.keys,records:this.records}}}]),e}();function $(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},r=n.getFn,i=void 0===r?O.getFn:r,u=n.fieldNormWeight,o=void 0===u?O.fieldNormWeight:u,c=new I({getFn:i,fieldNormWeight:o});return c.setKeys(e.map(w)),c.setSources(t),c.create(),c}function R(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.errors,r=void 0===n?0:n,i=t.currentLocation,u=void 0===i?0:i,o=t.expectedLocation,c=void 0===o?0:o,a=t.distance,s=void 0===a?O.distance:a,h=t.ignoreLocation,l=void 0===h?O.ignoreLocation:h,f=r/e.length;if(l)return f;var d=Math.abs(c-u);return s?f+d/s:d?1:f}var N=32;function P(e,t,n){var r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:{},i=r.location,u=void 0===i?O.location:i,o=r.distance,c=void 0===o?O.distance:o,a=r.threshold,s=void 0===a?O.threshold:a,h=r.findAllMatches,l=void 0===h?O.findAllMatches:h,f=r.minMatchCharLength,d=void 0===f?O.minMatchCharLength:f,v=r.includeMatches,g=void 0===v?O.includeMatches:v,y=r.ignoreLocation,p=void 0===y?O.ignoreLocation:y;if(t.length>N)throw new Error("Pattern length exceeds max of ".concat(N,"."));for(var A,m=t.length,C=e.length,k=Math.max(0,Math.min(u,C)),E=s,F=k,M=d>1||g,b=M?Array(C):[];(A=e.indexOf(t,F))>-1;){var D=R(t,{currentLocation:A,expectedLocation:k,distance:c,ignoreLocation:p});if(E=Math.min(D,E),F=A+m,M)for(var B=0;B<m;)b[A+B]=1,B+=1}F=-1;for(var x=[],w=1,S=m+C,L=1<<m-1,_=0;_<m;_+=1){for(var j=0,I=S;j<I;)R(t,{errors:_,currentLocation:k+I,expectedLocation:k,distance:c,ignoreLocation:p})<=E?j=I:S=I,I=Math.floor((S-j)/2+j);S=I;var $=Math.max(1,k-I+1),P=l?C:Math.min(k+I,C)+m,W=Array(P+2);W[P+1]=(1<<_)-1;for(var z=P;z>=$;z-=1){var T=z-1,K=n[e.charAt(T)];if(M&&(b[T]=+!!K),W[z]=(W[z+1]<<1|1)&K,_&&(W[z]|=(x[z+1]|x[z])<<1|1|x[z+1]),W[z]&L&&(w=R(t,{errors:_,currentLocation:T,expectedLocation:k,distance:c,ignoreLocation:p}))<=E){if(E=w,(F=T)<=k)break;$=Math.max(1,2*k-F)}}if(R(t,{errors:_+1,currentLocation:k,expectedLocation:k,distance:c,ignoreLocation:p})>E)break;x=W}var q={isMatch:F>=0,score:Math.max(.001,w)};if(M){var J=function(){for(var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:[],t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:O.minMatchCharLength,n=[],r=-1,i=-1,u=0,o=e.length;u<o;u+=1){var c=e[u];c&&-1===r?r=u:c||-1===r||((i=u-1)-r+1>=t&&n.push([r,i]),r=-1)}return e[u-1]&&u-r>=t&&n.push([r,u-1]),n}(b,d);J.length?g&&(q.indices=J):q.isMatch=!1}return q}function W(e){for(var t={},n=0,r=e.length;n<r;n+=1){var i=e.charAt(n);t[i]=(t[i]||0)|1<<r-n-1}return t}var z=String.prototype.normalize?function(e){return e.normalize("NFD").replace(/[\u0300-\u036F\u0483-\u0489\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06DC\u06DF-\u06E4\u06E7\u06E8\u06EA-\u06ED\u0711\u0730-\u074A\u07A6-\u07B0\u07EB-\u07F3\u07FD\u0816-\u0819\u081B-\u0823\u0825-\u0827\u0829-\u082D\u0859-\u085B\u08D3-\u08E1\u08E3-\u0903\u093A-\u093C\u093E-\u094F\u0951-\u0957\u0962\u0963\u0981-\u0983\u09BC\u09BE-\u09C4\u09C7\u09C8\u09CB-\u09CD\u09D7\u09E2\u09E3\u09FE\u0A01-\u0A03\u0A3C\u0A3E-\u0A42\u0A47\u0A48\u0A4B-\u0A4D\u0A51\u0A70\u0A71\u0A75\u0A81-\u0A83\u0ABC\u0ABE-\u0AC5\u0AC7-\u0AC9\u0ACB-\u0ACD\u0AE2\u0AE3\u0AFA-\u0AFF\u0B01-\u0B03\u0B3C\u0B3E-\u0B44\u0B47\u0B48\u0B4B-\u0B4D\u0B56\u0B57\u0B62\u0B63\u0B82\u0BBE-\u0BC2\u0BC6-\u0BC8\u0BCA-\u0BCD\u0BD7\u0C00-\u0C04\u0C3E-\u0C44\u0C46-\u0C48\u0C4A-\u0C4D\u0C55\u0C56\u0C62\u0C63\u0C81-\u0C83\u0CBC\u0CBE-\u0CC4\u0CC6-\u0CC8\u0CCA-\u0CCD\u0CD5\u0CD6\u0CE2\u0CE3\u0D00-\u0D03\u0D3B\u0D3C\u0D3E-\u0D44\u0D46-\u0D48\u0D4A-\u0D4D\u0D57\u0D62\u0D63\u0D82\u0D83\u0DCA\u0DCF-\u0DD4\u0DD6\u0DD8-\u0DDF\u0DF2\u0DF3\u0E31\u0E34-\u0E3A\u0E47-\u0E4E\u0EB1\u0EB4-\u0EB9\u0EBB\u0EBC\u0EC8-\u0ECD\u0F18\u0F19\u0F35\u0F37\u0F39\u0F3E\u0F3F\u0F71-\u0F84\u0F86\u0F87\u0F8D-\u0F97\u0F99-\u0FBC\u0FC6\u102B-\u103E\u1056-\u1059\u105E-\u1060\u1062-\u1064\u1067-\u106D\u1071-\u1074\u1082-\u108D\u108F\u109A-\u109D\u135D-\u135F\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17B4-\u17D3\u17DD\u180B-\u180D\u1885\u1886\u18A9\u1920-\u192B\u1930-\u193B\u1A17-\u1A1B\u1A55-\u1A5E\u1A60-\u1A7C\u1A7F\u1AB0-\u1ABE\u1B00-\u1B04\u1B34-\u1B44\u1B6B-\u1B73\u1B80-\u1B82\u1BA1-\u1BAD\u1BE6-\u1BF3\u1C24-\u1C37\u1CD0-\u1CD2\u1CD4-\u1CE8\u1CED\u1CF2-\u1CF4\u1CF7-\u1CF9\u1DC0-\u1DF9\u1DFB-\u1DFF\u20D0-\u20F0\u2CEF-\u2CF1\u2D7F\u2DE0-\u2DFF\u302A-\u302F\u3099\u309A\uA66F-\uA672\uA674-\uA67D\uA69E\uA69F\uA6F0\uA6F1\uA802\uA806\uA80B\uA823-\uA827\uA880\uA881\uA8B4-\uA8C5\uA8E0-\uA8F1\uA8FF\uA926-\uA92D\uA947-\uA953\uA980-\uA983\uA9B3-\uA9C0\uA9E5\uAA29-\uAA36\uAA43\uAA4C\uAA4D\uAA7B-\uAA7D\uAAB0\uAAB2-\uAAB4\uAAB7\uAAB8\uAABE\uAABF\uAAC1\uAAEB-\uAAEF\uAAF5\uAAF6\uABE3-\uABEA\uABEC\uABED\uFB1E\uFE00-\uFE0F\uFE20-\uFE2F]/g,"")}:function(e){return e},T=function(){function e(t){var n=this,i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},u=i.location,o=void 0===u?O.location:u,c=i.threshold,a=void 0===c?O.threshold:c,s=i.distance,h=void 0===s?O.distance:s,l=i.includeMatches,f=void 0===l?O.includeMatches:l,d=i.findAllMatches,v=void 0===d?O.findAllMatches:d,g=i.minMatchCharLength,y=void 0===g?O.minMatchCharLength:g,p=i.isCaseSensitive,A=void 0===p?O.isCaseSensitive:p,m=i.ignoreDiacritics,C=void 0===m?O.ignoreDiacritics:m,k=i.ignoreLocation,E=void 0===k?O.ignoreLocation:k;if(r(this,e),this.options={location:o,threshold:a,distance:h,includeMatches:f,findAllMatches:v,minMatchCharLength:y,isCaseSensitive:A,ignoreDiacritics:C,ignoreLocation:E},t=A?t:t.toLowerCase(),t=C?z(t):t,this.pattern=t,this.chunks=[],this.pattern.length){var F=function(e,t){n.chunks.push({pattern:e,alphabet:W(e),startIndex:t})},M=this.pattern.length;if(M>N){for(var b=0,D=M%N,B=M-D;b<B;)F(this.pattern.substr(b,N),b),b+=N;if(D){var x=M-N;F(this.pattern.substr(x),x)}}else F(this.pattern,0)}}return u(e,[{key:"searchIn",value:function(e){var t=this.options,n=t.isCaseSensitive,r=t.ignoreDiacritics,i=t.includeMatches;if(e=n?e:e.toLowerCase(),e=r?z(e):e,this.pattern===e){var u={isMatch:!0,score:0};return i&&(u.indices=[[0,e.length-1]]),u}var o=this.options,c=o.location,a=o.distance,s=o.threshold,h=o.findAllMatches,l=o.minMatchCharLength,d=o.ignoreLocation,v=[],g=0,y=!1;this.chunks.forEach((function(t){var n=t.pattern,r=t.alphabet,u=t.startIndex,o=P(e,n,r,{location:c+u,distance:a,threshold:s,findAllMatches:h,minMatchCharLength:l,includeMatches:i,ignoreLocation:d}),p=o.isMatch,A=o.score,m=o.indices;p&&(y=!0),g+=A,p&&m&&(v=[].concat(f(v),f(m)))}));var p={isMatch:y,score:y?g/this.chunks.length:1};return y&&i&&(p.indices=v),p}}]),e}(),K=function(){function e(t){r(this,e),this.pattern=t}return u(e,[{key:"search",value:function(){}}],[{key:"isMultiMatch",value:function(e){return q(e,this.multiRegex)}},{key:"isSingleMatch",value:function(e){return q(e,this.singleRegex)}}]),e}();function q(e,t){var n=e.match(t);return n?n[1]:null}var J=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=e===this.pattern;return{isMatch:t,score:t?0:1,indices:[0,this.pattern.length-1]}}}],[{key:"type",get:function(){return"exact"}},{key:"multiRegex",get:function(){return/^="(.*)"$/}},{key:"singleRegex",get:function(){return/^=(.*)$/}}]),n}(K),U=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=-1===e.indexOf(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}}],[{key:"type",get:function(){return"inverse-exact"}},{key:"multiRegex",get:function(){return/^!"(.*)"$/}},{key:"singleRegex",get:function(){return/^!(.*)$/}}]),n}(K),V=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=e.startsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,this.pattern.length-1]}}}],[{key:"type",get:function(){return"prefix-exact"}},{key:"multiRegex",get:function(){return/^\^"(.*)"$/}},{key:"singleRegex",get:function(){return/^\^(.*)$/}}]),n}(K),G=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=!e.startsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}}],[{key:"type",get:function(){return"inverse-prefix-exact"}},{key:"multiRegex",get:function(){return/^!\^"(.*)"$/}},{key:"singleRegex",get:function(){return/^!\^(.*)$/}}]),n}(K),H=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=e.endsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[e.length-this.pattern.length,e.length-1]}}}],[{key:"type",get:function(){return"suffix-exact"}},{key:"multiRegex",get:function(){return/^"(.*)"\$$/}},{key:"singleRegex",get:function(){return/^(.*)\$$/}}]),n}(K),Q=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){var t=!e.endsWith(this.pattern);return{isMatch:t,score:t?0:1,indices:[0,e.length-1]}}}],[{key:"type",get:function(){return"inverse-suffix-exact"}},{key:"multiRegex",get:function(){return/^!"(.*)"\$$/}},{key:"singleRegex",get:function(){return/^!(.*)\$$/}}]),n}(K),X=function(e){c(n,e);var t=l(n);function n(e){var i,u=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},o=u.location,c=void 0===o?O.location:o,a=u.threshold,s=void 0===a?O.threshold:a,h=u.distance,l=void 0===h?O.distance:h,f=u.includeMatches,d=void 0===f?O.includeMatches:f,v=u.findAllMatches,g=void 0===v?O.findAllMatches:v,y=u.minMatchCharLength,p=void 0===y?O.minMatchCharLength:y,A=u.isCaseSensitive,m=void 0===A?O.isCaseSensitive:A,C=u.ignoreDiacritics,k=void 0===C?O.ignoreDiacritics:C,E=u.ignoreLocation,F=void 0===E?O.ignoreLocation:E;return r(this,n),(i=t.call(this,e))._bitapSearch=new T(e,{location:c,threshold:s,distance:l,includeMatches:d,findAllMatches:g,minMatchCharLength:p,isCaseSensitive:m,ignoreDiacritics:k,ignoreLocation:F}),i}return u(n,[{key:"search",value:function(e){return this._bitapSearch.searchIn(e)}}],[{key:"type",get:function(){return"fuzzy"}},{key:"multiRegex",get:function(){return/^"(.*)"$/}},{key:"singleRegex",get:function(){return/^(.*)$/}}]),n}(K),Y=function(e){c(n,e);var t=l(n);function n(e){return r(this,n),t.call(this,e)}return u(n,[{key:"search",value:function(e){for(var t,n=0,r=[],i=this.pattern.length;(t=e.indexOf(this.pattern,n))>-1;)n=t+i,r.push([t,n-1]);var u=!!r.length;return{isMatch:u,score:u?0:1,indices:r}}}],[{key:"type",get:function(){return"include"}},{key:"multiRegex",get:function(){return/^'"(.*)"$/}},{key:"singleRegex",get:function(){return/^'(.*)$/}}]),n}(K),Z=[J,Y,V,G,Q,H,U,X],ee=Z.length,te=/ +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)/,ne=new Set([X.type,Y.type]),re=function(){function e(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=n.isCaseSensitive,u=void 0===i?O.isCaseSensitive:i,o=n.ignoreDiacritics,c=void 0===o?O.ignoreDiacritics:o,a=n.includeMatches,s=void 0===a?O.includeMatches:a,h=n.minMatchCharLength,l=void 0===h?O.minMatchCharLength:h,f=n.ignoreLocation,d=void 0===f?O.ignoreLocation:f,v=n.findAllMatches,g=void 0===v?O.findAllMatches:v,y=n.location,p=void 0===y?O.location:y,A=n.threshold,m=void 0===A?O.threshold:A,C=n.distance,k=void 0===C?O.distance:C;r(this,e),this.query=null,this.options={isCaseSensitive:u,ignoreDiacritics:c,includeMatches:s,minMatchCharLength:l,findAllMatches:g,ignoreLocation:d,location:p,threshold:m,distance:k},t=u?t:t.toLowerCase(),t=c?z(t):t,this.pattern=t,this.query=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return e.split("|").map((function(e){for(var n=e.trim().split(te).filter((function(e){return e&&!!e.trim()})),r=[],i=0,u=n.length;i<u;i+=1){for(var o=n[i],c=!1,a=-1;!c&&++a<ee;){var s=Z[a],h=s.isMultiMatch(o);h&&(r.push(new s(h,t)),c=!0)}if(!c)for(a=-1;++a<ee;){var l=Z[a],f=l.isSingleMatch(o);if(f){r.push(new l(f,t));break}}}return r}))}(this.pattern,this.options)}return u(e,[{key:"searchIn",value:function(e){var t=this.query;if(!t)return{isMatch:!1,score:1};var n=this.options,r=n.includeMatches,i=n.isCaseSensitive,u=n.ignoreDiacritics;e=i?e:e.toLowerCase(),e=u?z(e):e;for(var o=0,c=[],a=0,s=0,h=t.length;s<h;s+=1){var l=t[s];c.length=0,o=0;for(var d=0,v=l.length;d<v;d+=1){var g=l[d],y=g.search(e),p=y.isMatch,A=y.indices,m=y.score;if(!p){a=0,o=0,c.length=0;break}if(o+=1,a+=m,r){var C=g.constructor.type;ne.has(C)?c=[].concat(f(c),f(A)):c.push(A)}}if(o){var k={isMatch:!0,score:a/o};return r&&(k.indices=c),k}}return{isMatch:!1,score:1}}}],[{key:"condition",value:function(e,t){return t.useExtendedSearch}}]),e}(),ie=[];function ue(e,t){for(var n=0,r=ie.length;n<r;n+=1){var i=ie[n];if(i.condition(e,t))return new i(e,t)}return new T(e,t)}var oe="$and",ce="$or",ae="$path",se="$val",he=function(e){return!(!e[oe]&&!e[ce])},le=function(e){return o({},oe,Object.keys(e).map((function(t){return o({},t,e[t])})))};function fe(e,t){var n=(arguments.length>2&&void 0!==arguments[2]?arguments[2]:{}).auto,r=void 0===n||n;return he(e)||(e=le(e)),function e(n){var i=Object.keys(n),u=function(e){return!!e[ae]}(n);if(!u&&i.length>1&&!he(n))return e(le(n));if(function(e){return!g(e)&&k(e)&&!he(e)}(n)){var o=u?n[ae]:i[0],c=u?n[se]:n[o];if(!A(c))throw new Error(function(e){return"Invalid value for key ".concat(e)}(o));var a={keyId:L(o),pattern:c};return r&&(a.searcher=ue(c,t)),a}var s={children:[],operator:i[0]};return i.forEach((function(t){var r=n[t];g(r)&&r.forEach((function(t){s.children.push(e(t))}))})),s}(e)}function de(e,t){var n=e.matches;t.matches=[],E(n)&&n.forEach((function(e){if(E(e.indices)&&e.indices.length){var n={indices:e.indices,value:e.value};e.key&&(n.key=e.key.src),e.idx>-1&&(n.refIndex=e.idx),t.matches.push(n)}}))}function ve(e,t){t.score=e.score}var ge=function(){function e(n){var i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},u=arguments.length>2?arguments[2]:void 0;r(this,e),this.options=t(t({},O),i),this.options.useExtendedSearch,this._keyStore=new x(this.options.keys),this.setCollection(n,u)}return u(e,[{key:"setCollection",value:function(e,t){if(this._docs=e,t&&!(t instanceof I))throw new Error("Incorrect 'index' type");this._myIndex=t||$(this.options.keys,this._docs,{getFn:this.options.getFn,fieldNormWeight:this.options.fieldNormWeight})}},{key:"add",value:function(e){E(e)&&(this._docs.push(e),this._myIndex.add(e))}},{key:"remove",value:function(){for(var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:function(){return!1},t=[],n=0,r=this._docs.length;n<r;n+=1){var i=this._docs[n];e(i,n)&&(this.removeAt(n),n-=1,r-=1,t.push(i))}return t}},{key:"removeAt",value:function(e){this._docs.splice(e,1),this._myIndex.removeAt(e)}},{key:"getIndex",value:function(){return this._myIndex}},{key:"search",value:function(e){var t=(arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}).limit,n=void 0===t?-1:t,r=this.options,i=r.includeMatches,u=r.includeScore,o=r.shouldSort,c=r.sortFn,a=r.ignoreFieldNorm,s=A(e)?A(this._docs[0])?this._searchStringList(e):this._searchObjectList(e):this._searchLogical(e);return function(e,t){var n=t.ignoreFieldNorm,r=void 0===n?O.ignoreFieldNorm:n;e.forEach((function(e){var t=1;e.matches.forEach((function(e){var n=e.key,i=e.norm,u=e.score,o=n?n.weight:null;t*=Math.pow(0===u&&o?Number.EPSILON:u,(o||1)*(r?1:i))})),e.score=t}))}(s,{ignoreFieldNorm:a}),o&&s.sort(c),m(n)&&n>-1&&(s=s.slice(0,n)),function(e,t){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},r=n.includeMatches,i=void 0===r?O.includeMatches:r,u=n.includeScore,o=void 0===u?O.includeScore:u,c=[];return i&&c.push(de),o&&c.push(ve),e.map((function(e){var n=e.idx,r={item:t[n],refIndex:n};return c.length&&c.forEach((function(t){t(e,r)})),r}))}(s,this._docs,{includeMatches:i,includeScore:u})}},{key:"_searchStringList",value:function(e){var t=ue(e,this.options),n=this._myIndex.records,r=[];return n.forEach((function(e){var n=e.v,i=e.i,u=e.n;if(E(n)){var o=t.searchIn(n),c=o.isMatch,a=o.score,s=o.indices;c&&r.push({item:n,idx:i,matches:[{score:a,value:n,norm:u,indices:s}]})}})),r}},{key:"_searchLogical",value:function(e){var t=this,n=fe(e,this.options),r=function e(n,r,i){if(!n.children){var u=n.keyId,o=n.searcher,c=t._findMatches({key:t._keyStore.get(u),value:t._myIndex.getValueForItemAtKeyId(r,u),searcher:o});return c&&c.length?[{idx:i,item:r,matches:c}]:[]}for(var a=[],s=0,h=n.children.length;s<h;s+=1){var l=e(n.children[s],r,i);if(l.length)a.push.apply(a,f(l));else if(n.operator===oe)return[]}return a},i=this._myIndex.records,u={},o=[];return i.forEach((function(e){var t=e.$,i=e.i;if(E(t)){var c=r(n,t,i);c.length&&(u[i]||(u[i]={idx:i,item:t,matches:[]},o.push(u[i])),c.forEach((function(e){var t,n=e.matches;(t=u[i].matches).push.apply(t,f(n))})))}})),o}},{key:"_searchObjectList",value:function(e){var t=this,n=ue(e,this.options),r=this._myIndex,i=r.keys,u=r.records,o=[];return u.forEach((function(e){var r=e.$,u=e.i;if(E(r)){var c=[];i.forEach((function(e,i){c.push.apply(c,f(t._findMatches({key:e,value:r[i],searcher:n})))})),c.length&&o.push({idx:u,item:r,matches:c})}})),o}},{key:"_findMatches",value:function(e){var t=e.key,n=e.value,r=e.searcher;if(!E(n))return[];var i=[];if(g(n))n.forEach((function(e){var n=e.v,u=e.i,o=e.n;if(E(n)){var c=r.searchIn(n),a=c.isMatch,s=c.score,h=c.indices;a&&i.push({score:s,key:t,value:n,idx:u,norm:o,indices:h})}}));else{var u=n.v,o=n.n,c=r.searchIn(u),a=c.isMatch,s=c.score,h=c.indices;a&&i.push({score:s,key:t,value:u,norm:o,indices:h})}return i}}]),e}();return ge.version="7.1.0",ge.createIndex=$,ge.parseIndex=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.getFn,r=void 0===n?O.getFn:n,i=t.fieldNormWeight,u=void 0===i?O.fieldNormWeight:i,o=e.keys,c=e.records,a=new I({getFn:r,fieldNormWeight:u});return a.setKeys(o),a.setIndexRecords(c),a},ge.config=O,function(){ie.push.apply(ie,arguments)}(re),ge},"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).Fuse=t();
+</script>
+<script>
+'use strict';
+// Search is deliberately separate from recall: results disappear on arrival.
+(() => {
+  const form = document.querySelector('#word-search');
+  const input = document.querySelector('#word-query');
+  const lookup = document.querySelector('#word-lookup');
+  const results = document.querySelector('#word-search-results');
+  const status = document.querySelector('#word-search-status');
+  const entries = window.COURSE.weeks.flatMap(w => w.words.map((word, index) => ({
+    ...word, weekId: w.id, index
+  })));
+  if (typeof Fuse !== 'function') {
+    status.textContent = '검색을 불러오지 못했어요. 주차를 선택해 단어를 찾아 주세요.';
+    form.querySelector('button').disabled = true;
+    return;
+  }
+  const search = new Fuse(entries, {
+    keys: ['text', 'reading', 'meaning'], threshold: .25, ignoreLocation: true
+  });
+  function clear() {
+    results.replaceChildren();
+    status.textContent = '';
+  }
+  input.addEventListener('input', clear);
+  lookup.addEventListener('toggle', () => {
+    if (!lookup.open) { input.value = ''; clear(); }
+  });
+  lookup.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      lookup.open = false;
+      lookup.querySelector('summary').focus();
+    }
+  });
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    clear();
+    const query = input.value.trim();
+    if (!query) { status.textContent = '찾을 단어를 입력해 주세요.'; input.focus(); return; }
+    const matches = search.search(query);
+    status.textContent = matches.length
+      ? `${matches.length}개를 찾았어요.${matches.length > 8 ? ' 가까운 결과 8개를 표시해요.' : ''}`
+      : '일치하는 단어가 없어요. 짧은 단어나 다른 읽는 법으로 찾아보세요.';
+    matches.slice(0, 8).forEach(({item}) => {
+      const row = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      const japanese = document.createElement('span');
+      japanese.lang = 'ja';
+      japanese.textContent = `${item.text}（${item.reading}）`;
+      const context = document.createElement('span');
+      context.textContent = `${item.weekId}주차 · ${item.meaning}`;
+      button.append(japanese, context);
+      button.addEventListener('click', () => {
+        lookup.open = false;
+        input.value = '';
+        clear();
+        loadWeek(item.weekId);
+        state.wordIndex = item.index;
+        renderWords();
+        document.querySelector('#words-heading').focus({preventScroll: true});
+        window.scrollTo({top: 0, behavior: 'instant'});
+      });
+      row.append(button);
+      results.append(row);
+    });
+  });
+})();
 
 </script>
 </body>
+<!-- Third-party notice: Fuse.js 7.1.0
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "{}"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright 2017 Kirollos Risk
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+-->
 </html>
